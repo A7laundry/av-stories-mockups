@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AV Orlando — Stories Mockups</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #111;
+      font-family: 'Montserrat', sans-serif;
+      color: #fff;
+      padding: 40px 20px;
+    }
+
+    .page-title {
+      text-align: center;
+      margin-bottom: 10px;
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #C9A94E;
+    }
+
+    .page-subtitle {
+      text-align: center;
+      margin-bottom: 50px;
+      font-size: 14px;
+      font-weight: 300;
+      letter-spacing: 2px;
+      color: #888;
+    }
+
+    .stories-grid {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 60px;
+    }
+
+    .story-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .story-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #C9A94E;
+    }
+
+    .story-frame {
+      width: 360px;
+      height: 640px;
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+
+    .story-content {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      padding: 40px 30px;
+    }
+
+    /* ===== LOGO SVG ===== */
+    .av-logo {
+      position: absolute;
+      top: 60px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+    }
+
+    .av-logo-bottom {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+    }
+
+    .av-logo-text {
+      font-size: 11px;
+      font-weight: 300;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      margin-top: 6px;
+    }
+
+    /* ===== STORY PROGRESS BAR ===== */
+    .story-progress {
+      position: absolute;
+      top: 12px;
+      left: 16px;
+      right: 16px;
+      display: flex;
+      gap: 4px;
+      z-index: 20;
+    }
+
+    .story-progress-bar {
+      flex: 1;
+      height: 2px;
+      background: rgba(255,255,255,0.3);
+      border-radius: 2px;
+    }
+
+    .story-progress-bar.active {
+      background: rgba(255,255,255,0.9);
+    }
+
+    /* ===== INSTAGRAM HEADER ===== */
+    .ig-header {
+      position: absolute;
+      top: 22px;
+      left: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 20;
+    }
+
+    .ig-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #C9A94E, #8B7332);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: 800;
+      color: #000;
+    }
+
+    .ig-name {
+      font-size: 12px;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .ig-time {
+      font-size: 12px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.6);
+      margin-left: 4px;
+    }
+
+    /* ===== SWIPE UP / CTA ===== */
+    .swipe-up {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      z-index: 20;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .swipe-up-icon {
+      width: 30px;
+      height: 30px;
+      border: 2px solid rgba(255,255,255,0.5);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .swipe-up-icon svg {
+      width: 14px;
+      height: 14px;
+      fill: none;
+      stroke: rgba(255,255,255,0.8);
+      stroke-width: 2;
+    }
+
+    .swipe-up-text {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: translateX(-50%) translateY(0); opacity: 1; }
+      50% { transform: translateX(-50%) translateY(-5px); opacity: 0.7; }
+    }
+
+    /* ==========================================
+       STORY 1 — CONVITE DIRETO (URGÊNCIA)
+       ========================================== */
+    .story-1 {
+      background: #0A0A0A;
+      overflow: hidden;
+    }
+
+    .story-1::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background:
+        radial-gradient(ellipse at 30% 20%, rgba(201, 169, 78, 0.08) 0%, transparent 60%),
+        radial-gradient(ellipse at 70% 80%, rgba(26, 10, 46, 0.3) 0%, transparent 60%);
+      z-index: 1;
+    }
+
+    .story-1 .main-text {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .story-1 .hook {
+      font-size: 36px;
+      font-weight: 900;
+      line-height: 1.1;
+      text-transform: uppercase;
+      letter-spacing: -1px;
+      margin-bottom: 30px;
+    }
+
+    .story-1 .hook span {
+      color: #C9A94E;
+    }
+
+    .story-1 .divider {
+      width: 60px;
+      height: 1px;
+      background: #C9A94E;
+      margin: 0 auto 30px;
+    }
+
+    .story-1 .info-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .story-1 .info-day {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 8px;
+      text-transform: uppercase;
+      color: #C9A94E;
+    }
+
+    .story-1 .info-time {
+      font-size: 48px;
+      font-weight: 900;
+      letter-spacing: -2px;
+      color: #fff;
+    }
+
+    .story-1 .info-address {
+      font-size: 11px;
+      font-weight: 300;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-top: 5px;
+    }
+
+    /* ==========================================
+       STORY 2 — EMOCIONAL / CONEXÃO
+       ========================================== */
+    .story-2 {
+      background: linear-gradient(180deg, #0A0A0A 0%, #1A0A2E 50%, #0A0A0A 100%);
+      overflow: hidden;
+    }
+
+    .story-2::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background:
+        radial-gradient(circle at 50% 40%, rgba(201, 169, 78, 0.06) 0%, transparent 50%),
+        radial-gradient(circle at 20% 70%, rgba(100, 50, 150, 0.1) 0%, transparent 40%),
+        radial-gradient(circle at 80% 30%, rgba(100, 50, 150, 0.08) 0%, transparent 40%);
+      z-index: 1;
+    }
+
+    /* Atmospheric light particles */
+    .story-2 .particles {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 2;
+      overflow: hidden;
+    }
+
+    .story-2 .particle {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: rgba(201, 169, 78, 0.4);
+      border-radius: 50%;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .story-2 .particle:nth-child(1) { top: 20%; left: 15%; animation-delay: 0s; }
+    .story-2 .particle:nth-child(2) { top: 40%; left: 75%; animation-delay: 1s; width: 3px; height: 3px; }
+    .story-2 .particle:nth-child(3) { top: 60%; left: 30%; animation-delay: 2s; }
+    .story-2 .particle:nth-child(4) { top: 80%; left: 65%; animation-delay: 3s; width: 1.5px; height: 1.5px; }
+    .story-2 .particle:nth-child(5) { top: 30%; left: 85%; animation-delay: 4s; }
+    .story-2 .particle:nth-child(6) { top: 70%; left: 10%; animation-delay: 2.5s; width: 2.5px; height: 2.5px; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) scale(1); opacity: 0.3; }
+      50% { transform: translateY(-20px) scale(1.5); opacity: 0.8; }
+    }
+
+    .story-2 .main-text {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .story-2 .hook {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.3;
+      margin-bottom: 25px;
+      color: #fff;
+    }
+
+    .story-2 .hook strong {
+      font-weight: 700;
+      font-style: normal;
+      color: #C9A94E;
+      display: block;
+      font-size: 36px;
+    }
+
+    .story-2 .sub-text {
+      font-size: 13px;
+      font-weight: 300;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 35px;
+    }
+
+    .story-2 .cta-button {
+      display: inline-block;
+      border: 1px solid #C9A94E;
+      color: #C9A94E;
+      padding: 12px 30px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    .story-2 .info-bottom {
+      position: absolute;
+      bottom: 70px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      z-index: 10;
+    }
+
+    .story-2 .info-bottom p {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      line-height: 2;
+    }
+
+    /* ==========================================
+       STORY 3 — COMUNIDADE / PERTENCIMENTO
+       ========================================== */
+    .story-3 {
+      background: #0A0A0A;
+      overflow: hidden;
+    }
+
+    .story-3::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background:
+        linear-gradient(180deg, rgba(10,10,10,0.3) 0%, rgba(10,10,10,0.9) 60%, #0A0A0A 100%);
+      z-index: 2;
+    }
+
+    .story-3 .bg-pattern {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 1;
+      opacity: 0.15;
+      background:
+        repeating-linear-gradient(
+          90deg,
+          transparent,
+          transparent 40px,
+          rgba(201, 169, 78, 0.1) 40px,
+          rgba(201, 169, 78, 0.1) 41px
+        ),
+        repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 40px,
+          rgba(201, 169, 78, 0.1) 40px,
+          rgba(201, 169, 78, 0.1) 41px
+        );
+    }
+
+    /* Simulated group photo silhouettes */
+    .story-3 .silhouettes {
+      position: absolute;
+      top: 100px;
+      left: 0;
+      right: 0;
+      height: 250px;
+      z-index: 3;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      gap: 0;
+    }
+
+    .story-3 .person {
+      width: 50px;
+      height: 120px;
+      background: linear-gradient(180deg, rgba(201,169,78,0.15), rgba(201,169,78,0.03));
+      border-radius: 25px 25px 0 0;
+      position: relative;
+    }
+
+    .story-3 .person:nth-child(1) { height: 100px; }
+    .story-3 .person:nth-child(2) { height: 130px; margin: 0 -5px; }
+    .story-3 .person:nth-child(3) { height: 120px; }
+    .story-3 .person:nth-child(4) { height: 110px; margin: 0 -5px; }
+    .story-3 .person:nth-child(5) { height: 125px; }
+    .story-3 .person:nth-child(6) { height: 95px; margin: 0 -5px; }
+    .story-3 .person:nth-child(7) { height: 115px; }
+
+    .story-3 .main-text {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      margin-top: 120px;
+    }
+
+    .story-3 .hook {
+      font-size: 28px;
+      font-weight: 800;
+      line-height: 1.2;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+
+    .story-3 .hook em {
+      font-style: normal;
+      color: #C9A94E;
+      display: block;
+      font-size: 34px;
+    }
+
+    .story-3 .badge {
+      display: inline-block;
+      background: #C9A94E;
+      color: #0A0A0A;
+      padding: 10px 24px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-top: 20px;
+    }
+
+    .story-3 .info-bottom {
+      position: absolute;
+      bottom: 75px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      z-index: 10;
+      white-space: nowrap;
+    }
+
+    .story-3 .info-bottom p {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* ==========================================
+       STORY 4 — PROVOCATIVO / CURIOSIDADE
+       ========================================== */
+    .story-4 {
+      background: #000;
+      overflow: hidden;
+    }
+
+    .story-4 .main-text {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      padding: 0 10px;
+    }
+
+    .story-4 .line-thin {
+      font-size: 16px;
+      font-weight: 200;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 10px;
+    }
+
+    .story-4 .line-bold {
+      font-size: 44px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -2px;
+      line-height: 1;
+      margin-bottom: 10px;
+      background: linear-gradient(180deg, #fff 30%, #C9A94E 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .story-4 .line-accent {
+      font-size: 20px;
+      font-weight: 300;
+      color: #C9A94E;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+
+    .story-4 .vertical-line {
+      width: 1px;
+      height: 80px;
+      background: linear-gradient(180deg, transparent, #C9A94E, transparent);
+      margin: 20px auto;
+    }
+
+    .story-4 .info-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .story-4 .info-group .day {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      color: #C9A94E;
+    }
+
+    .story-4 .info-group .time {
+      font-size: 56px;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -3px;
+      line-height: 1;
+    }
+
+    .story-4 .info-group .address {
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-top: 8px;
+    }
+
+    /* ==========================================
+       STORY 5 — COUNTDOWN / EXPECTATIVA
+       ========================================== */
+    .story-5 {
+      background: linear-gradient(135deg, #0A0A0A 0%, #1A0A2E 100%);
+      overflow: hidden;
+    }
+
+    .story-5::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background:
+        radial-gradient(circle at 50% 50%, rgba(201, 169, 78, 0.05) 0%, transparent 50%);
+      z-index: 1;
+    }
+
+    /* Glow ring behind numbers */
+    .story-5 .glow-ring {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      border: 1px solid rgba(201, 169, 78, 0.15);
+      z-index: 2;
+      box-shadow:
+        0 0 60px rgba(201, 169, 78, 0.05),
+        inset 0 0 60px rgba(201, 169, 78, 0.03);
+    }
+
+    .story-5 .glow-ring-2 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      border: 1px solid rgba(201, 169, 78, 0.06);
+      z-index: 2;
+    }
+
+    .story-5 .main-text {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+    }
+
+    .story-5 .countdown-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      color: #C9A94E;
+      margin-bottom: 20px;
+    }
+
+    .story-5 .countdown-number {
+      font-size: 120px;
+      font-weight: 900;
+      line-height: 1;
+      background: linear-gradient(180deg, #C9A94E 0%, rgba(201, 169, 78, 0.3) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 5px;
+    }
+
+    .story-5 .countdown-unit {
+      font-size: 18px;
+      font-weight: 300;
+      letter-spacing: 10px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 30px;
+    }
+
+    .story-5 .tagline {
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1.3;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .story-5 .tagline span {
+      color: #C9A94E;
+    }
+
+    .story-5 .sub-info {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-top: 20px;
+      line-height: 2;
+    }
+
+    /* ===== COPY SECTION ===== */
+    .copy-section {
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 40px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(201, 169, 78, 0.15);
+      border-radius: 12px;
+    }
+
+    .copy-section h2 {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #C9A94E;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .copy-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .copy-table th {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #C9A94E;
+      text-align: left;
+      padding: 12px 16px;
+      border-bottom: 1px solid rgba(201, 169, 78, 0.2);
+    }
+
+    .copy-table td {
+      font-size: 13px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.8);
+      padding: 12px 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      vertical-align: top;
+    }
+
+    .copy-table tr:hover td {
+      background: rgba(201, 169, 78, 0.03);
+    }
+
+    .story-number {
+      font-weight: 800;
+      color: #C9A94E;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1200px) {
+      .story-frame {
+        width: 300px;
+        height: 533px;
+      }
+      .story-1 .hook { font-size: 28px; }
+      .story-1 .info-time { font-size: 40px; }
+      .story-4 .line-bold { font-size: 36px; }
+      .story-4 .info-group .time { font-size: 44px; }
+      .story-5 .countdown-number { font-size: 90px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page-title">Além do Véu Orlando</div>
+  <div class="page-subtitle">Stories Mockups — Culto de Domingo</div>
+
+  <div class="stories-grid">
+
+    <!-- ============ STORY 1 — CONVITE DIRETO ============ -->
+    <div class="story-wrapper">
+      <div class="story-label">Story 01 — Urgência</div>
+      <div class="story-frame">
+        <div class="story-content story-1">
+          <!-- Progress bars -->
+          <div class="story-progress">
+            <div class="story-progress-bar active"></div>
+            <div class="story-progress-bar"></div>
+            <div class="story-progress-bar"></div>
+            <div class="story-progress-bar"></div>
+            <div class="story-progress-bar"></div>
+          </div>
+          <!-- IG Header -->
+          <div class="ig-header">
+            <div class="ig-avatar">AV</div>
+            <span class="ig-name">avorlando</span>
+            <span class="ig-time">2h</span>
+          </div>
+          <!-- Logo -->
+          <div class="av-logo">
+            <svg width="60" height="44" viewBox="0 0 60 44">
+              <defs>
+                <linearGradient id="gold1" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" style="stop-color:#C9A94E"/>
+                  <stop offset="100%" style="stop-color:#8B7332"/>
+                </linearGradient>
+              </defs>
+              <!-- A -->
+              <polygon points="15,40 30,4 32,4 24,26 6,26" fill="url(#gold1)" opacity="0.9"/>
+              <polygon points="30,4 32,4 39,26 21,26" fill="url(#gold1)" opacity="0.9"/>
+              <rect x="12" y="26" width="22" height="3" fill="url(#gold1)" opacity="0.6"/>
+              <!-- V -->
+              <polygon points="28,4 30,4 45,40 43,40" fill="url(#gold1)" opacity="0.9"/>
+              <polygon points="43,40 45,40 60,4 58,4" fill="url(#gold1)" opacity="0.9"/>
+              <!-- Cross accent -->
+              <rect x="29" y="0" width="1.5" height="12" fill="#C9A94E" opacity="0.4"/>
+            </svg>
+            <div class="av-logo-text">Orlando</div>
+          </div>
+          <!-- Main Text -->
+          <div class="main-text">
+            <div class="hook">
+              Esse domingo<br>vai ser <span>diferente.</span>
+            </div>
+            <div class="divider"></div>
+            <div class="info-block">
+              <div class="info-day">Domingo</div>
+              <div class="info-time">7PM</div>
+              <div class="info-address">607 Avalon Road · Orlando, FL</div>
+            </div>
+          </div>
+          <!-- Swipe Up -->
+          <div class="swipe-up">
+            <div class="swipe-up-icon">
+              <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+            </div>
+            <div class="swipe-up-text">Saiba mais</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ STORY 2 — EMOCIONAL ============ -->
+    <div class="story-wrapper">
+      <div class="story-label">Story 02 — Emocional</div>
+      <div class="story-frame">
+        <div class="story-content story-2">
+          <div class="story-progress">
+            <div class="story-progress-bar active"></div>
+            <div class="story-progress-bar active"></div>
+            <div class="story-progress-bar"></div>
+            <div class="story-progress-bar"></div>
+            <div class="story-progress-bar"></div>
+          </div>
+          <div class="ig-header">
+            <div class="ig-avatar">AV</div>
+            <span class="ig-name">avorlando</span>
+            <span class="ig-time">2h</span>
+          </div>
+          <!-- Particles -->
+          <div class="particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+          </div>
+          <!-- Logo -->
+          <div class="av-logo">
+            <svg width="50" height="37" viewBox="0 0 60 44">
+              <polygon points="15,40 30,4 32,4 24,26 6,26" fill="rgba(255,255,255,0.3)"/>
+              <polygon points="30,4 32,4 39,26 21,26" fill="rgba(255,255,255,0.3)"/>
+              <rect x="12" y="26" width="22" height="3" fill="rgba(255,255,255,0.2)"/>
+              <polygon points="28,4 30,4 45,40 43,40" fill="rgba(255,255,255,0.3)"/>
+              <polygon points="43,40 45,40 60,4 58,4" fill="rgba(255,255,255,0.3)"/>
+              <rect x="29" y="0" width="1.5" height="12" fill="rgba(255,255,255,0.15)"/>
+            </svg>
+          </div>
+          <!-- Main Text -->
+          <div class="main-text">
+            <div class="hook">
+              Cansado de lutar<br>sozinho?
+              <strong>Sua história não<br>termina aqui.</strong>
+            </div>
+            <div class="sub-text">
+              Deus tem algo para<br>te falar nesse domingo.
+            </div>
+            <a href="#" class="cta-button">Vem viver isso</a>
+          </div>
+          <!-- Bottom Info -->
+          <div class="info-bottom">
+            <p>Domingo · 7PM</p>
+            <p>607 Avalon Road</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ STORY 3 — COMUNIDADE ============ -->
+    <div class="story-wrapper">
+      <div class="story-label">Story 03 — Comunidade</div>
+      <div class="story-frame">
+        <div class="story-content story-3">
+          <div class="story-progress">
+            <div class="story-progress-bar active"></div>
+            <div class="story-progress-bar active"></div>
+            <div class="story-progress-bar active"></div>
+            <div class="story-progress-bar"></div>
+            <div class="story-progress-bar"></div>
+          </div>
+          <div class="ig-header">
+            <div class="ig-avatar">AV</div>
+            <span class="ig-name">avorlando</span>
+            <span class="ig-time">2h</span>
+          </div>
+          <div class="bg-pattern"></div>
+          <!-- Silhouettes -->
+          <div class="silhouettes">
+            <div class="person"></div>
+            <div class="person"></div>
+            <div class="person"></div>
+            <div class="person"></div>
+            <div class="person"></div>
+            <div class="person"></div>
+            <div class="person"></div>
+          </div>
+          <!-- Logo -->
+          <div class="av-logo">
+            <svg width="50" height="37" viewBox="0 0 60 44">
+              <defs>
+                <linearGradient id="gold3" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" style="stop-color:#C9A94E"/>
+                  <stop offset="100%" style="stop-color:#8B7332"/>
+                </linearGradient>
+              </defs>
+              <polygon points="15,40 30,4 32,4 24,26 6,26" fill="url(#gold3)"/>
+              <polygon points="30,4 32,4 39,26 21,26" fill="url(#gold3)"/>
+              <rect x="12" y="26" width="22" height="3" fill="url(#gold3)" opacity="0.6"/>
+              <polygon points="28,4 30,4 45,40 43,40" fill="url(#gold3)"/>
+              <polygon points="43,40 45,40 60,4 58,4" fill="url(#gold3)"/>
+              <rect x="29" y="0" width="1.5" height="12" fill="#C9A94E" opacity="0.4"/>
+            </svg>
+          </div>
+          <!-- Main Text -->
+          <div class="main-text">
+            <div class="hook">
+              Você não foi feito<br>pra caminhar sozinho.
+              <em>Todo mundo é família.</em>
+            </div>
+            <div class="badge">Primeira vez? Vem!</div>
+          </div>
+          <!-- Bottom Info -->
+          <div class="info-bottom">
+            <p>607 Avalon Road · Domingo 7PM</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ STORY 4 — PROVOCATIVO ============ -->
+    <div class="story-wrapper">
+      <div class="story-label">Story 04 — Provocativo</div>
+      <div class="story-frame">
+        <div class="story-content story-4">
+          <div class="story-progress">
+            <div class="story-progress-bar active"></div>
+            <div class="story-progress-bar active"></div>
+            <div class="story-progress-bar active"></div>
+            <div class="story-progress-bar active"></div>
+            <div class="story-progress-bar"></div>
+          </div>
+          <div class="ig-header">
+            <div class="ig-avatar">AV</div>
+            <span class="ig-name">avorlando</span>
+            <span class="ig-time">2h</span>
+          </div>
+          <!-- Main Text -->
+          <div class="main-text">
+            <div class="line-thin">Uma noite</div>
+            <div class="line-bold">UMA<br>DECISÃO</div>
+            <div class="line-accent">Uma vida transformada</div>
+            <div class="vertical-line"></div>
+            <div class="info-group">
+              <div class="day">Domingo</div>
+              <div class="time">7PM</div>
+              <div class="address">607 Avalon Road · Orlando</div>
+            </div>
+          </div>
+          <!-- Logo bottom -->
+          <div class="av-logo-bottom">
+            <svg width="40" height="30" viewBox="0 0 60 44">
+              <polygon points="15,40 30,4 32,4 24,26 6,26" fill="rgba(201,169,78,0.4)"/>
+              <polygon points="30,4 32,4 39,26 21,26" fill="rgba(201,169,78,0.4)"/>
+              <rect x="12" y="26" width="22" height="3" fill="rgba(201,169,78,0.3)"/>
+              <polygon points="28,4 30,4 45,40 43,40" fill="rgba(201,169,78,0.4)"/>
+              <polygon points="43,40 45,40 60,4 58,4" fill="rgba(201,169,78,0.4)"/>
+              <rect x="29" y="0" width="1.5" height="12" fill="rgba(201,169,78,0.2)"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ STORY 5 — COUNTDOWN ============ -->
+    <div class="story-wrapper">
+      <div class="story-label">Story 05 — Countdown</div>
+      <div class="story-frame">
+        <div class="story-content story-5">
+          <div class="story-progress">
+            <div class="story-progress-bar active"></div>
+            <div class="story-progress-bar active"></div>
+            <div class="story-progress-bar active"></div>
+            <div class="story-progress-bar active"></div>
+            <div class="story-progress-bar active"></div>
+          </div>
+          <div class="ig-header">
+            <div class="ig-avatar">AV</div>
+            <span class="ig-name">avorlando</span>
+            <span class="ig-time">2h</span>
+          </div>
+          <!-- Glow rings -->
+          <div class="glow-ring"></div>
+          <div class="glow-ring-2"></div>
+          <!-- Logo -->
+          <div class="av-logo">
+            <svg width="45" height="33" viewBox="0 0 60 44">
+              <polygon points="15,40 30,4 32,4 24,26 6,26" fill="rgba(201,169,78,0.5)"/>
+              <polygon points="30,4 32,4 39,26 21,26" fill="rgba(201,169,78,0.5)"/>
+              <rect x="12" y="26" width="22" height="3" fill="rgba(201,169,78,0.3)"/>
+              <polygon points="28,4 30,4 45,40 43,40" fill="rgba(201,169,78,0.5)"/>
+              <polygon points="43,40 45,40 60,4 58,4" fill="rgba(201,169,78,0.5)"/>
+              <rect x="29" y="0" width="1.5" height="12" fill="rgba(201,169,78,0.25)"/>
+            </svg>
+          </div>
+          <!-- Main Text -->
+          <div class="main-text">
+            <div class="countdown-label">Conta Regressiva</div>
+            <div class="countdown-number">02</div>
+            <div class="countdown-unit">Dias</div>
+            <div class="tagline">Você está <span>pronto?</span></div>
+            <div class="sub-info">
+              Domingo 7PM<br>
+              607 Avalon Road · Orlando FL
+            </div>
+          </div>
+          <!-- Swipe Up -->
+          <div class="swipe-up">
+            <div class="swipe-up-icon">
+              <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+            </div>
+            <div class="swipe-up-text">Ative o lembrete</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ===== COPY TABLE ===== -->
+  <div class="copy-section">
+    <h2>Ganchos & CTAs por Story</h2>
+    <table class="copy-table">
+      <thead>
+        <tr>
+          <th>Story</th>
+          <th>Gancho 1</th>
+          <th>Gancho 2</th>
+          <th>Gancho 3</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="story-number">01</td>
+          <td>"Esse domingo vai ser diferente."</td>
+          <td>"Tem algo te esperando nesse domingo."</td>
+          <td>"Você não pode perder esse culto."</td>
+        </tr>
+        <tr>
+          <td class="story-number">02</td>
+          <td>"Cansado de lutar sozinho?"</td>
+          <td>"Sua história não termina aqui."</td>
+          <td>"Deus tem algo pra te falar nesse domingo."</td>
+        </tr>
+        <tr>
+          <td class="story-number">03</td>
+          <td>"Você não foi feito pra caminhar sozinho."</td>
+          <td>"Uma família te espera em Orlando."</td>
+          <td>"Aqui ninguém é estranho, todo mundo é família."</td>
+        </tr>
+        <tr>
+          <td class="story-number">04</td>
+          <td>"E se esse domingo mudar tudo?"</td>
+          <td>"Uma noite. Uma decisão. Uma vida transformada."</td>
+          <td>"Você está a uma decisão de distância."</td>
+        </tr>
+        <tr>
+          <td class="story-number">05</td>
+          <td>"FALTAM 2 DIAS. Você está pronto?"</td>
+          <td>"O domingo está chegando e a expectativa é alta."</td>
+          <td>"Conta regressiva ativada. Nos vemos domingo."</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br>
+
+    <table class="copy-table">
+      <thead>
+        <tr>
+          <th>Story</th>
+          <th>CTA 1</th>
+          <th>CTA 2</th>
+          <th>CTA 3</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="story-number">01</td>
+          <td>"Arrasta e marque alguém que precisa estar lá"</td>
+          <td>"Salva esse story e confirma sua presença"</td>
+          <td>"Manda pra aquele amigo que precisa de uma palavra"</td>
+        </tr>
+        <tr>
+          <td class="story-number">02</td>
+          <td>"Vem viver isso com a gente — Domingo 7PM"</td>
+          <td>"Compartilha com quem precisa ouvir isso"</td>
+          <td>"Toque aqui e venha ter um encontro real"</td>
+        </tr>
+        <tr>
+          <td class="story-number">03</td>
+          <td>"Venha fazer parte — esse domingo, 7PM"</td>
+          <td>"Marca quem você vai trazer contigo"</td>
+          <td>"Primeira vez? A gente te recebe de braços abertos"</td>
+        </tr>
+        <tr>
+          <td class="story-number">04</td>
+          <td>"A hora é agora — 607 Avalon Road, Domingo 7PM"</td>
+          <td>"Não deixa pra depois. Vem nesse domingo"</td>
+          <td>"Responde esse story: EU VOU"</td>
+        </tr>
+        <tr>
+          <td class="story-number">05</td>
+          <td>"Ativa o lembrete e não perca"</td>
+          <td>"Compartilha nos seus stories e chama a galera"</td>
+          <td>"Comenta 'EU VOU' e receba o endereço"</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</body>
+</html>
