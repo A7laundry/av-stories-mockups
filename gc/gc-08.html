@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<title>GC 08 — Conexão</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600;700;800;900&family=Permanent+Marker&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden}
+body{font-family:'Montserrat',sans-serif;color:#fff}
+.s{width:1080px;height:1920px;position:relative;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;background:url('../gc-foto-02.jpg') center center / cover no-repeat;overflow:hidden;padding:120px 80px 200px}
+.overlay{position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(180deg,rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.05) 20%,rgba(0,0,0,0.15) 45%,rgba(0,0,0,0.65) 65%,rgba(0,0,0,0.93) 100%);z-index:1}
+.warm{position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(180deg,rgba(180,130,20,0.08) 0%,transparent 40%,rgba(120,80,10,0.1) 100%);z-index:2}
+.c{position:relative;z-index:10;text-align:center}
+.brand{font-family:'Permanent Marker',cursive;font-size:60px;color:#f5c842;margin-bottom:50px;text-shadow:0 4px 25px rgba(0,0,0,0.5)}
+.hoje{font-size:42px;font-weight:800;letter-spacing:12px;text-transform:uppercase;color:rgba(255,255,255,0.9);margin-bottom:15px;text-shadow:0 2px 15px rgba(0,0,0,0.5)}
+.dia{font-size:126px;font-weight:900;letter-spacing:-6px;line-height:1;color:#fff;margin-bottom:10px;text-shadow:0 4px 30px rgba(0,0,0,0.5)}
+.gc{font-family:'Permanent Marker',cursive;font-size:168px;line-height:0.9;color:#f5c842;text-shadow:0 4px 30px rgba(212,160,23,0.5);margin-bottom:60px}
+.info{font-size:33px;font-weight:500;letter-spacing:6px;text-transform:uppercase;color:rgba(255,255,255,0.55);line-height:2;text-shadow:0 2px 10px rgba(0,0,0,0.5)}
+.info strong{color:#f5c842;font-weight:700}
+.sticker{display:inline-flex;align-items:center;gap:16px;margin-top:40px;padding:22px 50px;background:rgba(255,255,255,0.95);border-radius:60px;font-size:36px;font-weight:700;color:#222}
+.sticker svg{width:40px;height:40px;stroke:#1d9bf0;fill:none;stroke-width:2}
+</style>
+</head>
+<body>
+<div class="s">
+  <div class="overlay"></div>
+  <div class="warm"></div>
+  <div class="c">
+    <div class="brand">Conex&atilde;o &amp; Comunh&atilde;o</div>
+    <div class="hoje">Hoje &eacute;</div>
+    <div class="dia">Dia de</div>
+    <div class="gc">GC</div>
+    <div class="info"><strong>8 PM</strong></div>
+    <div class="info">8007 Sayings Dr</div>
+    <div class="info">Winter Garden</div>
+    <div class="sticker">
+      <svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+      s&oacute; chegar
+    </div>
+  </div>
+</div>
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+<script>
+if(window===window.top){var b=document.createElement("button");b.innerHTML="\u2B07 BAIXAR PNG";b.style.cssText="position:fixed;bottom:30px;right:30px;z-index:9999;background:#D4A520;color:#000;border:none;padding:16px 32px;font-family:Montserrat,sans-serif;font-size:14px;font-weight:800;letter-spacing:3px;text-transform:uppercase;cursor:pointer;border-radius:8px;box-shadow:0 4px 20px rgba(212,165,32,0.3)";b.onmouseenter=function(){b.style.background="#E6C44A"};b.onmouseleave=function(){b.style.background="#D4A520"};b.onclick=function(){b.style.display="none";html2canvas(document.querySelector(".s"),{width:1080,height:1920,scale:1,backgroundColor:null,useCORS:true}).then(function(c){var a=document.createElement("a");a.download=document.title.replace(/[^a-zA-Z0-9]/g,"-")+".png";a.href=c.toDataURL("image/png");a.click();b.style.display=""})};document.body.appendChild(b)}if(window===window.top){var bk=document.createElement("a");bk.innerHTML="&#8592; PAINEL";bk.href="../base-criativos.html";bk.style.cssText="position:fixed;top:30px;left:30px;z-index:9999;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.12);text-decoration:none;padding:14px 28px;font-family:Montserrat,sans-serif;font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;cursor:pointer;border-radius:8px;backdrop-filter:blur(10px)";bk.onmouseenter=function(){bk.style.background="rgba(255,255,255,0.15)";bk.style.color="#fff"};bk.onmouseleave=function(){bk.style.background="rgba(255,255,255,0.08)";bk.style.color="rgba(255,255,255,0.6)"};document.body.appendChild(bk)}
+</script>
+</body>
+</html>
