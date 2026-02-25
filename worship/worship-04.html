@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<title>Worship 04 — Cura</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden}
+body{font-family:'Montserrat',sans-serif;color:#fff}
+.s{width:1080px;height:1920px;position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center;background:#040812;overflow:hidden}
+/* Aurora/wave gradients */
+.aurora{position:absolute;top:0;left:0;right:0;height:60%;z-index:1;overflow:hidden}
+.awave{position:absolute;width:200%;height:200px;border-radius:50%;filter:blur(80px);animation:aur 8s ease-in-out infinite}
+.aw1{top:10%;left:-30%;background:linear-gradient(90deg,rgba(168,85,247,0.15),rgba(59,130,246,0.1),rgba(20,184,166,0.08));animation-delay:0s}
+.aw2{top:25%;left:-20%;background:linear-gradient(90deg,rgba(236,72,153,0.1),rgba(168,85,247,0.12),rgba(59,130,246,0.08));animation-delay:-3s}
+.aw3{top:40%;left:-40%;background:linear-gradient(90deg,rgba(20,184,166,0.08),rgba(59,130,246,0.1),rgba(168,85,247,0.12));animation-delay:-5s}
+@keyframes aur{0%,100%{transform:translateX(0) skewY(-2deg)}50%{transform:translateX(15%) skewY(2deg)}}
+/* Glassmorphism card */
+.glass{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:900px;height:700px;border-radius:40px;background:rgba(255,255,255,0.03);backdrop-filter:blur(40px);border:1px solid rgba(255,255,255,0.06);z-index:4}
+/* Bottom glow */
+.bot-glow{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:800px;height:400px;background:radial-gradient(ellipse,rgba(168,85,247,0.06) 0%,transparent 70%);z-index:1;filter:blur(60px)}
+/* AV Logo */
+.av-logo{position:absolute;top:60px;right:40px;z-index:20}
+.av-logo img{width:120px;height:auto;mix-blend-mode:screen}
+/* Content */
+.c{position:relative;z-index:10;text-align:center;padding:0 80px}
+.tag{display:inline-flex;align-items:center;gap:12px;padding:14px 36px;border-radius:50px;font-size:20px;font-weight:700;letter-spacing:6px;text-transform:uppercase;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);color:rgba(255,255,255,0.5);margin-bottom:50px;backdrop-filter:blur(10px)}
+.tag .dot{width:8px;height:8px;border-radius:50%;background:#14b8a6;box-shadow:0 0 12px rgba(20,184,166,0.5);animation:dotpulse 2s ease-in-out infinite}
+@keyframes dotpulse{0%,100%{opacity:0.5;transform:scale(1)}50%{opacity:1;transform:scale(1.3)}}
+.hook{font-size:76px;font-weight:900;text-transform:uppercase;letter-spacing:-3px;line-height:1.05;margin-bottom:25px}
+.hook .l1{display:block;color:rgba(255,255,255,0.9)}
+.hook .l2{display:block;background:linear-gradient(135deg,#14b8a6,#3b82f6,#a855f7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sub{font-size:36px;font-weight:300;color:rgba(255,255,255,0.35);line-height:1.5;margin-bottom:55px}
+.ref{font-size:20px;font-weight:600;letter-spacing:8px;text-transform:uppercase;color:rgba(20,184,166,0.6);margin-bottom:50px}
+.cta-row{display:flex;gap:14px;justify-content:center;margin-bottom:45px}
+.pill{padding:20px 40px;border-radius:50px;font-size:20px;font-weight:700;letter-spacing:4px;text-transform:uppercase}
+.pill.filled{background:linear-gradient(135deg,#14b8a6,#3b82f6);color:#fff;box-shadow:0 6px 30px rgba(20,184,166,0.2)}
+.pill.outline{border:1.5px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.4)}
+.info{font-size:22px;font-weight:400;letter-spacing:6px;text-transform:uppercase;color:rgba(255,255,255,0.15)}
+</style>
+</head>
+<body>
+<div class="s">
+  <div class="aurora"><div class="awave aw1"></div><div class="awave aw2"></div><div class="awave aw3"></div></div>
+  <div class="glass"></div>
+  <div class="bot-glow"></div>
+  <div class="av-logo"><img src="../Logobranco_av_orlando.jpeg" alt="AV Orlando"></div>
+  <div class="c">
+    <div class="tag"><span class="dot"></span>Worship Ao Vivo</div>
+    <div class="hook">
+      <span class="l1">Tem cura no<br>louvor. Tem</span>
+      <span class="l2">liberta&ccedil;&atilde;o<br>na adora&ccedil;&atilde;o.</span>
+    </div>
+    <div class="sub">Quando o louvor sobe,<br>a gl&oacute;ria de Deus desce.</div>
+    <div class="ref">Salmos 22:3</div>
+    <div class="cta-row">
+      <div class="pill filled">Vem viver</div>
+      <div class="pill outline">Domingo 7PM</div>
+    </div>
+    <div class="info">607 Avalon Rd &middot; Winter Garden</div>
+  </div>
+</div>
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+<script>
+if(window===window.top){var b=document.createElement('button');b.innerHTML='&#11015; BAIXAR JPG';b.style.cssText='position:fixed;bottom:30px;right:30px;z-index:9999;background:#a855f7;color:#fff;border:none;padding:16px 32px;font-family:Montserrat,sans-serif;font-size:14px;font-weight:800;letter-spacing:3px;text-transform:uppercase;cursor:pointer;border-radius:8px;box-shadow:0 4px 20px rgba(168,85,247,0.3)';b.onmouseenter=function(){b.style.background='#c084fc'};b.onmouseleave=function(){b.style.background='#a855f7'};b.onclick=function(){b.style.display='none';html2canvas(document.querySelector('.s'),{width:1080,height:1920,scale:1,backgroundColor:null,useCORS:true}).then(function(c){var a=document.createElement('a');a.download=document.title.replace(/[^a-zA-Z0-9]/g,'-')+'.jpg';a.href=c.toDataURL('image/jpeg',0.95);a.click();b.style.display=''})};document.body.appendChild(b)}if(window===window.top){var bk=document.createElement("a");bk.innerHTML="&#8592; PAINEL";bk.href="../painel.html";bk.style.cssText="position:fixed;top:30px;left:30px;z-index:9999;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.12);text-decoration:none;padding:14px 28px;font-family:Montserrat,sans-serif;font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;cursor:pointer;border-radius:8px;backdrop-filter:blur(10px)";bk.onmouseenter=function(){bk.style.background="rgba(255,255,255,0.15)";bk.style.color="#fff"};bk.onmouseleave=function(){bk.style.background="rgba(255,255,255,0.08)";bk.style.color="rgba(255,255,255,0.6)"};document.body.appendChild(bk)}
+</script>
+</body>
+</html>

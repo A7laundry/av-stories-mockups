@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<title>Worship 02 — Liberdade</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden}
+body{font-family:'Montserrat',sans-serif;color:#fff}
+.s{width:1080px;height:1920px;position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center;background:#0a0215;overflow:hidden}
+/* Neon glow streaks */
+.streak{position:absolute;border-radius:100px;z-index:2;filter:blur(1px)}
+.sk1{width:400px;height:4px;top:28%;left:-5%;background:linear-gradient(90deg,transparent,#a855f7,#ec4899,transparent);transform:rotate(-8deg);animation:sk 4s ease-in-out infinite}
+.sk2{width:500px;height:3px;top:45%;right:-10%;background:linear-gradient(90deg,transparent,#3b82f6,#14b8a6,transparent);transform:rotate(5deg);animation:sk 5s ease-in-out infinite;animation-delay:-1.5s}
+.sk3{width:350px;height:3px;top:62%;left:10%;background:linear-gradient(90deg,transparent,#f472b6,#a855f7,transparent);transform:rotate(-3deg);animation:sk 3.5s ease-in-out infinite;animation-delay:-3s}
+@keyframes sk{0%,100%{opacity:0.3;transform:translateX(0) rotate(var(--r,0deg))}50%{opacity:0.7;transform:translateX(50px) rotate(var(--r,0deg))}}
+/* Glitch text effect layers */
+.glitch-bg{position:absolute;top:0;left:0;right:0;bottom:0;z-index:1;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(168,85,247,0.008) 2px,rgba(168,85,247,0.008) 4px)}
+/* Dopamine circles */
+.circle{position:absolute;border-radius:50%;border:1px solid;z-index:2;animation:circ 6s ease-in-out infinite}
+.c1{width:300px;height:300px;top:10%;left:-8%;border-color:rgba(168,85,247,0.12);animation-delay:0s}
+.c2{width:200px;height:200px;top:55%;right:-5%;border-color:rgba(236,72,153,0.1);animation-delay:-2s}
+.c3{width:250px;height:250px;bottom:5%;left:20%;border-color:rgba(59,130,246,0.08);animation-delay:-4s}
+@keyframes circ{0%,100%{transform:scale(1);opacity:0.5}50%{transform:scale(1.15);opacity:1}}
+/* Floating emojis / icons */
+.icon{position:absolute;z-index:3;font-size:60px;opacity:0.06;animation:ic 10s linear infinite}
+.i1{top:12%;left:18%;animation-delay:0s}
+.i2{top:30%;right:12%;animation-delay:-3s;font-size:48px}
+.i3{top:65%;left:6%;animation-delay:-6s;font-size:52px}
+.i4{top:78%;right:18%;animation-delay:-1.5s;font-size:44px}
+@keyframes ic{0%,100%{transform:translateY(0) rotate(0deg);opacity:0.04}50%{transform:translateY(-20px) rotate(15deg);opacity:0.1}}
+/* AV Logo */
+.av-logo{position:absolute;top:60px;right:40px;z-index:20}
+.av-logo img{width:120px;height:auto;mix-blend-mode:screen}
+/* Content */
+.c{position:relative;z-index:10;text-align:center;padding:0 65px}
+.tag{display:inline-block;padding:12px 32px;border-radius:50px;font-size:20px;font-weight:800;letter-spacing:6px;text-transform:uppercase;background:linear-gradient(135deg,rgba(168,85,247,0.15),rgba(236,72,153,0.15));color:#e879f9;margin-bottom:50px;backdrop-filter:blur(10px)}
+.hook{font-size:88px;font-weight:900;text-transform:uppercase;letter-spacing:-4px;line-height:1;margin-bottom:25px}
+.hook .top{display:block;font-size:48px;font-weight:300;letter-spacing:8px;color:rgba(255,255,255,0.5);margin-bottom:10px;text-transform:uppercase}
+.hook .main{display:block;background:linear-gradient(135deg,#e879f9,#f472b6,#fb923c);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sub{font-size:36px;font-weight:300;color:rgba(255,255,255,0.35);line-height:1.5;margin-bottom:50px}
+.cta-row{display:flex;gap:16px;justify-content:center;margin-bottom:50px}
+.cta-pill{padding:22px 44px;border-radius:50px;font-size:22px;font-weight:700;letter-spacing:4px;text-transform:uppercase;border:1.5px solid rgba(168,85,247,0.3);color:rgba(255,255,255,0.6);backdrop-filter:blur(5px);background:rgba(168,85,247,0.05)}
+.cta-pill.active{border-color:transparent;background:linear-gradient(135deg,#a855f7,#ec4899);color:#fff;box-shadow:0 6px 30px rgba(168,85,247,0.25)}
+.info{font-size:22px;font-weight:400;letter-spacing:6px;text-transform:uppercase;color:rgba(255,255,255,0.18)}
+</style>
+</head>
+<body>
+<div class="s">
+  <div class="glitch-bg"></div>
+  <div class="streak sk1" style="--r:-8deg"></div><div class="streak sk2" style="--r:5deg"></div><div class="streak sk3" style="--r:-3deg"></div>
+  <div class="circle c1"></div><div class="circle c2"></div><div class="circle c3"></div>
+  <div class="icon i1">&#127908;</div><div class="icon i2">&#9996;</div><div class="icon i3">&#128293;</div><div class="icon i4">&#127925;</div>
+  <div class="av-logo"><img src="../Logobranco_av_orlando.jpeg" alt="AV Orlando"></div>
+  <div class="c">
+    <div class="tag">Louvor Livre</div>
+    <div class="hook">
+      <span class="top">Onde o esp&iacute;rito do Senhor est&aacute;</span>
+      <span class="main">a&iacute; h&aacute; liberdade.</span>
+    </div>
+    <div class="sub">Larga o peso. Solta a voz.<br>Esse &eacute; o seu momento.</div>
+    <div class="cta-row">
+      <div class="cta-pill active">Eu vou</div>
+      <div class="cta-pill">Domingo 7PM</div>
+    </div>
+    <div class="info">607 Avalon Rd &middot; Winter Garden</div>
+  </div>
+</div>
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+<script>
+if(window===window.top){var b=document.createElement('button');b.innerHTML='&#11015; BAIXAR JPG';b.style.cssText='position:fixed;bottom:30px;right:30px;z-index:9999;background:#a855f7;color:#fff;border:none;padding:16px 32px;font-family:Montserrat,sans-serif;font-size:14px;font-weight:800;letter-spacing:3px;text-transform:uppercase;cursor:pointer;border-radius:8px;box-shadow:0 4px 20px rgba(168,85,247,0.3)';b.onmouseenter=function(){b.style.background='#c084fc'};b.onmouseleave=function(){b.style.background='#a855f7'};b.onclick=function(){b.style.display='none';html2canvas(document.querySelector('.s'),{width:1080,height:1920,scale:1,backgroundColor:null,useCORS:true}).then(function(c){var a=document.createElement('a');a.download=document.title.replace(/[^a-zA-Z0-9]/g,'-')+'.jpg';a.href=c.toDataURL('image/jpeg',0.95);a.click();b.style.display=''})};document.body.appendChild(b)}if(window===window.top){var bk=document.createElement("a");bk.innerHTML="&#8592; PAINEL";bk.href="../painel.html";bk.style.cssText="position:fixed;top:30px;left:30px;z-index:9999;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.12);text-decoration:none;padding:14px 28px;font-family:Montserrat,sans-serif;font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;cursor:pointer;border-radius:8px;backdrop-filter:blur(10px)";bk.onmouseenter=function(){bk.style.background="rgba(255,255,255,0.15)";bk.style.color="#fff"};bk.onmouseleave=function(){bk.style.background="rgba(255,255,255,0.08)";bk.style.color="rgba(255,255,255,0.6)"};document.body.appendChild(bk)}
+</script>
+</body>
+</html>

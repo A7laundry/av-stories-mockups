@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AV Orlando — Painel Administrativo de Criativos</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#060608;font-family:'Montserrat',sans-serif;color:#fff;padding:50px 30px;min-height:100vh}
+
+/* ===== HEADER ===== */
+.header{text-align:center;margin-bottom:60px;position:relative}
+.header::after{content:'';display:block;width:200px;height:1px;background:linear-gradient(90deg,transparent,rgba(212,165,32,0.3),transparent);margin:30px auto 0}
+.logo-main{margin-bottom:15px}
+.brand{font-size:36px;font-weight:900;letter-spacing:6px;text-transform:uppercase;margin-bottom:4px}
+.brand .av{background:linear-gradient(135deg,#D4A520,#E6C44A);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.brand .rest{color:rgba(255,255,255,0.4)}
+.tagline{font-size:12px;font-weight:300;letter-spacing:6px;text-transform:uppercase;color:rgba(255,255,255,0.25)}
+.panel-title{font-size:16px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,0.15);margin-top:15px}
+
+/* ===== NAV TABS ===== */
+.nav{display:flex;justify-content:center;gap:8px;margin-bottom:50px;flex-wrap:wrap}
+.nav a{text-decoration:none;padding:12px 28px;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;border:1px solid rgba(255,255,255,0.08);border-radius:6px;color:rgba(255,255,255,0.4);transition:all 0.3s}
+.nav a:hover{border-color:rgba(255,255,255,0.2);color:#fff}
+.nav a.gold{border-color:rgba(212,165,32,0.2);color:#D4A520}
+.nav a.gold:hover{border-color:#D4A520;background:rgba(212,165,32,0.08)}
+.nav a.violet{border-color:rgba(167,139,250,0.2);color:#a78bfa}
+.nav a.violet:hover{border-color:#a78bfa;background:rgba(167,139,250,0.08)}
+.nav a.amber{border-color:rgba(245,158,11,0.2);color:#F59E0B}
+.nav a.amber:hover{border-color:#F59E0B;background:rgba(245,158,11,0.08)}
+.nav a.fire{border-color:rgba(249,115,22,0.2);color:#F97316}
+.nav a.fire:hover{border-color:#F97316;background:rgba(249,115,22,0.08)}
+.nav a.neon{border-color:rgba(168,85,247,0.2);color:#a855f7}
+.nav a.neon:hover{border-color:#a855f7;background:rgba(168,85,247,0.08)}
+
+/* ===== SECTION ===== */
+.section{margin-bottom:80px;scroll-margin-top:30px}
+.section-header{display:flex;align-items:center;gap:16px;margin-bottom:10px}
+.section-dot{width:10px;height:10px;border-radius:50%}
+.section-dot.gold{background:#D4A520;box-shadow:0 0 20px rgba(212,165,32,0.3)}
+.section-dot.violet{background:#a78bfa;box-shadow:0 0 20px rgba(167,139,250,0.3)}
+.section-dot.amber{background:#F59E0B;box-shadow:0 0 20px rgba(245,158,11,0.3)}
+.section-dot.fire{background:#F97316;box-shadow:0 0 20px rgba(249,115,22,0.3)}
+.section-dot.neon{background:#a855f7;box-shadow:0 0 20px rgba(168,85,247,0.4)}
+.section-title{font-size:22px;font-weight:800;letter-spacing:4px;text-transform:uppercase}
+.section-title.gold{color:#D4A520}
+.section-title.violet{background:linear-gradient(135deg,#a78bfa,#60a5fa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.section-title.amber{color:#F59E0B}
+.section-title.fire{color:#F97316}
+.section-title.neon{background:linear-gradient(135deg,#a855f7,#ec4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.section-count{font-size:11px;font-weight:400;letter-spacing:2px;color:rgba(255,255,255,0.2);margin-left:auto}
+.section-sub{font-size:12px;font-weight:300;letter-spacing:2px;color:rgba(255,255,255,0.25);margin-bottom:30px;padding-left:26px}
+
+/* ===== GRID ===== */
+.grid{display:flex;gap:20px;flex-wrap:wrap;justify-content:flex-start;padding-left:26px}
+.card{display:flex;flex-direction:column;align-items:center;gap:10px}
+.card-label{font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase}
+.card-label.gold{color:#D4A520}
+.card-label.violet{background:linear-gradient(90deg,#a78bfa,#60a5fa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.card-label.amber{color:#F59E0B}
+.card-label.fire{color:#F97316}
+.card-label.neon{background:linear-gradient(135deg,#a855f7,#ec4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.frame{width:216px;height:384px;border-radius:12px;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,0.5);position:relative;transition:transform 0.3s,box-shadow 0.3s}
+.frame:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,0.7)}
+.frame iframe{width:1080px;height:1920px;border:none;transform:scale(0.2);transform-origin:top left;pointer-events:none}
+.card-desc{font-size:8px;font-weight:400;color:rgba(255,255,255,0.3);text-align:center;max-width:200px;line-height:1.5}
+.open-link{font-size:8px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;opacity:0.5;transition:opacity 0.2s}
+.open-link:hover{opacity:1}
+.open-link.gold{color:#D4A520}
+.open-link.violet{color:#a78bfa}
+.open-link.amber{color:#F59E0B}
+.open-link.fire{color:#F97316}
+.open-link.neon{color:#a855f7}
+
+/* ===== DIVIDER ===== */
+.divider{width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.06),transparent);margin:20px 0 60px}
+
+/* ===== STATS ===== */
+.stats{display:flex;gap:20px;justify-content:center;margin-bottom:60px;flex-wrap:wrap}
+.stat{padding:24px 40px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:10px;text-align:center;min-width:180px}
+.stat-number{font-size:36px;font-weight:900;line-height:1;margin-bottom:6px}
+.stat-number.gold{color:#D4A520}
+.stat-number.violet{color:#a78bfa}
+.stat-number.amber{color:#F59E0B}
+.stat-number.white{color:#fff}
+.stat-label{font-size:9px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.3)}
+
+/* ===== INFO BOX ===== */
+.info-box{max-width:1100px;margin:0 auto 40px;padding:30px;background:rgba(255,255,255,0.015);border:1px solid rgba(255,255,255,0.06);border-radius:12px}
+.info-box h2{font-size:14px;font-weight:800;letter-spacing:4px;text-transform:uppercase;margin-bottom:20px;text-align:center;color:rgba(255,255,255,0.5)}
+.info-box h3{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#D4A520;margin:20px 0 12px;padding-bottom:8px;border-bottom:1px solid rgba(212,165,32,0.1)}
+table{width:100%;border-collapse:collapse}
+th{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.35);text-align:left;padding:10px 12px;border-bottom:1px solid rgba(255,255,255,0.08)}
+td{font-size:11px;font-weight:300;color:rgba(255,255,255,0.6);padding:10px 12px;border-bottom:1px solid rgba(255,255,255,0.03);vertical-align:top}
+tr:hover td{background:rgba(255,255,255,0.01)}
+.sn{font-weight:800}
+.sn.gold{color:#D4A520}
+.sn.violet{color:#a78bfa}
+.sn.amber{color:#F59E0B}
+.sn.fire{color:#F97316}
+.sn.neon{color:#a855f7}
+
+/* ===== HOW TO EXPORT ===== */
+.how{max-width:1100px;margin:0 auto 40px;padding:20px 30px;background:rgba(212,165,32,0.02);border:1px solid rgba(212,165,32,0.08);border-radius:10px}
+.how p{font-size:11px;font-weight:300;color:rgba(255,255,255,0.45);line-height:1.8}
+.how strong{font-weight:600;color:#D4A520}
+
+/* ===== FOOTER ===== */
+.footer{text-align:center;margin-top:80px;padding-top:40px;border-top:1px solid rgba(255,255,255,0.04)}
+.footer p{font-size:10px;font-weight:300;letter-spacing:3px;color:rgba(255,255,255,0.15)}
+.footer .ft-logo{margin-bottom:10px}
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<div class="header">
+  <div class="logo-main">
+    <svg width="60" height="42" viewBox="0 0 100 65" fill="none">
+      <polygon points="0,65 10,65 40,0 30,0" fill="url(#gh)"/>
+      <polygon points="30,0 40,0 70,65 60,65" fill="url(#gh)"/>
+      <polygon points="60,65 70,65 100,0 90,0" fill="url(#gh)"/>
+      <defs><linearGradient id="gh" x1="50" y1="0" x2="50" y2="65" gradientUnits="userSpaceOnUse"><stop stop-color="#E6C44A"/><stop offset="1" stop-color="#B8860B"/></linearGradient></defs>
+    </svg>
+  </div>
+  <div class="brand"><span class="av">AV</span> <span class="rest">Orlando</span></div>
+  <div class="tagline">607 Avalon Road &middot; Winter Garden, FL</div>
+  <div class="panel-title">Painel Administrativo de Criativos</div>
+</div>
+
+<!-- ===== STATS ===== -->
+<div class="stats">
+  <div class="stat"><div class="stat-number white">28</div><div class="stat-label">Total Criativos</div></div>
+  <div class="stat"><div class="stat-number gold">5</div><div class="stat-label">Culto Domingo</div></div>
+  <div class="stat"><div class="stat-number violet">6</div><div class="stat-label">GC Quarta</div></div>
+  <div class="stat"><div class="stat-number amber">3</div><div class="stat-label">Billy Graham</div></div>
+  <div class="stat"><div class="stat-number" style="color:#F97316">6</div><div class="stat-label">Le&atilde;o Crist&atilde;o</div></div>
+  <div class="stat"><div class="stat-number" style="color:#a855f7">5</div><div class="stat-label">Worship</div></div>
+  <div class="stat"><div class="stat-number" style="color:#ec4899">3</div><div class="stat-label">GC Dopamina</div></div>
+</div>
+
+<!-- ===== NAV ===== -->
+<div class="nav">
+  <a href="#domingo" class="gold">Domingo</a>
+  <a href="#gc" class="violet">GC</a>
+  <a href="#billy" class="amber">Billy Graham</a>
+  <a href="#leao" class="fire">Le&atilde;o Crist&atilde;o</a>
+  <a href="#worship" class="neon">Worship</a>
+  <a href="#wgc" class="neon">GC Dopamina</a>
+  <a href="#mapa" class="">Mapa Geral</a>
+  <a href="midia-painel.html" class="gold" style="margin-left:8px;border-style:dashed">Calend&aacute;rio de M&iacute;dia</a>
+</div>
+
+<!-- ===== SECTION 1: DOMINGO ===== -->
+<div class="section" id="domingo">
+  <div class="section-header">
+    <div class="section-dot gold"></div>
+    <div class="section-title gold">Culto de Domingo</div>
+    <div class="section-count">5 criativos &middot; Expectativa para o Culto 7PM</div>
+  </div>
+  <div class="section-sub">Dire&ccedil;&atilde;o de expectativa &middot; 607 Avalon Road &middot; Domingo 7PM</div>
+  <div class="grid">
+    <div class="card">
+      <div class="card-label gold">01 &mdash; Diferente</div>
+      <div class="frame"><iframe src="domingo/dom-01.html"></iframe></div>
+      <div class="card-desc">&ldquo;Esse domingo vai ser diferente.&rdquo;</div>
+      <a href="domingo/dom-01.html" target="_blank" class="open-link gold">Abrir full &rarr;</a>
+    </div>
+    <div class="card">
+      <div class="card-label gold">02 &mdash; Promessa</div>
+      <div class="frame"><iframe src="domingo/dom-02.html"></iframe></div>
+      <div class="card-desc">&ldquo;Tem algo te esperando nesse domingo.&rdquo;</div>
+      <a href="domingo/dom-02.html" target="_blank" class="open-link gold">Abrir full &rarr;</a>
+    </div>
+    <div class="card">
+      <div class="card-label gold">03 &mdash; Decis&atilde;o</div>
+      <div class="frame"><iframe src="domingo/dom-03.html"></iframe></div>
+      <div class="card-desc">&ldquo;Uma noite. Uma decis&atilde;o. Uma vida transformada.&rdquo;</div>
+      <a href="domingo/dom-03.html" target="_blank" class="open-link gold">Abrir full &rarr;</a>
+    </div>
+    <div class="card">
+      <div class="card-label gold">04 &mdash; Comunidade</div>
+      <div class="frame"><iframe src="domingo/dom-04.html"></iframe></div>
+      <div class="card-desc">&ldquo;Voc&ecirc; n&atilde;o foi feito pra caminhar sozinho.&rdquo;</div>
+      <a href="domingo/dom-04.html" target="_blank" class="open-link gold">Abrir full &rarr;</a>
+    </div>
+    <div class="card">
+      <div class="card-label gold">05 &mdash; Contagem</div>
+      <div class="frame"><iframe src="domingo/dom-05.html"></iframe></div>
+      <div class="card-desc">Conta regressiva &mdash; 02 Dias &mdash; &ldquo;Voc&ecirc; est&aacute; pronto?&rdquo;</div>
+      <a href="domingo/dom-05.html" target="_blank" class="open-link gold">Abrir full &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ===== SECTION 2: GC ===== -->
+<div class="section" id="gc">
+  <div class="section-header">
+    <div class="section-dot violet"></div>
+    <div class="section-title violet">GC &mdash; Grupo de Encontro</div>
+    <div class="section-count">6 criativos &middot; Frases B&iacute;blicas &middot; Quarta 8PM</div>
+  </div>
+  <div class="section-sub">Abstrato &middot; Sem logo &middot; Foco em vers&iacute;culos de impacto e acolhimento</div>
+  <div class="grid">
+    <div class="card">
+      <div class="card-label violet">01 &mdash; Presen&ccedil;a</div>
+      <div class="frame"><iframe src="gc/gc-01.html"></iframe></div>
+      <div class="card-desc">Mateus 18:20 &mdash; &ldquo;Onde dois ou tr&ecirc;s est&atilde;o reunidos...&rdquo;</div>
+      <a href="gc/gc-01.html" target="_blank" class="open-link violet">Abrir full &rarr;</a>
+    </div>
+    <div class="card">
+      <div class="card-label violet">02 &mdash; For&ccedil;a</div>
+      <div class="frame"><iframe src="gc/gc-02.html"></iframe></div>
+      <div class="card-desc">Eclesiastes 4:9 &mdash; &ldquo;Melhor &eacute; serem dois do que um...&rdquo;</div>
+      <a href="gc/gc-02.html" target="_blank" class="open-link violet">Abrir full &rarr;</a>
+    </div>
+    <div class="card">
+      <div class="card-label violet">03 &mdash; Crescimento</div>
+      <div class="frame"><iframe src="gc/gc-03.html"></iframe></div>
+      <div class="card-desc">Prov&eacute;rbios 27:17 &mdash; &ldquo;Assim como o ferro afia o ferro...&rdquo;</div>
+      <a href="gc/gc-03.html" target="_blank" class="open-link violet">Abrir full &rarr;</a>
+    </div>
+    <div class="card">
+      <div class="card-label violet">04 &mdash; Acolhimento</div>
+      <div class="frame"><iframe src="gc/gc-04.html"></iframe></div>
+      <div class="card-desc">G&aacute;latas 6:2 &mdash; &ldquo;Levem as cargas uns dos outros...&rdquo;</div>
+      <a href="gc/gc-04.html" target="_blank" class="open-link violet">Abrir full &rarr;</a>
+    </div>
+    <div class="card">
+      <div class="card-label violet">05 &mdash; Reuni&atilde;o</div>
+      <div class="frame"><iframe src="gc/gc-05.html"></iframe></div>
+      <div class="card-desc">Hebreus 10:25 &mdash; &ldquo;N&atilde;o deixemos de nos reunir...&rdquo;</div>
+      <a href="gc/gc-05.html" target="_blank" class="open-link violet">Abrir full &rarr;</a>
+    </div>
+    <div class="card">
+      <div class="card-label violet">06 &mdash; Sabedoria</div>
+      <div class="frame"><iframe src="gc/gc-06.html"></iframe></div>
+      <div class="card-desc">Prov&eacute;rbios 13:20 &mdash; &ldquo;Quem anda com s&aacute;bios ser&aacute; s&aacute;bio...&rdquo;</div>
+      <a href="gc/gc-06.html" target="_blank" class="open-link violet">Abrir full &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ===== SECTION 3: BILLY GRAHAM ===== -->
+<div class="section" id="billy">
+  <div class="section-header">
+    <div class="section-dot amber"></div>
+    <div class="section-title amber">Billy Graham &mdash; Frases de Impacto</div>
+    <div class="section-count">3 criativos &middot; Ter&ccedil;a / Quinta / S&aacute;bado</div>
+  </div>
+  <div class="section-sub">Estrat&eacute;gia semanal &middot; Semear expectativa para o Domingo &middot; Com logo AV</div>
+  <div class="grid">
+    <div class="card">
+      <div class="card-label amber">01 &mdash; Gra&ccedil;a</div>
+      <div class="frame"><iframe src="billy-graham/bg-01.html"></iframe></div>
+      <div class="card-desc">Ter&ccedil;a &mdash; &ldquo;A vontade de Deus nunca vai te levar onde a gra&ccedil;a de Deus n&atilde;o possa te guardar.&rdquo;</div>
+      <a href="billy-graham/bg-01.html" target="_blank" class="open-link amber">Abrir full &rarr;</a>
+    </div>
+    <div class="card">
+      <div class="card-label amber">02 &mdash; Amor</div>
+      <div class="frame"><iframe src="billy-graham/bg-02.html"></iframe></div>
+      <div class="card-desc">Quinta &mdash; &ldquo;Deus provou o Seu amor na Cruz... era Deus dizendo: Eu te amo.&rdquo;</div>
+      <a href="billy-graham/bg-02.html" target="_blank" class="open-link amber">Abrir full &rarr;</a>
+    </div>
+    <div class="card">
+      <div class="card-label amber">03 &mdash; Decis&atilde;o</div>
+      <div class="frame"><iframe src="billy-graham/bg-03.html"></iframe></div>
+      <div class="card-desc">S&aacute;bado &mdash; &ldquo;Ser crist&atilde;o &eacute; mais do que uma convers&atilde;o instant&acirc;nea &mdash; &eacute; um processo di&aacute;rio.&rdquo;</div>
+      <a href="billy-graham/bg-03.html" target="_blank" class="open-link amber">Abrir full &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ===== SECTION 4: LEÃO CRISTÃO ===== -->
+<div class="section" id="leao">
+  <div class="section-header">
+    <div class="section-dot fire"></div>
+    <div class="section-title fire">Le&atilde;o Crist&atilde;o &mdash; F&eacute;, For&ccedil;a &amp; Coragem</div>
+    <div class="section-count">6 criativos &middot; Marketing de Impacto &middot; Com Logo AV</div>
+  </div>
+  <div class="section-sub">Le&atilde;o de Jud&aacute; &middot; S&iacute;mbolos crist&atilde;os (cruz, escudo, coroa) &middot; Frases b&iacute;blicas de for&ccedil;a</div>
+  <div class="grid">
+    <div class="card">
+      <div class="card-label fire">01 &mdash; F&eacute;</div>
+      <div class="frame"><iframe src="leao/leao-01.html"></iframe></div>
+      <div class="card-desc">&ldquo;N&atilde;o ande por vista. Ande por f&eacute;.&rdquo; &mdash; 2 Cor&iacute;ntios 5:7</div>
+      <a href="leao/leao-01.html" target="_blank" class="open-link fire">Abrir full &rarr;</a>
+    </div>
+    <div class="card">
+      <div class="card-label fire">02 &mdash; For&ccedil;a</div>
+      <div class="frame"><iframe src="leao/leao-02.html"></iframe></div>
+      <div class="card-desc">&ldquo;Tudo posso naquele que me fortalece.&rdquo; &mdash; Filipenses 4:13</div>
+      <a href="leao/leao-02.html" target="_blank" class="open-link fire">Abrir full &rarr;</a>
+    </div>
+    <div class="card">
+      <div class="card-label fire">03 &mdash; Coragem</div>
+      <div class="frame"><iframe src="leao/leao-03.html"></iframe></div>
+      <div class="card-desc">&ldquo;Seja forte e corajoso.&rdquo; &mdash; Josu&eacute; 1:9</div>
+      <a href="leao/leao-03.html" target="_blank" class="open-link fire">Abrir full &rarr;</a>
+    </div>
+    <div class="card">
+      <div class="card-label fire">04 &mdash; Geom&eacute;trico</div>
+      <div class="frame"><iframe src="leao/leao-04.html"></iframe></div>
+      <div class="card-desc">&ldquo;O justo &eacute; ousado como um le&atilde;o.&rdquo; &mdash; Prov&eacute;rbios 28:1</div>
+      <a href="leao/leao-04.html" target="_blank" class="open-link fire">Abrir full &rarr;</a>
+    </div>
+    <div class="card">
+      <div class="card-label fire">05 &mdash; Constela&ccedil;&atilde;o</div>
+      <div class="frame"><iframe src="leao/leao-05.html"></iframe></div>
+      <div class="card-desc">&ldquo;N&atilde;o temas, porque Eu estou contigo.&rdquo; &mdash; Isa&iacute;as 41:10</div>
+      <a href="leao/leao-05.html" target="_blank" class="open-link fire">Abrir full &rarr;</a>
+    </div>
+    <div class="card">
+      <div class="card-label fire">06 &mdash; Energia</div>
+      <div class="frame"><iframe src="leao/leao-06.html"></iframe></div>
+      <div class="card-desc">&ldquo;O Le&atilde;o da tribo de Jud&aacute; venceu.&rdquo; &mdash; Apocalipse 5:5</div>
+      <a href="leao/leao-06.html" target="_blank" class="open-link fire">Abrir full &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ===== SECTION 5: WORSHIP ===== -->
+<div class="section" id="worship">
+  <div class="section-header">
+    <div class="section-dot neon"></div>
+    <div class="section-title neon">Worship &mdash; Dopaminada</div>
+    <div class="section-count">5 criativos &middot; P&uacute;blico Jovem &middot; Com Logo AV</div>
+  </div>
+  <div class="section-sub">Neon &middot; Gradientes vibrantes &middot; Linguagem atual &middot; Engajamento jovem &middot; Domingo 7PM</div>
+  <div class="grid">
+    <div class="card">
+      <div class="card-label neon">01 &mdash; Presen&ccedil;a</div>
+      <div class="frame"><iframe src="worship/worship-01.html"></iframe></div>
+      <div class="card-desc">&ldquo;A presen&ccedil;a de Deus &eacute; o melhor lugar.&rdquo;</div>
+      <a href="worship/worship-01.html" target="_blank" class="open-link neon">Abrir full &rarr;</a>
+    </div>
+    <div class="card">
+      <div class="card-label neon">02 &mdash; Liberdade</div>
+      <div class="frame"><iframe src="worship/worship-02.html"></iframe></div>
+      <div class="card-desc">&ldquo;Onde o Esp&iacute;rito do Senhor est&aacute;, a&iacute; h&aacute; liberdade.&rdquo;</div>
+      <a href="worship/worship-02.html" target="_blank" class="open-link neon">Abrir full &rarr;</a>
+    </div>
+    <div class="card">
+      <div class="card-label neon">03 &mdash; Fogo</div>
+      <div class="frame"><iframe src="worship/worship-03.html"></iframe></div>
+      <div class="card-desc">&ldquo;N&atilde;o apague o fogo que Deus acendeu em voc&ecirc;.&rdquo;</div>
+      <a href="worship/worship-03.html" target="_blank" class="open-link neon">Abrir full &rarr;</a>
+    </div>
+    <div class="card">
+      <div class="card-label neon">04 &mdash; Cura</div>
+      <div class="frame"><iframe src="worship/worship-04.html"></iframe></div>
+      <div class="card-desc">&ldquo;Tem cura no louvor. Tem liberta&ccedil;&atilde;o na adora&ccedil;&atilde;o.&rdquo;</div>
+      <a href="worship/worship-04.html" target="_blank" class="open-link neon">Abrir full &rarr;</a>
+    </div>
+    <div class="card">
+      <div class="card-label neon">05 &mdash; Gera&ccedil;&atilde;o</div>
+      <div class="frame"><iframe src="worship/worship-05.html"></iframe></div>
+      <div class="card-desc">&ldquo;Essa gera&ccedil;&atilde;o nasceu pra adorar.&rdquo;</div>
+      <a href="worship/worship-05.html" target="_blank" class="open-link neon">Abrir full &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ===== SECTION 6: GC DOPAMINA ===== -->
+<div class="section" id="wgc">
+  <div class="section-header">
+    <div class="section-dot neon"></div>
+    <div class="section-title neon">GC Dopamina &mdash; Amanh&atilde;</div>
+    <div class="section-count">3 criativos &middot; Quarta 8PM &middot; Com Logo AV</div>
+  </div>
+  <div class="section-sub">Estilo dopaminada &middot; Linguagem jovem &middot; Grupo de Encontro &middot; Urg&ecirc;ncia &ldquo;Amanh&atilde;&rdquo;</div>
+  <div class="grid">
+    <div class="card">
+      <div class="card-label neon">01 &mdash; Conex&atilde;o</div>
+      <div class="frame"><iframe src="worship/wgc-01.html"></iframe></div>
+      <div class="card-desc">&ldquo;Sua hist&oacute;ria muda quando voc&ecirc; se conecta.&rdquo;</div>
+      <a href="worship/wgc-01.html" target="_blank" class="open-link neon">Abrir full &rarr;</a>
+    </div>
+    <div class="card">
+      <div class="card-label neon">02 &mdash; Encontro</div>
+      <div class="frame"><iframe src="worship/wgc-02.html"></iframe></div>
+      <div class="card-desc">&ldquo;O encontro que sua alma t&aacute; precisando.&rdquo;</div>
+      <a href="worship/wgc-02.html" target="_blank" class="open-link neon">Abrir full &rarr;</a>
+    </div>
+    <div class="card">
+      <div class="card-label neon">03 &mdash; Fam&iacute;lia</div>
+      <div class="frame"><iframe src="worship/wgc-03.html"></iframe></div>
+      <div class="card-desc">&ldquo;GC n&atilde;o &eacute; reuni&atilde;o. &Eacute; fam&iacute;lia.&rdquo;</div>
+      <a href="worship/wgc-03.html" target="_blank" class="open-link neon">Abrir full &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ===== HOW TO EXPORT ===== -->
+<div class="how">
+  <p><strong>Como exportar:</strong> Clique em &ldquo;Abrir full&rdquo; para abrir o criativo em tamanho real (1080&times;1920px). No navegador, use <strong>Cmd+Shift+S</strong> (Safari) ou <strong>F12 &rarr; Device Mode &rarr; Screenshot</strong> (Chrome) para salvar como imagem PNG. Todos os arquivos est&atilde;o nas pastas <strong>domingo/</strong>, <strong>gc/</strong> e <strong>billy-graham/</strong>, prontos para compartilhar.</p>
+</div>
+
+<!-- ===== MAPA GERAL ===== -->
+<div class="info-box" id="mapa">
+  <h2>Mapa Geral dos Criativos</h2>
+
+  <h3 style="color:#D4A520;border-color:rgba(212,165,32,0.15)">Culto de Domingo &mdash; 5 Varia&ccedil;&otilde;es</h3>
+  <table>
+    <thead><tr><th>#</th><th>Tema</th><th>Frase</th><th>Visual</th><th>Arquivo</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="sn gold">01</td>
+        <td>Diferente</td>
+        <td>&ldquo;Esse domingo vai ser diferente.&rdquo;</td>
+        <td>Orbs quentes + grid sutil</td>
+        <td>domingo/dom-01.html</td>
+      </tr>
+      <tr>
+        <td class="sn gold">02</td>
+        <td>Promessa</td>
+        <td>&ldquo;Tem algo te esperando nesse domingo.&rdquo;</td>
+        <td>Beam de luz + glow horizontal</td>
+        <td>domingo/dom-02.html</td>
+      </tr>
+      <tr>
+        <td class="sn gold">03</td>
+        <td>Decis&atilde;o</td>
+        <td>&ldquo;Uma noite. Uma decis&atilde;o. Uma vida transformada.&rdquo;</td>
+        <td>Geom&eacute;tricos + gradiente</td>
+        <td>domingo/dom-03.html</td>
+      </tr>
+      <tr>
+        <td class="sn gold">04</td>
+        <td>Comunidade</td>
+        <td>&ldquo;Voc&ecirc; n&atilde;o foi feito pra caminhar sozinho.&rdquo;</td>
+        <td>Part&iacute;culas + conex&otilde;es</td>
+        <td>domingo/dom-04.html</td>
+      </tr>
+      <tr>
+        <td class="sn gold">05</td>
+        <td>Contagem</td>
+        <td>&ldquo;Voc&ecirc; est&aacute; pronto?&rdquo; &mdash; Conta regressiva 02 Dias</td>
+        <td>An&eacute;is de glow conc&ecirc;ntricos</td>
+        <td>domingo/dom-05.html</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 style="color:#a78bfa;border-color:rgba(167,139,250,0.15)">GC &mdash; Grupo de Encontro &mdash; 6 Varia&ccedil;&otilde;es</h3>
+  <table>
+    <thead><tr><th>#</th><th>Tema</th><th>Frase</th><th>Refer&ecirc;ncia</th><th>Arquivo</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="sn violet">01</td>
+        <td>Presen&ccedil;a</td>
+        <td>&ldquo;Onde dois ou tr&ecirc;s est&atilde;o reunidos em Meu nome, ali Eu estou.&rdquo;</td>
+        <td>Mateus 18:20</td>
+        <td>gc/gc-01.html</td>
+      </tr>
+      <tr>
+        <td class="sn violet">02</td>
+        <td>For&ccedil;a</td>
+        <td>&ldquo;Melhor &eacute; serem dois do que um...&rdquo;</td>
+        <td>Eclesiastes 4:9</td>
+        <td>gc/gc-02.html</td>
+      </tr>
+      <tr>
+        <td class="sn violet">03</td>
+        <td>Crescimento</td>
+        <td>&ldquo;Assim como o ferro afia o ferro...&rdquo;</td>
+        <td>Prov&eacute;rbios 27:17</td>
+        <td>gc/gc-03.html</td>
+      </tr>
+      <tr>
+        <td class="sn violet">04</td>
+        <td>Acolhimento</td>
+        <td>&ldquo;Levem as cargas uns dos outros...&rdquo;</td>
+        <td>G&aacute;latas 6:2</td>
+        <td>gc/gc-04.html</td>
+      </tr>
+      <tr>
+        <td class="sn violet">05</td>
+        <td>Reuni&atilde;o</td>
+        <td>&ldquo;N&atilde;o deixemos de nos reunir...&rdquo;</td>
+        <td>Hebreus 10:25</td>
+        <td>gc/gc-05.html</td>
+      </tr>
+      <tr>
+        <td class="sn violet">06</td>
+        <td>Sabedoria</td>
+        <td>&ldquo;Quem anda com s&aacute;bios ser&aacute; s&aacute;bio.&rdquo;</td>
+        <td>Prov&eacute;rbios 13:20</td>
+        <td>gc/gc-06.html</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 style="color:#F59E0B;border-color:rgba(245,158,11,0.15)">Billy Graham &mdash; 3 Varia&ccedil;&otilde;es</h3>
+  <table>
+    <thead><tr><th>#</th><th>Dia</th><th>Tema</th><th>Frase</th><th>Arquivo</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="sn amber">01</td>
+        <td>Ter&ccedil;a</td>
+        <td>Gra&ccedil;a</td>
+        <td>&ldquo;A vontade de Deus nunca vai te levar onde a gra&ccedil;a de Deus n&atilde;o possa te guardar.&rdquo;</td>
+        <td>billy-graham/bg-01.html</td>
+      </tr>
+      <tr>
+        <td class="sn amber">02</td>
+        <td>Quinta</td>
+        <td>Amor</td>
+        <td>&ldquo;Deus provou o Seu amor na Cruz... era Deus dizendo: Eu te amo.&rdquo;</td>
+        <td>billy-graham/bg-02.html</td>
+      </tr>
+      <tr>
+        <td class="sn amber">03</td>
+        <td>S&aacute;bado</td>
+        <td>Decis&atilde;o</td>
+        <td>&ldquo;Ser crist&atilde;o &eacute; mais do que uma convers&atilde;o instant&acirc;nea &mdash; &eacute; um processo di&aacute;rio.&rdquo;</td>
+        <td>billy-graham/bg-03.html</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 style="color:#F97316;border-color:rgba(249,115,22,0.15)">Le&atilde;o Crist&atilde;o &mdash; 3 Varia&ccedil;&otilde;es</h3>
+  <table>
+    <thead><tr><th>#</th><th>Tema</th><th>Frase</th><th>Refer&ecirc;ncia</th><th>S&iacute;mbolo</th><th>Arquivo</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="sn fire">01</td>
+        <td>F&eacute;</td>
+        <td>&ldquo;N&atilde;o ande por vista. Ande por f&eacute;.&rdquo;</td>
+        <td>2 Cor&iacute;ntios 5:7</td>
+        <td>Le&atilde;o + Cruz</td>
+        <td>leao/leao-01.html</td>
+      </tr>
+      <tr>
+        <td class="sn fire">02</td>
+        <td>For&ccedil;a</td>
+        <td>&ldquo;Tudo posso naquele que me fortalece.&rdquo;</td>
+        <td>Filipenses 4:13</td>
+        <td>Escudo + Cruz + Coroa</td>
+        <td>leao/leao-02.html</td>
+      </tr>
+      <tr>
+        <td class="sn fire">03</td>
+        <td>Coragem</td>
+        <td>&ldquo;Seja forte e corajoso.&rdquo;</td>
+        <td>Josu&eacute; 1:9</td>
+        <td>Le&atilde;o rugindo + Brasas</td>
+        <td>leao/leao-03.html</td>
+      </tr>
+      <tr>
+        <td class="sn fire">04</td>
+        <td>Ousadia</td>
+        <td>&ldquo;O justo &eacute; ousado como um le&atilde;o.&rdquo;</td>
+        <td>Prov&eacute;rbios 28:1</td>
+        <td>Wireframe geom&eacute;trico + Scanlines</td>
+        <td>leao/leao-04.html</td>
+      </tr>
+      <tr>
+        <td class="sn fire">05</td>
+        <td>Prote&ccedil;&atilde;o</td>
+        <td>&ldquo;N&atilde;o temas, porque Eu estou contigo.&rdquo;</td>
+        <td>Isa&iacute;as 41:10</td>
+        <td>Constela&ccedil;&atilde;o / Nodes c&oacute;smicos</td>
+        <td>leao/leao-05.html</td>
+      </tr>
+      <tr>
+        <td class="sn fire">06</td>
+        <td>Vit&oacute;ria</td>
+        <td>&ldquo;O Le&atilde;o da tribo de Jud&aacute; venceu.&rdquo;</td>
+        <td>Apocalipse 5:5</td>
+        <td>Energia / Aura + Ondas</td>
+        <td>leao/leao-06.html</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 style="color:#a855f7;border-color:rgba(168,85,247,0.15)">Worship &mdash; 5 Varia&ccedil;&otilde;es</h3>
+  <table>
+    <thead><tr><th>#</th><th>Tema</th><th>Frase de Impacto</th><th>Visual</th><th>Arquivo</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="sn neon">01</td>
+        <td>Presen&ccedil;a</td>
+        <td>&ldquo;A presen&ccedil;a de Deus &eacute; o melhor lugar.&rdquo;</td>
+        <td>Blobs dopamina + Equalizer + Notas musicais</td>
+        <td>worship/worship-01.html</td>
+      </tr>
+      <tr>
+        <td class="sn neon">02</td>
+        <td>Liberdade</td>
+        <td>&ldquo;Onde o Esp&iacute;rito do Senhor est&aacute;, a&iacute; h&aacute; liberdade.&rdquo;</td>
+        <td>Neon streaks + C&iacute;rculos + Glitch lines</td>
+        <td>worship/worship-02.html</td>
+      </tr>
+      <tr>
+        <td class="sn neon">03</td>
+        <td>Fogo</td>
+        <td>&ldquo;N&atilde;o apague o fogo que Deus acendeu em voc&ecirc;.&rdquo;</td>
+        <td>Gradient mesh fogo + Pulse rings + Sparks</td>
+        <td>worship/worship-03.html</td>
+      </tr>
+      <tr>
+        <td class="sn neon">04</td>
+        <td>Cura</td>
+        <td>&ldquo;Tem cura no louvor. Tem liberta&ccedil;&atilde;o na adora&ccedil;&atilde;o.&rdquo;</td>
+        <td>Aurora waves + Glassmorphism card</td>
+        <td>worship/worship-04.html</td>
+      </tr>
+      <tr>
+        <td class="sn neon">05</td>
+        <td>Gera&ccedil;&atilde;o</td>
+        <td>&ldquo;Essa gera&ccedil;&atilde;o nasceu pra adorar.&rdquo;</td>
+        <td>Gradient animado + Grid + Tags flutuantes</td>
+        <td>worship/worship-05.html</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 style="color:rgba(255,255,255,0.4);border-color:rgba(255,255,255,0.08)">Especifica&ccedil;&otilde;es Gerais</h3>
+  <table>
+    <thead><tr><th>Item</th><th>Detalhe</th></tr></thead>
+    <tbody>
+      <tr><td class="sn gold">Formato</td><td>1080 &times; 1920px (9:16) &mdash; Instagram Stories</td></tr>
+      <tr><td class="sn gold">Domingo</td><td>Paleta dourada (#D4A520 / #F59E0B) sobre preto &middot; Com logo AV &middot; 7PM</td></tr>
+      <tr><td class="sn violet">GC</td><td>Paleta violeta/azul (#a78bfa / #60a5fa / #34d399) &middot; Sem logo &middot; Quarta 8PM</td></tr>
+      <tr><td class="sn amber">Billy Graham</td><td>Paleta dourada quente &middot; Com logo AV + assinatura cursiva &middot; Ter&ccedil;a / Quinta / S&aacute;bado</td></tr>
+      <tr><td class="sn neon">Worship</td><td>Paleta neon dopamina (#a855f7 / #ec4899 / #3b82f6 / #14b8a6) &middot; P&uacute;blico jovem &middot; Com logo AV</td></tr>
+      <tr><td class="sn fire">Le&atilde;o</td><td>Paleta fogo (#D4A520 / #F59E0B / #F97316) &middot; Le&atilde;o SVG + s&iacute;mbolos crist&atilde;os &middot; Com logo AV</td></tr>
+      <tr><td class="sn gold">Fontes</td><td>Montserrat (corpo) &middot; Playfair Display (cita&ccedil;&otilde;es) &middot; Great Vibes (assinatura BG)</td></tr>
+      <tr><td class="sn gold">Endere&ccedil;o</td><td>607 Avalon Road &middot; Winter Garden, FL</td></tr>
+      <tr><td class="sn gold">Instagram</td><td>@avorlando.ofc</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ===== COPIES / CAPTIONS ===== -->
+<div class="info-box">
+  <h2>Copies & Captions Sugeridos</h2>
+
+  <h3 style="color:#D4A520;border-color:rgba(212,165,32,0.15)">Domingo</h3>
+  <table>
+    <thead><tr><th>#</th><th>Caption para Instagram</th></tr></thead>
+    <tbody>
+      <tr><td class="sn gold">01</td><td>&ldquo;Esse domingo vai ser diferente. Voc&ecirc; sente? 7PM &mdash; 607 Avalon Road. Vem com a gente.&rdquo;</td></tr>
+      <tr><td class="sn gold">02</td><td>&ldquo;Tem algo te esperando. N&atilde;o perca o que Deus preparou pra voc&ecirc;. Domingo 7PM.&rdquo;</td></tr>
+      <tr><td class="sn gold">03</td><td>&ldquo;Uma noite pode mudar tudo. Vem viver isso com a gente. Domingo &agrave;s 7PM.&rdquo;</td></tr>
+      <tr><td class="sn gold">04</td><td>&ldquo;Voc&ecirc; n&atilde;o foi feito pra caminhar sozinho. Uma fam&iacute;lia te espera em Winter Garden. Marca quem voc&ecirc; vai trazer.&rdquo;</td></tr>
+      <tr><td class="sn gold">05</td><td>&ldquo;Faltam 2 dias. Voc&ecirc; est&aacute; pronto? Domingo 7PM &mdash; Te vejo l&aacute;. Responde EU VOU.&rdquo;</td></tr>
+    </tbody>
+  </table>
+
+  <h3 style="color:#a78bfa;border-color:rgba(167,139,250,0.15)">GC</h3>
+  <table>
+    <thead><tr><th>#</th><th>Caption para Instagram</th></tr></thead>
+    <tbody>
+      <tr><td class="sn violet">01</td><td>&ldquo;Amanh&atilde; tem GC. O lugar onde Deus se encontra com a gente. Manda mensagem pra saber o GC mais perto de voc&ecirc;.&rdquo;</td></tr>
+      <tr><td class="sn violet">02</td><td>&ldquo;Sozinho voc&ecirc; vai r&aacute;pido, mas junto a gente vai mais longe. Quarta &agrave;s 8PM. Responde EU VOU.&rdquo;</td></tr>
+      <tr><td class="sn violet">03</td><td>&ldquo;Sua hist&oacute;ria muda quando voc&ecirc; se conecta. Vem pro GC amanh&atilde;. Marca quem voc&ecirc; vai trazer.&rdquo;</td></tr>
+      <tr><td class="sn violet">04</td><td>&ldquo;GC n&atilde;o &eacute; s&oacute; reuni&atilde;o &mdash; &eacute; fam&iacute;lia. Aqui tem espa&ccedil;o pra voc&ecirc;. Quarta 8PM.&rdquo;</td></tr>
+      <tr><td class="sn violet">05</td><td>&ldquo;N&atilde;o foi feito pra caminhar sozinho. Vem se reunir com a gente. Quarta &agrave;s 8PM.&rdquo;</td></tr>
+      <tr><td class="sn violet">06</td><td>&ldquo;Seu pr&oacute;ximo n&iacute;vel come&ccedil;a com as pessoas certas. Vem pro GC. Quarta 8PM.&rdquo;</td></tr>
+    </tbody>
+  </table>
+
+  <h3 style="color:#F59E0B;border-color:rgba(245,158,11,0.15)">Billy Graham</h3>
+  <table>
+    <thead><tr><th>#</th><th>Caption para Instagram</th></tr></thead>
+    <tbody>
+      <tr><td class="sn amber">01</td><td>&ldquo;Salva esse story pra quando voc&ecirc; precisar de um lembrete. Manda pra algu&eacute;m que precisa ouvir isso hoje.&rdquo;</td></tr>
+      <tr><td class="sn amber">02</td><td>&ldquo;Esse domingo a gente celebra esse amor. 7PM &mdash; 607 Avalon Road. Responde EU VOU.&rdquo;</td></tr>
+      <tr><td class="sn amber">03</td><td>&ldquo;Amanh&atilde; pode ser o primeiro passo. Te vejo &agrave;s 7PM. Marca quem voc&ecirc; vai trazer.&rdquo;</td></tr>
+    </tbody>
+  </table>
+
+  <h3 style="color:#F97316;border-color:rgba(249,115,22,0.15)">Le&atilde;o Crist&atilde;o</h3>
+  <table>
+    <thead><tr><th>#</th><th>Caption para Instagram</th></tr></thead>
+    <tbody>
+      <tr><td class="sn fire">01</td><td>&ldquo;A f&eacute; n&atilde;o &eacute; a aus&ecirc;ncia de medo &mdash; &eacute; a decis&atilde;o de avan&ccedil;ar mesmo assim. Ande por f&eacute;. Compartilha com quem precisa ouvir isso.&rdquo;</td></tr>
+      <tr><td class="sn fire">02</td><td>&ldquo;Sua for&ccedil;a n&atilde;o vem de voc&ecirc;. Vem dAquele que te fortalece. Marca algu&eacute;m que precisa dessa palavra hoje.&rdquo;</td></tr>
+      <tr><td class="sn fire">03</td><td>&ldquo;N&atilde;o foi pra ser fraco. Foi pra rugir como Le&atilde;o. Seja forte e corajoso &mdash; Josu&eacute; 1:9. Domingo 7PM. Responde EU VOU.&rdquo;</td></tr>
+      <tr><td class="sn fire">04</td><td>&ldquo;O justo n&atilde;o recua. Avan&ccedil;a com ousadia. Salva e manda pra quem precisa ouvir isso.&rdquo;</td></tr>
+      <tr><td class="sn fire">05</td><td>&ldquo;O mesmo Deus que colocou estrelas no c&eacute;u cuida de voc&ecirc;. N&atilde;o temas. Compartilha com algu&eacute;m.&rdquo;</td></tr>
+      <tr><td class="sn fire">06</td><td>&ldquo;A vit&oacute;ria j&aacute; foi conquistada. O Le&atilde;o de Jud&aacute; venceu. Domine com f&eacute;. Domingo 7PM. Te vejo l&aacute;.&rdquo;</td></tr>
+    </tbody>
+  </table>
+
+  <h3 style="color:#a855f7;border-color:rgba(168,85,247,0.15)">Worship</h3>
+  <table>
+    <thead><tr><th>#</th><th>Caption para Instagram</th></tr></thead>
+    <tbody>
+      <tr><td class="sn neon">01</td><td>&ldquo;Fecha o olho. Levanta a m&atilde;o. Esse domingo a presen&ccedil;a vai ser REAL. 7PM &mdash; Vem adorar com a gente. &#127908;&rdquo;</td></tr>
+      <tr><td class="sn neon">02</td><td>&ldquo;Cansado de se sentir preso? Onde o Esp&iacute;rito do Senhor est&aacute;, a&iacute; h&aacute; liberdade. Solta a voz. Domingo 7PM. Responde EU VOU &#9996;&rdquo;</td></tr>
+      <tr><td class="sn neon">03</td><td>&ldquo;Tem fogo? N&atilde;o deixa apagar. Esse domingo o louvor vai ser diferente. Marca quem vai com voc&ecirc; &#128293;&#128293;&#128293;&rdquo;</td></tr>
+      <tr><td class="sn neon">04</td><td>&ldquo;Quando o louvor sobe, a gl&oacute;ria desce. Tem cura. Tem liberta&ccedil;&atilde;o. Vem viver. Domingo 7PM &#127925;&rdquo;</td></tr>
+      <tr><td class="sn neon">05</td><td>&ldquo;N&atilde;o &eacute; show. &Eacute; encontro. N&atilde;o &eacute; m&uacute;sica. &Eacute; altar. Essa gera&ccedil;&atilde;o nasceu pra adorar. #VemPraAV &#128588;&rdquo;</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<div class="footer">
+  <div class="ft-logo">
+    <svg width="36" height="24" viewBox="0 0 100 65" fill="none" opacity="0.2">
+      <polygon points="0,65 10,65 40,0 30,0" fill="#D4A520"/>
+      <polygon points="30,0 40,0 70,65 60,65" fill="#D4A520"/>
+      <polygon points="60,65 70,65 100,0 90,0" fill="#D4A520"/>
+    </svg>
+  </div>
+  <p>AV Orlando &middot; Al&eacute;m do V&eacute;u &middot; @avorlando.ofc</p>
+  <p style="margin-top:6px;color:rgba(255,255,255,0.08)">Painel gerado para uso interno da equipe de comunica&ccedil;&atilde;o</p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<title>GC 05</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden}
+body{font-family:'Montserrat',sans-serif;color:#fff}
+.s{width:1080px;height:1920px;position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center;background:#060810;overflow:hidden;padding:120px 80px}
+.s::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 50% 50%,rgba(52,211,153,0.03) 0%,transparent 50%);z-index:1}
+/* Constellation nodes */
+.node{position:absolute;border-radius:50%;z-index:3}
+.n1{width:8px;height:8px;top:28%;left:25%;background:#34d399;box-shadow:0 0 20px rgba(52,211,153,0.5)}
+.n2{width:12px;height:12px;top:38%;left:65%;background:#60a5fa;box-shadow:0 0 24px rgba(96,165,250,0.5)}
+.n3{width:6px;height:6px;top:55%;left:35%;background:#a78bfa;box-shadow:0 0 18px rgba(167,139,250,0.4)}
+.n4{width:10px;height:10px;top:62%;left:72%;background:#34d399;box-shadow:0 0 22px rgba(52,211,153,0.4)}
+.n5{width:7px;height:7px;top:45%;left:15%;background:#f472b6;box-shadow:0 0 18px rgba(244,114,182,0.4)}
+.n6{width:9px;height:9px;top:33%;left:80%;background:#a78bfa;box-shadow:0 0 20px rgba(167,139,250,0.3)}
+/* Connection lines */
+.lines{position:absolute;top:0;left:0;width:100%;height:100%;z-index:2}
+.lines svg{width:100%;height:100%}
+.lines line{stroke:rgba(255,255,255,0.04);stroke-width:1}
+.c{position:relative;z-index:10;text-align:center}
+.tag{font-size:30px;font-weight:200;letter-spacing:20px;text-transform:uppercase;color:rgba(52,211,153,0.35);margin-bottom:20px}
+.big{font-size:180px;font-weight:900;letter-spacing:-12px;line-height:0.9;margin-bottom:15px;background:linear-gradient(180deg,#fff 20%,#34d399 80%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sub{font-size:28px;font-weight:500;letter-spacing:16px;text-transform:uppercase;color:rgba(52,211,153,0.3);margin-bottom:90px}
+.intro{font-size:44px;font-weight:300;color:rgba(255,255,255,0.45);margin-bottom:18px;line-height:1.4}
+.bold{font-size:72px;font-weight:900;text-transform:uppercase;letter-spacing:-2px;line-height:1.1;margin-bottom:20px;background:linear-gradient(180deg,#fff 20%,#34d399 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.italic{font-family:'Playfair Display',serif;font-size:48px;font-style:italic;color:rgba(255,255,255,0.4);margin-bottom:60px;line-height:1.4}
+.ref{font-size:28px;font-weight:600;letter-spacing:8px;text-transform:uppercase;color:rgba(52,211,153,0.35)}
+.bot{position:absolute;bottom:100px;left:50%;transform:translateX(-50%);text-align:center;z-index:10}
+.bot p{font-size:30px;font-weight:400;letter-spacing:10px;text-transform:uppercase;color:rgba(255,255,255,0.18)}
+</style>
+</head>
+<body>
+<div class="s">
+  <div class="node n1"></div>
+  <div class="node n2"></div>
+  <div class="node n3"></div>
+  <div class="node n4"></div>
+  <div class="node n5"></div>
+  <div class="node n6"></div>
+  <div class="lines">
+    <svg viewBox="0 0 1080 1920">
+      <line x1="270" y1="538" x2="702" y2="730"/>
+      <line x1="702" y1="730" x2="378" y2="1056"/>
+      <line x1="378" y1="1056" x2="778" y2="1190"/>
+      <line x1="270" y1="538" x2="162" y2="864"/>
+      <line x1="162" y1="864" x2="378" y2="1056"/>
+      <line x1="864" y1="634" x2="702" y2="730"/>
+      <line x1="864" y1="634" x2="778" y2="1190"/>
+    </svg>
+  </div>
+  <div class="c">
+    <div class="tag">Grupo de Encontro</div>
+    <div class="big">GC</div>
+    <div class="sub">Rede de F&eacute;</div>
+    <div class="intro">N&atilde;o deixemos de</div>
+    <div class="bold">Nos reunir.</div>
+    <div class="italic">Antes, encorajemos<br>uns aos outros.</div>
+    <div class="ref">Hebreus 10:25</div>
+  </div>
+  <div class="bot"><p>Quarta &middot; 8PM</p></div>
+</div>
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+<script>
+if(window===window.top){var b=document.createElement("button");b.innerHTML="\u2B07 BAIXAR JPG";b.style.cssText="position:fixed;bottom:30px;right:30px;z-index:9999;background:#D4A520;color:#000;border:none;padding:16px 32px;font-family:Montserrat,sans-serif;font-size:14px;font-weight:800;letter-spacing:3px;text-transform:uppercase;cursor:pointer;border-radius:8px;box-shadow:0 4px 20px rgba(212,165,32,0.3)";b.onmouseenter=function(){b.style.background="#E6C44A"};b.onmouseleave=function(){b.style.background="#D4A520"};b.onclick=function(){b.style.display="none";html2canvas(document.querySelector(".s"),{width:1080,height:1920,scale:1,backgroundColor:null,useCORS:true}).then(function(c){var a=document.createElement("a");a.download=document.title.replace(/[^a-zA-Z0-9]/g,"-")+".png";a.href=c.toDataURL("image/png");a.click();b.style.display=""})};document.body.appendChild(b)}if(window===window.top){var bk=document.createElement("a");bk.innerHTML="&#8592; PAINEL";bk.href="../painel.html";bk.style.cssText="position:fixed;top:30px;left:30px;z-index:9999;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.12);text-decoration:none;padding:14px 28px;font-family:Montserrat,sans-serif;font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;cursor:pointer;border-radius:8px;backdrop-filter:blur(10px)";bk.onmouseenter=function(){bk.style.background="rgba(255,255,255,0.15)";bk.style.color="#fff"};bk.onmouseleave=function(){bk.style.background="rgba(255,255,255,0.08)";bk.style.color="rgba(255,255,255,0.6)"};document.body.appendChild(bk)}
+</script>
+</body>
+</html>

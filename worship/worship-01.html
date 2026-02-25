@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<title>Worship 01 — Presenca</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden}
+body{font-family:'Montserrat',sans-serif;color:#fff}
+.s{width:1080px;height:1920px;position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center;background:#08020e;overflow:hidden}
+/* Dopamine gradient blobs */
+.blob{position:absolute;border-radius:50%;filter:blur(120px);z-index:1}
+.b1{width:700px;height:700px;top:-10%;left:-15%;background:rgba(168,85,247,0.25)}
+.b2{width:600px;height:600px;bottom:5%;right:-20%;background:rgba(236,72,153,0.2)}
+.b3{width:500px;height:500px;top:35%;left:50%;transform:translateX(-50%);background:rgba(59,130,246,0.12)}
+.b4{width:400px;height:400px;top:60%;left:-10%;background:rgba(20,184,166,0.1)}
+/* Noise grain overlay */
+.grain{position:absolute;top:0;left:0;right:0;bottom:0;z-index:14;opacity:0.04;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:128px;pointer-events:none}
+/* Equalizer bars */
+.eq{position:absolute;bottom:0;left:0;right:0;height:400px;display:flex;align-items:flex-end;justify-content:center;gap:6px;z-index:2;opacity:0.15;padding:0 40px}
+.bar{width:8px;border-radius:4px 4px 0 0;animation:eqb 1.2s ease-in-out infinite alternate}
+@keyframes eqb{0%{height:20px}100%{height:var(--h)}}
+/* Floating music notes */
+.note{position:absolute;z-index:3;font-size:40px;opacity:0.08;animation:floatn 8s ease-in-out infinite}
+.n1{top:15%;left:12%;animation-delay:0s}
+.n2{top:25%;right:15%;animation-delay:-3s;font-size:32px}
+.n3{top:55%;left:8%;animation-delay:-5s;font-size:28px}
+.n4{top:70%;right:10%;animation-delay:-1.5s;font-size:36px}
+@keyframes floatn{0%,100%{transform:translateY(0) rotate(0deg);opacity:0.06}50%{transform:translateY(-30px) rotate(10deg);opacity:0.12}}
+/* AV Logo */
+.av-logo{position:absolute;top:60px;right:40px;z-index:20}
+.av-logo img{width:120px;height:auto;mix-blend-mode:screen}
+/* Content */
+.c{position:relative;z-index:10;text-align:center;padding:0 70px}
+.tag{display:inline-block;padding:14px 36px;border:1.5px solid rgba(168,85,247,0.4);border-radius:50px;font-size:22px;font-weight:700;letter-spacing:8px;text-transform:uppercase;color:rgba(168,85,247,0.8);margin-bottom:50px;backdrop-filter:blur(10px);background:rgba(168,85,247,0.05)}
+.hook{font-size:82px;font-weight:900;text-transform:uppercase;letter-spacing:-3px;line-height:1.02;margin-bottom:25px}
+.hook .l1{display:block;background:linear-gradient(135deg,#a855f7,#ec4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hook .l2{display:block;color:#fff}
+.hook .l3{display:block;background:linear-gradient(135deg,#3b82f6,#14b8a6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sub{font-size:34px;font-weight:300;color:rgba(255,255,255,0.4);line-height:1.5;margin-bottom:55px}
+.cta{display:inline-block;background:linear-gradient(135deg,#a855f7,#ec4899);color:#fff;padding:28px 64px;font-size:26px;font-weight:800;letter-spacing:5px;text-transform:uppercase;border-radius:60px;margin-bottom:50px;box-shadow:0 8px 40px rgba(168,85,247,0.25)}
+.info{font-size:22px;font-weight:400;letter-spacing:6px;text-transform:uppercase;color:rgba(255,255,255,0.2)}
+</style>
+</head>
+<body>
+<div class="s">
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div><div class="blob b4"></div>
+  <div class="grain"></div>
+  <div class="note n1">&#9835;</div><div class="note n2">&#9834;</div><div class="note n3">&#9833;</div><div class="note n4">&#9835;</div>
+  <div class="eq">
+    <div class="bar" style="--h:180px;background:linear-gradient(0deg,#a855f7,#ec4899);animation-delay:0s"></div>
+    <div class="bar" style="--h:280px;background:linear-gradient(0deg,#a855f7,#ec4899);animation-delay:0.1s"></div>
+    <div class="bar" style="--h:120px;background:linear-gradient(0deg,#a855f7,#ec4899);animation-delay:0.2s"></div>
+    <div class="bar" style="--h:320px;background:linear-gradient(0deg,#a855f7,#ec4899);animation-delay:0.3s"></div>
+    <div class="bar" style="--h:200px;background:linear-gradient(0deg,#a855f7,#ec4899);animation-delay:0.4s"></div>
+    <div class="bar" style="--h:380px;background:linear-gradient(0deg,#a855f7,#ec4899);animation-delay:0.15s"></div>
+    <div class="bar" style="--h:150px;background:linear-gradient(0deg,#3b82f6,#14b8a6);animation-delay:0.25s"></div>
+    <div class="bar" style="--h:300px;background:linear-gradient(0deg,#3b82f6,#14b8a6);animation-delay:0.35s"></div>
+    <div class="bar" style="--h:240px;background:linear-gradient(0deg,#3b82f6,#14b8a6);animation-delay:0.05s"></div>
+    <div class="bar" style="--h:350px;background:linear-gradient(0deg,#3b82f6,#14b8a6);animation-delay:0.45s"></div>
+    <div class="bar" style="--h:160px;background:linear-gradient(0deg,#a855f7,#ec4899);animation-delay:0.12s"></div>
+    <div class="bar" style="--h:280px;background:linear-gradient(0deg,#a855f7,#ec4899);animation-delay:0.22s"></div>
+    <div class="bar" style="--h:200px;background:linear-gradient(0deg,#3b82f6,#14b8a6);animation-delay:0.32s"></div>
+    <div class="bar" style="--h:340px;background:linear-gradient(0deg,#3b82f6,#14b8a6);animation-delay:0.08s"></div>
+    <div class="bar" style="--h:180px;background:linear-gradient(0deg,#a855f7,#ec4899);animation-delay:0.18s"></div>
+    <div class="bar" style="--h:260px;background:linear-gradient(0deg,#a855f7,#ec4899);animation-delay:0.28s"></div>
+  </div>
+  <div class="av-logo"><img src="../Logobranco_av_orlando.jpeg" alt="AV Orlando"></div>
+  <div class="c">
+    <div class="tag">Worship Night</div>
+    <div class="hook">
+      <span class="l1">A presen&ccedil;a</span>
+      <span class="l2">de Deus &eacute;</span>
+      <span class="l3">o melhor lugar.</span>
+    </div>
+    <div class="sub">Fecha o olho. Levanta a m&atilde;o.<br>Deixa o som te levar.</div>
+    <div class="cta">Vem adorar</div>
+    <div class="info">Domingo 7PM &middot; 607 Avalon Rd</div>
+  </div>
+</div>
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+<script>
+if(window===window.top){var b=document.createElement('button');b.innerHTML='&#11015; BAIXAR JPG';b.style.cssText='position:fixed;bottom:30px;right:30px;z-index:9999;background:#a855f7;color:#fff;border:none;padding:16px 32px;font-family:Montserrat,sans-serif;font-size:14px;font-weight:800;letter-spacing:3px;text-transform:uppercase;cursor:pointer;border-radius:8px;box-shadow:0 4px 20px rgba(168,85,247,0.3)';b.onmouseenter=function(){b.style.background='#c084fc'};b.onmouseleave=function(){b.style.background='#a855f7'};b.onclick=function(){b.style.display='none';html2canvas(document.querySelector('.s'),{width:1080,height:1920,scale:1,backgroundColor:null,useCORS:true}).then(function(c){var a=document.createElement('a');a.download=document.title.replace(/[^a-zA-Z0-9]/g,'-')+'.jpg';a.href=c.toDataURL('image/jpeg',0.95);a.click();b.style.display=''})};document.body.appendChild(b)}if(window===window.top){var bk=document.createElement("a");bk.innerHTML="&#8592; PAINEL";bk.href="../painel.html";bk.style.cssText="position:fixed;top:30px;left:30px;z-index:9999;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.12);text-decoration:none;padding:14px 28px;font-family:Montserrat,sans-serif;font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;cursor:pointer;border-radius:8px;backdrop-filter:blur(10px)";bk.onmouseenter=function(){bk.style.background="rgba(255,255,255,0.15)";bk.style.color="#fff"};bk.onmouseleave=function(){bk.style.background="rgba(255,255,255,0.08)";bk.style.color="rgba(255,255,255,0.6)"};document.body.appendChild(bk)}
+</script>
+</body>
+</html>

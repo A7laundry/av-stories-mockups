@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<title>Domingo 04</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden}
+body{font-family:'Montserrat',sans-serif;color:#fff}
+.s{width:1080px;height:1920px;position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center;background:#080604;overflow:hidden;padding:120px 80px}
+/* Warm particles */
+.p{position:absolute;border-radius:50%;z-index:2;animation:fl 7s ease-in-out infinite}
+.p1{width:8px;height:8px;top:20%;left:18%;background:rgba(212,165,32,0.5);box-shadow:0 0 24px rgba(212,165,32,0.3);animation-delay:0s}
+.p2{width:12px;height:12px;top:35%;left:78%;background:rgba(245,158,11,0.5);box-shadow:0 0 30px rgba(245,158,11,0.3);animation-delay:-2s}
+.p3{width:6px;height:6px;top:55%;left:12%;background:rgba(249,115,22,0.4);box-shadow:0 0 18px rgba(249,115,22,0.3);animation-delay:-4s}
+.p4{width:10px;height:10px;top:65%;left:75%;background:rgba(212,165,32,0.4);box-shadow:0 0 24px rgba(212,165,32,0.2);animation-delay:-1s}
+.p5{width:5px;height:5px;top:42%;left:88%;background:rgba(245,158,11,0.3);box-shadow:0 0 15px rgba(245,158,11,0.2);animation-delay:-3s}
+.p6{width:9px;height:9px;top:75%;left:35%;background:rgba(212,165,32,0.35);box-shadow:0 0 20px rgba(212,165,32,0.2);animation-delay:-5s}
+.p7{width:7px;height:7px;top:28%;left:50%;background:rgba(249,115,22,0.3);box-shadow:0 0 18px rgba(249,115,22,0.2);animation-delay:-6s}
+@keyframes fl{0%,100%{transform:translateY(0) scale(1);opacity:0.3}50%{transform:translateY(-30px) scale(1.5);opacity:0.8}}
+/* Connection lines */
+.lines{position:absolute;top:0;left:0;width:100%;height:100%;z-index:1}
+.lines svg{width:100%;height:100%}
+.lines line{stroke:rgba(212,165,32,0.04);stroke-width:1}
+/* AV Logo */
+.av-logo{position:absolute;top:60px;right:40px;z-index:20}
+.av-logo img{width:120px;height:auto;mix-blend-mode:screen}
+.c{position:relative;z-index:10;text-align:center}
+.tag{font-size:30px;font-weight:200;letter-spacing:20px;text-transform:uppercase;color:rgba(212,165,32,0.35);margin-bottom:50px}
+.hook{font-size:72px;font-weight:800;line-height:1.15;margin-bottom:20px}
+.hook .w{color:#fff}
+.hook .em{font-style:normal;color:#D4A520;display:block;font-size:80px;margin-top:10px}
+.sub{font-size:38px;font-weight:300;color:rgba(255,255,255,0.35);margin-bottom:80px;line-height:1.5}
+.badge{display:inline-block;background:#D4A520;color:#000;padding:30px 72px;font-size:30px;font-weight:800;letter-spacing:6px;text-transform:uppercase;margin-bottom:60px}
+.info{font-size:28px;font-weight:400;letter-spacing:8px;text-transform:uppercase;color:rgba(255,255,255,0.25)}
+</style>
+</head>
+<body>
+<div class="s">
+  <div class="p p1"></div><div class="p p2"></div><div class="p p3"></div><div class="p p4"></div><div class="p p5"></div><div class="p p6"></div><div class="p p7"></div>
+  <div class="lines"><svg viewBox="0 0 1080 1920">
+    <line x1="194" y1="384" x2="842" y2="672"/>
+    <line x1="842" y1="672" x2="130" y2="1056"/>
+    <line x1="130" y1="1056" x2="810" y2="1248"/>
+    <line x1="194" y1="384" x2="540" y2="538"/>
+    <line x1="540" y1="538" x2="950" y2="806"/>
+    <line x1="810" y1="1248" x2="378" y2="1440"/>
+  </svg></div>
+  <div class="av-logo"><img src="../Logobranco_av_orlando.jpeg" alt="AV Orlando"></div>
+  <div class="c">
+    <div class="tag">Este Domingo</div>
+    <div class="hook">
+      <span class="w">Voc&ecirc; n&atilde;o foi feito<br>pra caminhar</span>
+      <span class="em">sozinho.</span>
+    </div>
+    <div class="sub">Uma fam&iacute;lia te espera<br>em Winter Garden.</div>
+    <div class="badge">Primeira vez? Vem!</div>
+    <div class="info">Domingo 7PM &middot; 607 Avalon Rd</div>
+  </div>
+</div>
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+<script>
+if(window===window.top){var b=document.createElement("button");b.innerHTML="\u2B07 BAIXAR JPG";b.style.cssText="position:fixed;bottom:30px;right:30px;z-index:9999;background:#D4A520;color:#000;border:none;padding:16px 32px;font-family:Montserrat,sans-serif;font-size:14px;font-weight:800;letter-spacing:3px;text-transform:uppercase;cursor:pointer;border-radius:8px;box-shadow:0 4px 20px rgba(212,165,32,0.3)";b.onmouseenter=function(){b.style.background="#E6C44A"};b.onmouseleave=function(){b.style.background="#D4A520"};b.onclick=function(){b.style.display="none";html2canvas(document.querySelector(".s"),{width:1080,height:1920,scale:1,backgroundColor:null,useCORS:true}).then(function(c){var a=document.createElement("a");a.download=document.title.replace(/[^a-zA-Z0-9]/g,"-")+".png";a.href=c.toDataURL("image/png");a.click();b.style.display=""})};document.body.appendChild(b)}if(window===window.top){var bk=document.createElement("a");bk.innerHTML="&#8592; PAINEL";bk.href="../painel.html";bk.style.cssText="position:fixed;top:30px;left:30px;z-index:9999;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.12);text-decoration:none;padding:14px 28px;font-family:Montserrat,sans-serif;font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;cursor:pointer;border-radius:8px;backdrop-filter:blur(10px)";bk.onmouseenter=function(){bk.style.background="rgba(255,255,255,0.15)";bk.style.color="#fff"};bk.onmouseleave=function(){bk.style.background="rgba(255,255,255,0.08)";bk.style.color="rgba(255,255,255,0.6)"};document.body.appendChild(bk)}
+</script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<title>Leão 01 — Fé</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden}
+body{font-family:'Montserrat',sans-serif;color:#fff}
+.s{width:1080px;height:1920px;position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center;background:#080604;overflow:hidden}
+/* Warm radial atmosphere */
+.s::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 50% 38%,rgba(212,165,32,0.10) 0%,rgba(180,120,20,0.04) 35%,transparent 60%);z-index:1}
+.s::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 50% 80%,rgba(120,60,10,0.06) 0%,transparent 50%);z-index:1}
+/* Dust particles */
+.dust{position:absolute;border-radius:50%;z-index:3;animation:fd 8s ease-in-out infinite}
+.d1{width:4px;height:4px;top:15%;left:20%;background:rgba(212,165,32,0.4);animation-delay:0s}
+.d2{width:6px;height:6px;top:25%;left:75%;background:rgba(245,180,50,0.3);animation-delay:-2s}
+.d3{width:3px;height:3px;top:45%;left:10%;background:rgba(212,165,32,0.35);animation-delay:-4s}
+.d4{width:5px;height:5px;top:60%;left:85%;background:rgba(200,150,30,0.3);animation-delay:-1s}
+.d5{width:4px;height:4px;top:70%;left:30%;background:rgba(212,165,32,0.25);animation-delay:-6s}
+.d6{width:3px;height:3px;top:35%;left:55%;background:rgba(245,180,50,0.2);animation-delay:-3s}
+.d7{width:5px;height:5px;top:80%;left:65%;background:rgba(212,165,32,0.3);animation-delay:-5s}
+@keyframes fd{0%,100%{transform:translateY(0) scale(1);opacity:0.2}50%{transform:translateY(-40px) scale(1.8);opacity:0.7}}
+/* AV Logo */
+.av-logo{position:absolute;top:60px;right:40px;z-index:20}
+.av-logo img{width:120px;height:auto;mix-blend-mode:screen}
+/* Lion SVG */
+.lion-wrap{position:relative;z-index:5;margin-bottom:30px}
+.lion-wrap svg{filter:drop-shadow(0 0 80px rgba(212,165,32,0.15))}
+/* Cross accent behind lion */
+.cross-bg{position:absolute;top:50%;left:50%;transform:translate(-50%,-55%);z-index:2;opacity:0.04}
+/* Content */
+.c{position:relative;z-index:10;text-align:center;padding:0 80px}
+.tag{font-size:28px;font-weight:200;letter-spacing:20px;text-transform:uppercase;color:rgba(212,165,32,0.35);margin-bottom:40px}
+.hook{font-size:78px;font-weight:900;text-transform:uppercase;letter-spacing:-3px;line-height:1.05;margin-bottom:15px}
+.hook .w{color:#fff}
+.hook .g{background:linear-gradient(180deg,#D4A520,#F59E0B);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sub{font-size:36px;font-weight:300;color:rgba(255,255,255,0.4);margin-bottom:15px;line-height:1.5}
+.ref{font-size:24px;font-weight:600;letter-spacing:8px;text-transform:uppercase;color:#D4A520;margin-bottom:60px}
+.divider{width:120px;height:2px;background:linear-gradient(90deg,transparent,#D4A520,transparent);margin:0 auto 50px}
+.info{font-size:26px;font-weight:400;letter-spacing:8px;text-transform:uppercase;color:rgba(255,255,255,0.2)}
+</style>
+</head>
+<body>
+<div class="s">
+  <div class="dust d1"></div><div class="dust d2"></div><div class="dust d3"></div><div class="dust d4"></div><div class="dust d5"></div><div class="dust d6"></div><div class="dust d7"></div>
+  <div class="av-logo"><img src="../Logobranco_av_orlando.jpeg" alt="AV Orlando"></div>
+
+  <!-- Cross behind lion -->
+  <svg class="cross-bg" width="500" height="700" viewBox="0 0 500 700" fill="none">
+    <rect x="210" y="0" width="80" height="700" fill="#D4A520"/>
+    <rect x="80" y="140" width="340" height="80" fill="#D4A520"/>
+  </svg>
+
+  <!-- Lion Head SVG -->
+  <div class="lion-wrap">
+    <svg width="420" height="420" viewBox="0 0 200 200" fill="none">
+      <!-- Mane outer -->
+      <ellipse cx="100" cy="95" rx="90" ry="88" fill="none" stroke="url(#lm1)" stroke-width="1.5" opacity="0.3"/>
+      <!-- Mane rays -->
+      <g opacity="0.5">
+        <line x1="100" y1="5" x2="100" y2="25" stroke="url(#lm1)" stroke-width="2"/>
+        <line x1="55" y1="15" x2="65" y2="32" stroke="url(#lm1)" stroke-width="2"/>
+        <line x1="145" y1="15" x2="135" y2="32" stroke="url(#lm1)" stroke-width="2"/>
+        <line x1="20" y1="45" x2="38" y2="55" stroke="url(#lm1)" stroke-width="2"/>
+        <line x1="180" y1="45" x2="162" y2="55" stroke="url(#lm1)" stroke-width="2"/>
+        <line x1="8" y1="85" x2="28" y2="85" stroke="url(#lm1)" stroke-width="2"/>
+        <line x1="192" y1="85" x2="172" y2="85" stroke="url(#lm1)" stroke-width="2"/>
+        <line x1="15" y1="125" x2="33" y2="118" stroke="url(#lm1)" stroke-width="1.5"/>
+        <line x1="185" y1="125" x2="167" y2="118" stroke="url(#lm1)" stroke-width="1.5"/>
+        <line x1="40" y1="160" x2="52" y2="148" stroke="url(#lm1)" stroke-width="1.5"/>
+        <line x1="160" y1="160" x2="148" y2="148" stroke="url(#lm1)" stroke-width="1.5"/>
+      </g>
+      <!-- Mane shape -->
+      <path d="M100,12 C50,12 18,50 18,90 C18,130 40,165 70,178 L75,170 C48,158 32,128 32,92 C32,56 58,26 100,26 C142,26 168,56 168,92 C168,128 152,158 125,170 L130,178 C160,165 182,130 182,90 C182,50 150,12 100,12Z" fill="url(#lm1)" opacity="0.6"/>
+      <!-- Face -->
+      <ellipse cx="100" cy="100" rx="52" ry="58" fill="url(#lf1)"/>
+      <!-- Eyes -->
+      <ellipse cx="78" cy="88" rx="8" ry="6" fill="#080604"/>
+      <ellipse cx="122" cy="88" rx="8" ry="6" fill="#080604"/>
+      <circle cx="80" cy="87" r="2.5" fill="#D4A520" opacity="0.8"/>
+      <circle cx="124" cy="87" r="2.5" fill="#D4A520" opacity="0.8"/>
+      <!-- Nose -->
+      <path d="M94,102 L100,108 L106,102 Z" fill="#B8860B" opacity="0.7"/>
+      <!-- Mouth -->
+      <path d="M88,115 Q100,125 112,115" fill="none" stroke="#B8860B" stroke-width="1.5" opacity="0.4"/>
+      <!-- Brow lines -->
+      <path d="M68,78 Q78,74 88,78" fill="none" stroke="#B8860B" stroke-width="1.2" opacity="0.3"/>
+      <path d="M112,78 Q122,74 132,78" fill="none" stroke="#B8860B" stroke-width="1.2" opacity="0.3"/>
+      <defs>
+        <linearGradient id="lm1" x1="100" y1="0" x2="100" y2="200" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#E6C44A"/>
+          <stop offset="1" stop-color="#8B6914"/>
+        </linearGradient>
+        <radialGradient id="lf1" cx="100" cy="95" r="58" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#2a1f0a"/>
+          <stop offset="0.7" stop-color="#1a1208"/>
+          <stop offset="1" stop-color="#0f0b04"/>
+        </radialGradient>
+      </defs>
+    </svg>
+  </div>
+
+  <div class="c">
+    <div class="tag">F&eacute;</div>
+    <div class="hook">
+      <span class="w">N&atilde;o ande<br>por vista.</span><br>
+      <span class="g">Ande por f&eacute;.</span>
+    </div>
+    <div class="sub">A f&eacute; &eacute; a certeza daquilo<br>que n&atilde;o se v&ecirc;.</div>
+    <div class="ref">2 Cor&iacute;ntios 5:7</div>
+    <div class="divider"></div>
+    <div class="info">Domingo 7PM &middot; 607 Avalon Rd</div>
+  </div>
+</div>
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+<script>
+if(window===window.top){var b=document.createElement("button");b.innerHTML="\u2B07 BAIXAR JPG";b.style.cssText="position:fixed;bottom:30px;right:30px;z-index:9999;background:#D4A520;color:#000;border:none;padding:16px 32px;font-family:Montserrat,sans-serif;font-size:14px;font-weight:800;letter-spacing:3px;text-transform:uppercase;cursor:pointer;border-radius:8px;box-shadow:0 4px 20px rgba(212,165,32,0.3)";b.onmouseenter=function(){b.style.background="#E6C44A"};b.onmouseleave=function(){b.style.background="#D4A520"};b.onclick=function(){b.style.display="none";html2canvas(document.querySelector(".s"),{width:1080,height:1920,scale:1,backgroundColor:null,useCORS:true}).then(function(c){var a=document.createElement("a");a.download=document.title.replace(/[^a-zA-Z0-9]/g,"-")+".png";a.href=c.toDataURL("image/png");a.click();b.style.display=""})};document.body.appendChild(b)}if(window===window.top){var bk=document.createElement("a");bk.innerHTML="&#8592; PAINEL";bk.href="../painel.html";bk.style.cssText="position:fixed;top:30px;left:30px;z-index:9999;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.12);text-decoration:none;padding:14px 28px;font-family:Montserrat,sans-serif;font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;cursor:pointer;border-radius:8px;backdrop-filter:blur(10px)";bk.onmouseenter=function(){bk.style.background="rgba(255,255,255,0.15)";bk.style.color="#fff"};bk.onmouseleave=function(){bk.style.background="rgba(255,255,255,0.08)";bk.style.color="rgba(255,255,255,0.6)"};document.body.appendChild(bk)}
+</script>
+</body>
+</html>

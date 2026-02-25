@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<title>Worship GC 03 — Familia</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden}
+body{font-family:'Montserrat',sans-serif;color:#fff}
+.s{width:1080px;height:1920px;position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center;background:#0a0412;overflow:hidden}
+/* Animated gradient bg */
+.bg{position:absolute;top:0;left:0;right:0;bottom:0;z-index:1;background:linear-gradient(135deg,rgba(168,85,247,0.08) 0%,rgba(249,115,22,0.05) 30%,rgba(236,72,153,0.07) 60%,rgba(59,130,246,0.05) 100%);background-size:400% 400%;animation:bgm 15s ease infinite}
+@keyframes bgm{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+/* Neon streaks */
+.streak{position:absolute;border-radius:100px;z-index:2;filter:blur(2px)}
+.sk1{width:500px;height:4px;top:22%;left:-10%;background:linear-gradient(90deg,transparent,#ec4899,#a855f7,transparent);transform:rotate(-6deg);animation:skmove 5s ease-in-out infinite}
+.sk2{width:400px;height:3px;top:52%;right:-8%;background:linear-gradient(90deg,transparent,#f97316,#ec4899,transparent);transform:rotate(4deg);animation:skmove 6s ease-in-out infinite;animation-delay:-2s}
+.sk3{width:350px;height:3px;bottom:25%;left:5%;background:linear-gradient(90deg,transparent,#3b82f6,#14b8a6,transparent);transform:rotate(-3deg);animation:skmove 4.5s ease-in-out infinite;animation-delay:-4s}
+@keyframes skmove{0%,100%{opacity:0.25;transform:translateX(0)}50%{opacity:0.6;transform:translateX(60px)}}
+/* Floating tags */
+.ftag{position:absolute;z-index:3;padding:10px 24px;border-radius:30px;border:1px solid rgba(255,255,255,0.05);font-size:18px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.08);backdrop-filter:blur(5px);background:rgba(255,255,255,0.015);animation:ftf 8s ease-in-out infinite}
+.ft1{top:10%;left:6%;animation-delay:0s}
+.ft2{top:16%;right:8%;animation-delay:-2.5s}
+.ft3{top:78%;left:4%;animation-delay:-5s}
+.ft4{top:84%;right:6%;animation-delay:-1s}
+@keyframes ftf{0%,100%{transform:translateY(0);opacity:0.5}50%{transform:translateY(-12px);opacity:1}}
+/* Big orb */
+.orb{position:absolute;top:42%;left:50%;transform:translate(-50%,-50%);width:550px;height:550px;border-radius:50%;background:radial-gradient(circle,rgba(236,72,153,0.08) 0%,rgba(168,85,247,0.04) 40%,transparent 65%);z-index:2;filter:blur(50px)}
+/* Grain */
+.grain{position:absolute;top:0;left:0;right:0;bottom:0;z-index:14;opacity:0.035;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:128px;pointer-events:none}
+/* AV Logo */
+.av-logo{position:absolute;top:60px;right:40px;z-index:20}
+.av-logo img{width:120px;height:auto;mix-blend-mode:screen}
+/* Content */
+.c{position:relative;z-index:10;text-align:center;padding:0 60px}
+.badge-row{display:flex;gap:10px;justify-content:center;margin-bottom:40px}
+.badge{padding:14px 30px;border-radius:50px;font-size:18px;font-weight:800;letter-spacing:5px;text-transform:uppercase;backdrop-filter:blur(10px)}
+.badge.gc{background:linear-gradient(135deg,rgba(236,72,153,0.18),rgba(168,85,247,0.18));border:1.5px solid rgba(236,72,153,0.3);color:#f472b6}
+.badge.tmrw{background:rgba(255,255,255,0.03);border:1.5px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.45)}
+.emoji-row{font-size:56px;margin-bottom:30px;letter-spacing:16px}
+.hook{font-size:76px;font-weight:900;text-transform:uppercase;letter-spacing:-3px;line-height:1.05;margin-bottom:20px}
+.hook .w{color:#fff}
+.hook .grad{display:block;background:linear-gradient(135deg,#ec4899,#f97316);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sub{font-size:36px;font-weight:300;color:rgba(255,255,255,0.35);line-height:1.5;margin-bottom:50px}
+.hashtag{font-size:28px;font-weight:700;letter-spacing:2px;margin-bottom:45px}
+.hashtag span{background:linear-gradient(135deg,#ec4899,#a855f7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.cta{display:inline-block;padding:28px 64px;border-radius:60px;font-size:26px;font-weight:800;letter-spacing:5px;text-transform:uppercase;background:linear-gradient(135deg,#ec4899,#f97316);color:#fff;box-shadow:0 10px 45px rgba(236,72,153,0.25);margin-bottom:20px}
+.time-info{font-size:22px;font-weight:500;letter-spacing:6px;text-transform:uppercase;color:rgba(255,255,255,0.2)}
+</style>
+</head>
+<body>
+<div class="s">
+  <div class="bg"></div>
+  <div class="orb"></div>
+  <div class="streak sk1"></div><div class="streak sk2"></div><div class="streak sk3"></div>
+  <div class="ftag ft1">comunidade</div><div class="ftag ft2">fam&iacute;lia</div><div class="ftag ft3">encontro</div><div class="ftag ft4">real</div>
+  <div class="grain"></div>
+  <div class="av-logo"><img src="../Logobranco_av_orlando.jpeg" alt="AV Orlando"></div>
+  <div class="c">
+    <div class="badge-row">
+      <div class="badge gc">GC</div>
+      <div class="badge tmrw">Amanh&atilde; &middot; Quarta</div>
+    </div>
+    <div class="emoji-row">&#128588;&#128293;&#9996;</div>
+    <div class="hook">
+      <span class="w">GC n&atilde;o &eacute;<br>reuni&atilde;o.</span>
+      <span class="grad">&Eacute; fam&iacute;lia.</span>
+    </div>
+    <div class="sub">Aqui ningu&eacute;m finge.<br>Aqui todo mundo cresce junto.</div>
+    <div class="hashtag"><span>#VemProGC</span></div>
+    <div class="cta">Marca quem vai</div>
+    <div class="time-info">Quarta 8PM &middot; Manda DM</div>
+  </div>
+</div>
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+<script>
+if(window===window.top){var b=document.createElement('button');b.innerHTML='&#11015; BAIXAR JPG';b.style.cssText='position:fixed;bottom:30px;right:30px;z-index:9999;background:#ec4899;color:#fff;border:none;padding:16px 32px;font-family:Montserrat,sans-serif;font-size:14px;font-weight:800;letter-spacing:3px;text-transform:uppercase;cursor:pointer;border-radius:8px;box-shadow:0 4px 20px rgba(236,72,153,0.3)';b.onmouseenter=function(){b.style.background='#f472b6'};b.onmouseleave=function(){b.style.background='#ec4899'};b.onclick=function(){b.style.display='none';html2canvas(document.querySelector('.s'),{width:1080,height:1920,scale:1,backgroundColor:null,useCORS:true}).then(function(c){var a=document.createElement('a');a.download=document.title.replace(/[^a-zA-Z0-9]/g,'-')+'.jpg';a.href=c.toDataURL('image/jpeg',0.95);a.click();b.style.display=''})};document.body.appendChild(b)}if(window===window.top){var bk=document.createElement("a");bk.innerHTML="&#8592; PAINEL";bk.href="../painel.html";bk.style.cssText="position:fixed;top:30px;left:30px;z-index:9999;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.12);text-decoration:none;padding:14px 28px;font-family:Montserrat,sans-serif;font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;cursor:pointer;border-radius:8px;backdrop-filter:blur(10px)";bk.onmouseenter=function(){bk.style.background="rgba(255,255,255,0.15)";bk.style.color="#fff"};bk.onmouseleave=function(){bk.style.background="rgba(255,255,255,0.08)";bk.style.color="rgba(255,255,255,0.6)"};document.body.appendChild(bk)}
+</script>
+</body>
+</html>

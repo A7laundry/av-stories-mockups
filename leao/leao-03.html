@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<title>Leão 03 — Coragem</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden}
+body{font-family:'Montserrat',sans-serif;color:#fff}
+.s{width:1080px;height:1920px;position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center;background:#0a0604;overflow:hidden}
+/* Fire atmosphere */
+.s::before{content:'';position:absolute;bottom:0;left:0;right:0;height:60%;background:linear-gradient(0deg,rgba(180,80,10,0.06) 0%,transparent 100%);z-index:1}
+.s::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 50% 50%,rgba(212,165,32,0.08) 0%,transparent 50%);z-index:1}
+/* Embers */
+.ember{position:absolute;border-radius:50%;z-index:3;animation:rise 6s ease-out infinite}
+.e1{width:4px;height:4px;bottom:10%;left:20%;background:rgba(255,120,20,0.6);animation-delay:0s}
+.e2{width:3px;height:3px;bottom:5%;left:45%;background:rgba(255,160,40,0.5);animation-delay:-1s}
+.e3{width:5px;height:5px;bottom:8%;left:70%;background:rgba(212,165,32,0.6);animation-delay:-2.5s}
+.e4{width:3px;height:3px;bottom:12%;left:35%;background:rgba(255,100,20,0.5);animation-delay:-4s}
+.e5{width:4px;height:4px;bottom:6%;left:60%;background:rgba(245,180,50,0.5);animation-delay:-1.5s}
+.e6{width:3px;height:3px;bottom:15%;left:80%;background:rgba(255,140,30,0.4);animation-delay:-3s}
+.e7{width:4px;height:4px;bottom:3%;left:25%;background:rgba(212,165,32,0.5);animation-delay:-5s}
+.e8{width:3px;height:3px;bottom:18%;left:55%;background:rgba(255,120,20,0.4);animation-delay:-2s}
+@keyframes rise{0%{transform:translateY(0) scale(1);opacity:0.8}100%{transform:translateY(-1200px) scale(0.2);opacity:0}}
+/* Diagonal fire lines */
+.fire-line{position:absolute;z-index:2;opacity:0.04}
+.fl1{top:30%;left:0;width:150%;height:2px;background:linear-gradient(90deg,transparent,#D4A520,transparent);transform:rotate(-15deg)}
+.fl2{top:50%;left:-20%;width:150%;height:1px;background:linear-gradient(90deg,transparent,#F59E0B,transparent);transform:rotate(-10deg)}
+.fl3{top:70%;left:0;width:150%;height:2px;background:linear-gradient(90deg,transparent,#D4A520,transparent);transform:rotate(-20deg)}
+/* AV Logo */
+.av-logo{position:absolute;top:60px;right:40px;z-index:20}
+.av-logo img{width:120px;height:auto;mix-blend-mode:screen}
+/* Lion roaring SVG */
+.lion-wrap{position:relative;z-index:5;margin-bottom:10px}
+.lion-wrap svg{filter:drop-shadow(0 0 60px rgba(212,165,32,0.1))}
+/* Content */
+.c{position:relative;z-index:10;text-align:center;padding:0 70px}
+.tag{font-size:30px;font-weight:900;letter-spacing:16px;text-transform:uppercase;color:#D4A520;margin-bottom:30px}
+.hook{font-size:72px;font-weight:900;text-transform:uppercase;letter-spacing:-2px;line-height:1.05;margin-bottom:15px}
+.hook .w{color:#fff}
+.hook .g{color:#D4A520}
+.hook .fire{background:linear-gradient(180deg,#F59E0B,#D4A520,#B8860B);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sub{font-size:38px;font-weight:300;color:rgba(255,255,255,0.4);line-height:1.4;margin-bottom:10px}
+.ref{font-size:24px;font-weight:700;letter-spacing:10px;text-transform:uppercase;color:#D4A520;margin-bottom:50px}
+.vline{width:2px;height:80px;background:linear-gradient(180deg,transparent,#D4A520,transparent);margin:0 auto 40px}
+.cta{display:inline-block;background:linear-gradient(135deg,#D4A520,#B8860B);color:#000;padding:28px 66px;font-size:28px;font-weight:800;letter-spacing:6px;text-transform:uppercase;margin-bottom:40px}
+.info{font-size:24px;font-weight:400;letter-spacing:8px;text-transform:uppercase;color:rgba(255,255,255,0.2)}
+</style>
+</head>
+<body>
+<div class="s">
+  <div class="ember e1"></div><div class="ember e2"></div><div class="ember e3"></div><div class="ember e4"></div>
+  <div class="ember e5"></div><div class="ember e6"></div><div class="ember e7"></div><div class="ember e8"></div>
+  <div class="fire-line fl1"></div><div class="fire-line fl2"></div><div class="fire-line fl3"></div>
+  <div class="av-logo"><img src="../Logobranco_av_orlando.jpeg" alt="AV Orlando"></div>
+
+  <!-- Roaring Lion Head -->
+  <div class="lion-wrap">
+    <svg width="400" height="400" viewBox="0 0 200 200" fill="none">
+      <!-- Outer mane - fiery rays -->
+      <g opacity="0.4">
+        <line x1="100" y1="2" x2="100" y2="22" stroke="url(#fr1)" stroke-width="3" stroke-linecap="round"/>
+        <line x1="70" y1="6" x2="76" y2="26" stroke="url(#fr1)" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="130" y1="6" x2="124" y2="26" stroke="url(#fr1)" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="42" y1="20" x2="52" y2="38" stroke="url(#fr1)" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="158" y1="20" x2="148" y2="38" stroke="url(#fr1)" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="18" y1="50" x2="34" y2="56" stroke="url(#fr1)" stroke-width="2" stroke-linecap="round"/>
+        <line x1="182" y1="50" x2="166" y2="56" stroke="url(#fr1)" stroke-width="2" stroke-linecap="round"/>
+        <line x1="6" y1="82" x2="24" y2="82" stroke="url(#fr1)" stroke-width="2" stroke-linecap="round"/>
+        <line x1="194" y1="82" x2="176" y2="82" stroke="url(#fr1)" stroke-width="2" stroke-linecap="round"/>
+        <line x1="10" y1="115" x2="28" y2="110" stroke="url(#fr1)" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="190" y1="115" x2="172" y2="110" stroke="url(#fr1)" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="28" y1="148" x2="42" y2="138" stroke="url(#fr1)" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="172" y1="148" x2="158" y2="138" stroke="url(#fr1)" stroke-width="1.5" stroke-linecap="round"/>
+      </g>
+      <!-- Mane shape -->
+      <path d="M100,10 C45,10 12,48 12,92 C12,136 38,168 72,180 L78,170 C46,158 28,130 28,92 C28,52 56,24 100,24 C144,24 172,52 172,92 C172,130 154,158 122,170 L128,180 C162,168 188,136 188,92 C188,48 155,10 100,10Z" fill="url(#fr1)" opacity="0.5"/>
+      <!-- Face -->
+      <ellipse cx="100" cy="100" rx="55" ry="60" fill="url(#ff1)"/>
+      <!-- Eyes - fierce -->
+      <path d="M68,84 L78,80 L88,84 L78,88 Z" fill="#D4A520" opacity="0.9"/>
+      <path d="M112,84 L122,80 L132,84 L122,88 Z" fill="#D4A520" opacity="0.9"/>
+      <circle cx="78" cy="84" r="3" fill="#fff" opacity="0.6"/>
+      <circle cx="122" cy="84" r="3" fill="#fff" opacity="0.6"/>
+      <!-- Nose -->
+      <path d="M92,102 L100,110 L108,102 Z" fill="#B8860B" opacity="0.6"/>
+      <!-- Open mouth roaring -->
+      <path d="M75,118 Q88,108 100,118 Q112,108 125,118" fill="none" stroke="#B8860B" stroke-width="1.5" opacity="0.5"/>
+      <path d="M80,118 Q100,140 120,118" fill="url(#fm1)" opacity="0.4"/>
+      <!-- Fangs -->
+      <line x1="88" y1="118" x2="90" y2="128" stroke="#E6C44A" stroke-width="2" opacity="0.5" stroke-linecap="round"/>
+      <line x1="112" y1="118" x2="110" y2="128" stroke="#E6C44A" stroke-width="2" opacity="0.5" stroke-linecap="round"/>
+      <!-- Brow furrows -->
+      <path d="M62,74 Q78,68 90,76" fill="none" stroke="#B8860B" stroke-width="1.5" opacity="0.4"/>
+      <path d="M138,74 Q122,68 110,76" fill="none" stroke="#B8860B" stroke-width="1.5" opacity="0.4"/>
+      <defs>
+        <linearGradient id="fr1" x1="100" y1="0" x2="100" y2="200" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#F59E0B"/>
+          <stop offset="0.5" stop-color="#D4A520"/>
+          <stop offset="1" stop-color="#8B6914"/>
+        </linearGradient>
+        <radialGradient id="ff1" cx="100" cy="95" r="60" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#2a1f0a"/>
+          <stop offset="0.6" stop-color="#1a1208"/>
+          <stop offset="1" stop-color="#0f0b04"/>
+        </radialGradient>
+        <linearGradient id="fm1" x1="100" y1="118" x2="100" y2="140">
+          <stop stop-color="#1a0800"/>
+          <stop offset="1" stop-color="#0a0400"/>
+        </linearGradient>
+      </defs>
+    </svg>
+  </div>
+
+  <div class="c">
+    <div class="tag">Coragem</div>
+    <div class="hook">
+      <span class="w">Seja forte<br>e</span> <span class="fire">corajoso.</span>
+    </div>
+    <div class="sub">Pois o Senhor, o seu Deus,<br>estar&aacute; com voc&ecirc; por onde<br>voc&ecirc; andar.</div>
+    <div class="ref">Josu&eacute; 1:9</div>
+    <div class="vline"></div>
+    <div class="cta">Ruja como Le&atilde;o</div>
+    <div class="info">Domingo 7PM &middot; 607 Avalon Rd</div>
+  </div>
+</div>
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+<script>
+if(window===window.top){var b=document.createElement("button");b.innerHTML="\u2B07 BAIXAR JPG";b.style.cssText="position:fixed;bottom:30px;right:30px;z-index:9999;background:#D4A520;color:#000;border:none;padding:16px 32px;font-family:Montserrat,sans-serif;font-size:14px;font-weight:800;letter-spacing:3px;text-transform:uppercase;cursor:pointer;border-radius:8px;box-shadow:0 4px 20px rgba(212,165,32,0.3)";b.onmouseenter=function(){b.style.background="#E6C44A"};b.onmouseleave=function(){b.style.background="#D4A520"};b.onclick=function(){b.style.display="none";html2canvas(document.querySelector(".s"),{width:1080,height:1920,scale:1,backgroundColor:null,useCORS:true}).then(function(c){var a=document.createElement("a");a.download=document.title.replace(/[^a-zA-Z0-9]/g,"-")+".png";a.href=c.toDataURL("image/png");a.click();b.style.display=""})};document.body.appendChild(b)}if(window===window.top){var bk=document.createElement("a");bk.innerHTML="&#8592; PAINEL";bk.href="../painel.html";bk.style.cssText="position:fixed;top:30px;left:30px;z-index:9999;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.12);text-decoration:none;padding:14px 28px;font-family:Montserrat,sans-serif;font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;cursor:pointer;border-radius:8px;backdrop-filter:blur(10px)";bk.onmouseenter=function(){bk.style.background="rgba(255,255,255,0.15)";bk.style.color="#fff"};bk.onmouseleave=function(){bk.style.background="rgba(255,255,255,0.08)";bk.style.color="rgba(255,255,255,0.6)"};document.body.appendChild(bk)}
+</script>
+</body>
+</html>

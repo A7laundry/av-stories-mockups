@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GC Grupo de Encontro — Stories</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #060608;
+      font-family: 'Montserrat', sans-serif;
+      color: #fff;
+      padding: 40px 20px;
+    }
+
+    .page-title {
+      text-align: center;
+      margin-bottom: 6px;
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, #a78bfa, #60a5fa, #34d399);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .page-subtitle {
+      text-align: center;
+      margin-bottom: 50px;
+      font-size: 13px;
+      font-weight: 300;
+      letter-spacing: 2px;
+      color: #555;
+    }
+
+    .stories-grid {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 60px;
+    }
+
+    .story-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .story-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      background: linear-gradient(90deg, #a78bfa, #60a5fa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .story-frame {
+      width: 360px;
+      height: 640px;
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+
+    .story-content {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      padding: 40px 28px;
+    }
+
+    /* ===== PROGRESS & IG HEADER (shared) ===== */
+    .story-progress {
+      position: absolute;
+      top: 12px;
+      left: 16px;
+      right: 16px;
+      display: flex;
+      gap: 4px;
+      z-index: 20;
+    }
+
+    .story-progress-bar {
+      flex: 1;
+      height: 2px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 2px;
+    }
+
+    .story-progress-bar.active {
+      background: rgba(255,255,255,0.8);
+    }
+
+    .ig-header {
+      position: absolute;
+      top: 22px;
+      left: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 20;
+    }
+
+    .ig-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: 800;
+      color: #000;
+    }
+
+    .ig-avatar-v1 { background: linear-gradient(135deg, #a78bfa, #60a5fa); }
+    .ig-avatar-v2 { background: linear-gradient(135deg, #34d399, #60a5fa); }
+    .ig-avatar-v3 { background: linear-gradient(135deg, #f472b6, #a78bfa); }
+
+    .ig-name {
+      font-size: 12px;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .ig-time {
+      font-size: 12px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.5);
+      margin-left: 4px;
+    }
+
+    .swipe-up {
+      position: absolute;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      z-index: 20;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .swipe-up-icon {
+      width: 28px;
+      height: 28px;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .swipe-up-icon svg {
+      width: 12px;
+      height: 12px;
+      fill: none;
+      stroke: rgba(255,255,255,0.6);
+      stroke-width: 2;
+    }
+
+    .swipe-up-text {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: translateX(-50%) translateY(0); opacity: 1; }
+      50% { transform: translateX(-50%) translateY(-5px); opacity: 0.7; }
+    }
+
+    /* ==========================================
+       VARIATION 1 — ORBS / MESH GRADIENT
+       "Onde dois ou três estão reunidos..."
+       ========================================== */
+    .v1-bg {
+      background: #08070e;
+      overflow: hidden;
+    }
+
+    /* Abstract orbs */
+    .v1-bg .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      z-index: 1;
+    }
+
+    .v1-bg .orb-1 {
+      width: 280px;
+      height: 280px;
+      top: -40px;
+      right: -80px;
+      background: rgba(167, 139, 250, 0.2);
+    }
+
+    .v1-bg .orb-2 {
+      width: 200px;
+      height: 200px;
+      bottom: 60px;
+      left: -60px;
+      background: rgba(96, 165, 250, 0.15);
+    }
+
+    .v1-bg .orb-3 {
+      width: 150px;
+      height: 150px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(52, 211, 153, 0.08);
+    }
+
+    /* Subtle grid */
+    .v1-bg .grid {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 2;
+      opacity: 0.04;
+      background:
+        repeating-linear-gradient(90deg, transparent, transparent 59px, rgba(255,255,255,0.5) 59px, rgba(255,255,255,0.5) 60px),
+        repeating-linear-gradient(0deg, transparent, transparent 59px, rgba(255,255,255,0.5) 59px, rgba(255,255,255,0.5) 60px);
+    }
+
+    .v1-bg .content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+    }
+
+    .v1-bg .gc-tag {
+      font-size: 13px;
+      font-weight: 300;
+      letter-spacing: 8px;
+      text-transform: uppercase;
+      color: rgba(167, 139, 250, 0.6);
+      margin-bottom: 8px;
+    }
+
+    .v1-bg .gc-title {
+      font-size: 52px;
+      font-weight: 900;
+      letter-spacing: -3px;
+      line-height: 1;
+      margin-bottom: 8px;
+      background: linear-gradient(180deg, #fff 30%, rgba(167, 139, 250, 0.6) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .v1-bg .gc-sub {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 35px;
+    }
+
+    .v1-bg .divider-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 30px;
+    }
+
+    .v1-bg .divider-dots span {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: rgba(167, 139, 250, 0.4);
+    }
+
+    .v1-bg .divider-dots span:nth-child(2) {
+      background: rgba(96, 165, 250, 0.5);
+    }
+
+    .v1-bg .divider-dots span:nth-child(3) {
+      background: rgba(52, 211, 153, 0.4);
+    }
+
+    .v1-bg .quote {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-style: italic;
+      font-weight: 400;
+      line-height: 1.5;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 12px;
+      padding: 0 5px;
+    }
+
+    .v1-bg .quote strong {
+      font-weight: 700;
+      font-style: normal;
+      color: #a78bfa;
+    }
+
+    .v1-bg .verse-ref {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(167, 139, 250, 0.5);
+      margin-bottom: 30px;
+    }
+
+    .v1-bg .info-bar {
+      position: absolute;
+      bottom: 70px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .v1-bg .info-bar p {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.25);
+      line-height: 2;
+    }
+
+    /* ==========================================
+       VARIATION 2 — GEOMETRIC RINGS / GLOW
+       "Ninguém cresce sozinho"
+       ========================================== */
+    .v2-bg {
+      background: #060b12;
+      overflow: hidden;
+    }
+
+    .v2-bg::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background:
+        radial-gradient(circle at 50% 45%, rgba(52, 211, 153, 0.04) 0%, transparent 50%);
+      z-index: 1;
+    }
+
+    /* Concentric rings */
+    .v2-bg .ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid;
+      top: 50%;
+      left: 50%;
+      z-index: 2;
+    }
+
+    .v2-bg .ring-1 {
+      width: 180px; height: 180px;
+      transform: translate(-50%, -50%);
+      border-color: rgba(52, 211, 153, 0.1);
+      box-shadow: 0 0 30px rgba(52, 211, 153, 0.03);
+    }
+
+    .v2-bg .ring-2 {
+      width: 260px; height: 260px;
+      transform: translate(-50%, -50%);
+      border-color: rgba(96, 165, 250, 0.07);
+    }
+
+    .v2-bg .ring-3 {
+      width: 350px; height: 350px;
+      transform: translate(-50%, -50%);
+      border-color: rgba(167, 139, 250, 0.04);
+    }
+
+    /* Floating dots */
+    .v2-bg .dot {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      z-index: 3;
+      animation: orbit 8s linear infinite;
+    }
+
+    .v2-bg .dot-1 {
+      top: 42%; left: 25%;
+      background: rgba(52, 211, 153, 0.6);
+      box-shadow: 0 0 12px rgba(52, 211, 153, 0.4);
+      animation-delay: 0s;
+    }
+
+    .v2-bg .dot-2 {
+      top: 55%; right: 20%;
+      background: rgba(96, 165, 250, 0.6);
+      box-shadow: 0 0 12px rgba(96, 165, 250, 0.4);
+      animation-delay: -3s;
+      width: 4px; height: 4px;
+    }
+
+    .v2-bg .dot-3 {
+      top: 38%; right: 30%;
+      background: rgba(167, 139, 250, 0.5);
+      box-shadow: 0 0 10px rgba(167, 139, 250, 0.3);
+      animation-delay: -5s;
+      width: 3px; height: 3px;
+    }
+
+    @keyframes orbit {
+      0% { transform: translateY(0px) translateX(0px); }
+      25% { transform: translateY(-8px) translateX(5px); }
+      50% { transform: translateY(0px) translateX(10px); }
+      75% { transform: translateY(8px) translateX(5px); }
+      100% { transform: translateY(0px) translateX(0px); }
+    }
+
+    .v2-bg .content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+    }
+
+    .v2-bg .gc-mono {
+      font-size: 64px;
+      font-weight: 900;
+      letter-spacing: -4px;
+      line-height: 1;
+      margin-bottom: 5px;
+      background: linear-gradient(135deg, #34d399 0%, #60a5fa 50%, #a78bfa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .v2-bg .gc-name {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      color: rgba(52, 211, 153, 0.5);
+      margin-bottom: 35px;
+    }
+
+    .v2-bg .quote-line-1 {
+      font-size: 15px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+
+    .v2-bg .quote-bold {
+      font-size: 30px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -1px;
+      line-height: 1.15;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .v2-bg .quote-bold span {
+      background: linear-gradient(135deg, #34d399, #60a5fa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .v2-bg .quote-sub {
+      font-family: 'Playfair Display', serif;
+      font-size: 16px;
+      font-style: italic;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 30px;
+    }
+
+    .v2-bg .cta-pill {
+      display: inline-block;
+      padding: 10px 24px;
+      border-radius: 30px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #000;
+      background: linear-gradient(135deg, #34d399, #60a5fa);
+    }
+
+    .v2-bg .info-bar {
+      position: absolute;
+      bottom: 70px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .v2-bg .info-bar p {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.2);
+      line-height: 2;
+    }
+
+    /* ==========================================
+       VARIATION 3 — FLUID / AURORA
+       "A fé cresce em comunidade"
+       ========================================== */
+    .v3-bg {
+      background: #0a0610;
+      overflow: hidden;
+    }
+
+    /* Aurora effect */
+    .v3-bg .aurora {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .v3-bg .aurora-band {
+      position: absolute;
+      width: 200%;
+      height: 300px;
+      filter: blur(80px);
+      opacity: 0.12;
+      animation: aurora-drift 12s ease-in-out infinite alternate;
+    }
+
+    .v3-bg .aurora-1 {
+      top: 10%;
+      left: -50%;
+      background: linear-gradient(90deg, transparent, #a78bfa, #f472b6, transparent);
+      animation-delay: 0s;
+    }
+
+    .v3-bg .aurora-2 {
+      top: 40%;
+      left: -30%;
+      background: linear-gradient(90deg, transparent, #60a5fa, #34d399, transparent);
+      animation-delay: -4s;
+      opacity: 0.08;
+    }
+
+    .v3-bg .aurora-3 {
+      bottom: 5%;
+      left: -40%;
+      background: linear-gradient(90deg, transparent, #f472b6, #a78bfa, transparent);
+      animation-delay: -8s;
+      opacity: 0.06;
+      height: 200px;
+    }
+
+    @keyframes aurora-drift {
+      0% { transform: translateX(0) rotate(-2deg); }
+      100% { transform: translateX(15%) rotate(2deg); }
+    }
+
+    /* Noise texture overlay */
+    .v3-bg .noise {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 2;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      background-size: 128px 128px;
+    }
+
+    .v3-bg .content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+    }
+
+    .v3-bg .gc-glyph {
+      font-size: 11px;
+      font-weight: 300;
+      letter-spacing: 10px;
+      text-transform: uppercase;
+      color: rgba(244, 114, 182, 0.4);
+      margin-bottom: 12px;
+    }
+
+    .v3-bg .gc-big {
+      font-size: 70px;
+      font-weight: 900;
+      letter-spacing: -5px;
+      line-height: 0.9;
+      margin-bottom: 6px;
+      background: linear-gradient(180deg, #fff 10%, rgba(167, 139, 250, 0.5) 70%, rgba(244, 114, 182, 0.3) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .v3-bg .gc-encontro {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 8px;
+      text-transform: uppercase;
+      color: rgba(167, 139, 250, 0.4);
+      margin-bottom: 40px;
+    }
+
+    .v3-bg .verse-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.45;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 10px;
+      padding: 0 5px;
+    }
+
+    .v3-bg .verse-text em {
+      font-style: normal;
+      font-weight: 700;
+      background: linear-gradient(90deg, #a78bfa, #f472b6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .v3-bg .verse-sub {
+      font-size: 14px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 25px;
+    }
+
+    .v3-bg .verse-ref {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(244, 114, 182, 0.4);
+    }
+
+    .v3-bg .info-bar {
+      position: absolute;
+      bottom: 70px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .v3-bg .info-bar p {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.2);
+      line-height: 2;
+    }
+
+    /* ===== COPY SECTION ===== */
+    .copy-section {
+      max-width: 1000px;
+      margin: 60px auto;
+      padding: 40px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(167, 139, 250, 0.1);
+      border-radius: 12px;
+    }
+
+    .copy-section h2 {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 30px;
+      text-align: center;
+      background: linear-gradient(90deg, #a78bfa, #60a5fa, #34d399);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .copy-section h3 {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #a78bfa;
+      margin: 30px 0 15px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(167, 139, 250, 0.1);
+    }
+
+    .copy-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+
+    .copy-table th {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #a78bfa;
+      text-align: left;
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(167, 139, 250, 0.12);
+    }
+
+    .copy-table td {
+      font-size: 12px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.7);
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+      vertical-align: top;
+    }
+
+    .copy-table tr:hover td {
+      background: rgba(167, 139, 250, 0.02);
+    }
+
+    .sn {
+      font-weight: 800;
+      background: linear-gradient(135deg, #a78bfa, #60a5fa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1200px) {
+      .story-frame { width: 300px; height: 533px; }
+      .v1-bg .gc-title { font-size: 42px; }
+      .v1-bg .quote { font-size: 18px; }
+      .v2-bg .gc-mono { font-size: 52px; }
+      .v2-bg .quote-bold { font-size: 24px; }
+      .v3-bg .gc-big { font-size: 56px; }
+      .v3-bg .verse-text { font-size: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page-title">GC &mdash; Grupo de Encontro</div>
+  <div class="page-subtitle">Varia&ccedil;&otilde;es de Stories &mdash; Amanh&atilde;</div>
+
+  <div class="stories-grid">
+
+    <!-- ============ VARIATION 1 — ORBS + MATEUS 18:20 ============ -->
+    <div class="story-wrapper">
+      <div class="story-label">Varia&ccedil;&atilde;o 01 &mdash; Presen&ccedil;a</div>
+      <div class="story-frame">
+        <div class="story-content v1-bg">
+          <div class="story-progress">
+            <div class="story-progress-bar active"></div>
+            <div class="story-progress-bar"></div>
+            <div class="story-progress-bar"></div>
+          </div>
+          <div class="ig-header">
+            <div class="ig-avatar ig-avatar-v1">GC</div>
+            <span class="ig-name">avorlando.ofc</span>
+            <span class="ig-time">2h</span>
+          </div>
+          <!-- Orbs -->
+          <div class="orb orb-1"></div>
+          <div class="orb orb-2"></div>
+          <div class="orb orb-3"></div>
+          <!-- Grid -->
+          <div class="grid"></div>
+          <!-- Content -->
+          <div class="content">
+            <div class="gc-tag">Grupo de Encontro</div>
+            <div class="gc-title">GC</div>
+            <div class="gc-sub">Onde tudo muda</div>
+            <div class="divider-dots">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="quote">
+              &ldquo;Onde dois ou tr&ecirc;s est&atilde;o<br>reunidos em Meu nome,<br><strong>ali Eu estou</strong><br>no meio deles.&rdquo;
+            </div>
+            <div class="verse-ref">Mateus 18:20</div>
+          </div>
+          <!-- Bottom -->
+          <div class="info-bar">
+            <p>Quarta &middot; 8PM</p>
+          </div>
+          <!-- Swipe -->
+          <div class="swipe-up">
+            <div class="swipe-up-icon">
+              <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+            </div>
+            <div class="swipe-up-text">Participe</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ VARIATION 2 — RINGS + COMUNIDADE ============ -->
+    <div class="story-wrapper">
+      <div class="story-label">Varia&ccedil;&atilde;o 02 &mdash; Conex&atilde;o</div>
+      <div class="story-frame">
+        <div class="story-content v2-bg">
+          <div class="story-progress">
+            <div class="story-progress-bar active"></div>
+            <div class="story-progress-bar active"></div>
+            <div class="story-progress-bar"></div>
+          </div>
+          <div class="ig-header">
+            <div class="ig-avatar ig-avatar-v2">GC</div>
+            <span class="ig-name">avorlando.ofc</span>
+            <span class="ig-time">1h</span>
+          </div>
+          <!-- Rings -->
+          <div class="ring ring-1"></div>
+          <div class="ring ring-2"></div>
+          <div class="ring ring-3"></div>
+          <!-- Dots -->
+          <div class="dot dot-1"></div>
+          <div class="dot dot-2"></div>
+          <div class="dot dot-3"></div>
+          <!-- Content -->
+          <div class="content">
+            <div class="gc-mono">GC</div>
+            <div class="gc-name">Grupo de Encontro</div>
+            <div class="quote-line-1">A f&eacute; n&atilde;o foi feita</div>
+            <div class="quote-bold">
+              Pra ser vivida<br><span>sozinho.</span>
+            </div>
+            <div class="quote-sub">
+              Deus te chamou pra comunidade.
+            </div>
+            <div class="cta-pill">Quero participar</div>
+          </div>
+          <!-- Bottom -->
+          <div class="info-bar">
+            <p>Quarta &middot; 8PM</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ VARIATION 3 — AURORA + PROVÉRBIOS ============ -->
+    <div class="story-wrapper">
+      <div class="story-label">Varia&ccedil;&atilde;o 03 &mdash; Transforma&ccedil;&atilde;o</div>
+      <div class="story-frame">
+        <div class="story-content v3-bg">
+          <div class="story-progress">
+            <div class="story-progress-bar active"></div>
+            <div class="story-progress-bar active"></div>
+            <div class="story-progress-bar active"></div>
+          </div>
+          <div class="ig-header">
+            <div class="ig-avatar ig-avatar-v3">GC</div>
+            <span class="ig-name">avorlando.ofc</span>
+            <span class="ig-time">3h</span>
+          </div>
+          <!-- Aurora -->
+          <div class="aurora">
+            <div class="aurora-band aurora-1"></div>
+            <div class="aurora-band aurora-2"></div>
+            <div class="aurora-band aurora-3"></div>
+          </div>
+          <div class="noise"></div>
+          <!-- Content -->
+          <div class="content">
+            <div class="gc-glyph">Grupo de Encontro</div>
+            <div class="gc-big">GC</div>
+            <div class="gc-encontro">Onde vidas se cruzam</div>
+            <div class="verse-text">
+              &ldquo;Assim como o ferro<br>afia o ferro, o homem<br>&eacute; afiado pelo <em>convívio</em><br>com seu pr&oacute;ximo.&rdquo;
+            </div>
+            <div class="verse-sub">
+              Sua hist&oacute;ria muda quando<br>voc&ecirc; se conecta.
+            </div>
+            <div class="verse-ref">Prov&eacute;rbios 27:17</div>
+          </div>
+          <!-- Bottom -->
+          <div class="info-bar">
+            <p>Quarta &middot; 8PM</p>
+          </div>
+          <!-- Swipe -->
+          <div class="swipe-up">
+            <div class="swipe-up-icon">
+              <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+            </div>
+            <div class="swipe-up-text">Saiba mais</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ===== COPIES ===== -->
+  <div class="copy-section">
+    <h2>GC &mdash; Copies & Estrat&eacute;gia</h2>
+
+    <h3>Frases por Varia&ccedil;&atilde;o</h3>
+
+    <table class="copy-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Frase Principal</th>
+          <th>Caption / CTA</th>
+          <th>Tom</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="sn">01</td>
+          <td>&ldquo;Onde dois ou tr&ecirc;s est&atilde;o reunidos em Meu nome, ali Eu estou no meio deles.&rdquo; &mdash; Mateus 18:20</td>
+          <td>&ldquo;Amanh&atilde; tem GC. O lugar onde Deus se encontra com a gente. Manda mensagem pra saber onde &eacute; o mais perto de voc&ecirc;.&rdquo;</td>
+          <td>Espiritual, presença de Deus</td>
+        </tr>
+        <tr>
+          <td class="sn">02</td>
+          <td>&ldquo;A f&eacute; n&atilde;o foi feita pra ser vivida sozinho. Deus te chamou pra comunidade.&rdquo;</td>
+          <td>&ldquo;GC n&atilde;o &eacute; s&oacute; reuni&atilde;o &mdash; &eacute; fam&iacute;lia. Quarta &agrave;s 8PM. Responde esse story e a gente te conecta.&rdquo;</td>
+          <td>Pertencimento, acolhimento</td>
+        </tr>
+        <tr>
+          <td class="sn">03</td>
+          <td>&ldquo;Assim como o ferro afia o ferro, o homem &eacute; afiado pelo conv&iacute;vio com seu pr&oacute;ximo.&rdquo; &mdash; Prov&eacute;rbios 27:17</td>
+          <td>&ldquo;Sua hist&oacute;ria muda quando voc&ecirc; se conecta. Vem pro GC amanh&atilde;. Marca quem voc&ecirc; vai trazer.&rdquo;</td>
+          <td>Transforma&ccedil;&atilde;o, crescimento</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Frases Alternativas</h3>
+
+    <table class="copy-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Frase</th>
+          <th>Fonte</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="sn">A</td>
+          <td>&ldquo;N&atilde;o existe f&eacute; solit&aacute;ria. A caminhada com Deus &eacute; em comunidade.&rdquo;</td>
+          <td>Autoral</td>
+        </tr>
+        <tr>
+          <td class="sn">B</td>
+          <td>&ldquo;Leve as cargas uns dos outros e assim cumprir&atilde;o a lei de Cristo.&rdquo;</td>
+          <td>G&aacute;latas 6:2</td>
+        </tr>
+        <tr>
+          <td class="sn">C</td>
+          <td>&ldquo;Deus n&atilde;o te chamou pra uma jornada solo. Ele te chamou pra uma fam&iacute;lia.&rdquo;</td>
+          <td>Autoral</td>
+        </tr>
+        <tr>
+          <td class="sn">D</td>
+          <td>&ldquo;Todo grande avivamento come&ccedil;ou com um pequeno grupo.&rdquo;</td>
+          <td>Autoral</td>
+        </tr>
+        <tr>
+          <td class="sn">E</td>
+          <td>&ldquo;Voc&ecirc; foi criado pra conex&atilde;o. Seu pr&oacute;ximo n&iacute;vel come&ccedil;a com as pessoas certas.&rdquo;</td>
+          <td>Autoral</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Especifica&ccedil;&otilde;es</h3>
+
+    <table class="copy-table">
+      <thead>
+        <tr>
+          <th>Elemento</th>
+          <th>Detalhe</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="sn">Conceito</td>
+          <td>Abstrato, futurista, sem logo marca. Foco em tipografia + efeitos visuais.</td>
+        </tr>
+        <tr>
+          <td class="sn">Paleta</td>
+          <td>Violeta (#a78bfa) + Azul (#60a5fa) + Verde-&aacute;gua (#34d399) + Rosa (#f472b6) sobre preto</td>
+        </tr>
+        <tr>
+          <td class="sn">Efeitos</td>
+          <td>V1: Orbs mesh gradient + grid sutil | V2: An&eacute;is conc&ecirc;ntricos + pontos flutuantes | V3: Aurora boreal animada + noise</td>
+        </tr>
+        <tr>
+          <td class="sn">Tipografia</td>
+          <td>Montserrat (t&iacute;tulos/corpo) + Playfair Display (cita&ccedil;&otilde;es b&iacute;blicas)</td>
+        </tr>
+        <tr>
+          <td class="sn">Formato</td>
+          <td>1080 x 1920px (9:16) &mdash; Instagram Stories</td>
+        </tr>
+        <tr>
+          <td class="sn">Dia/Hora</td>
+          <td>Quarta-feira &middot; 8PM</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</body>
+</html>

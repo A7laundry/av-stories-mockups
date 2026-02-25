@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<title>Worship GC 02 — Encontro</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden}
+body{font-family:'Montserrat',sans-serif;color:#fff}
+.s{width:1080px;height:1920px;position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center;background:#04060f;overflow:hidden}
+/* Aurora mesh */
+.aurora{position:absolute;top:0;left:0;right:0;bottom:0;z-index:1;overflow:hidden}
+.aw{position:absolute;width:200%;height:250px;border-radius:50%;filter:blur(100px);animation:aur 10s ease-in-out infinite}
+.aw1{top:8%;left:-30%;background:linear-gradient(90deg,rgba(20,184,166,0.18),rgba(59,130,246,0.12),rgba(168,85,247,0.08));animation-delay:0s}
+.aw2{top:30%;left:-20%;background:linear-gradient(90deg,rgba(168,85,247,0.12),rgba(236,72,153,0.10),rgba(20,184,166,0.06));animation-delay:-4s}
+.aw3{bottom:15%;left:-35%;background:linear-gradient(90deg,rgba(59,130,246,0.10),rgba(20,184,166,0.12),rgba(168,85,247,0.08));animation-delay:-7s}
+@keyframes aur{0%,100%{transform:translateX(0) skewY(-1deg)}50%{transform:translateX(12%) skewY(1deg)}}
+/* Glassmorphism center */
+.glass{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:880px;height:650px;border-radius:40px;background:rgba(255,255,255,0.025);backdrop-filter:blur(40px);border:1px solid rgba(255,255,255,0.05);z-index:4}
+/* Pulse rings */
+.ring{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);border-radius:50%;border:1px solid rgba(20,184,166,0.06);z-index:3;animation:rp 5s ease-out infinite}
+.r1{width:300px;height:300px;animation-delay:0s}
+.r2{width:500px;height:500px;animation-delay:-1.5s;border-color:rgba(168,85,247,0.05)}
+.r3{width:700px;height:700px;animation-delay:-3s;border-color:rgba(59,130,246,0.04)}
+@keyframes rp{0%{transform:translate(-50%,-50%) scale(0.8);opacity:1}100%{transform:translate(-50%,-50%) scale(1.4);opacity:0}}
+/* Grain */
+.grain{position:absolute;top:0;left:0;right:0;bottom:0;z-index:14;opacity:0.03;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:128px;pointer-events:none}
+/* AV Logo */
+.av-logo{position:absolute;top:60px;right:40px;z-index:20}
+.av-logo img{width:120px;height:auto;mix-blend-mode:screen}
+/* Content */
+.c{position:relative;z-index:10;text-align:center;padding:0 70px}
+.top-row{display:flex;gap:12px;justify-content:center;margin-bottom:45px}
+.chip{padding:12px 28px;border-radius:50px;font-size:18px;font-weight:700;letter-spacing:4px;text-transform:uppercase;backdrop-filter:blur(10px)}
+.chip.live{background:rgba(20,184,166,0.15);border:1px solid rgba(20,184,166,0.3);color:#14b8a6}
+.chip.live .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#14b8a6;margin-right:10px;animation:blink 1.5s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:0.3}50%{opacity:1}}
+.chip.day{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);color:rgba(255,255,255,0.4)}
+.hook{font-size:74px;font-weight:900;text-transform:uppercase;letter-spacing:-3px;line-height:1.05;margin-bottom:20px}
+.hook .w{color:#fff}
+.hook .grad{display:block;background:linear-gradient(135deg,#14b8a6,#3b82f6,#a855f7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sub{font-size:38px;font-weight:300;color:rgba(255,255,255,0.35);line-height:1.45;margin-bottom:50px}
+.verse{font-size:22px;font-weight:600;letter-spacing:6px;text-transform:uppercase;color:rgba(20,184,166,0.5);margin-bottom:50px}
+.cta-row{display:flex;gap:14px;justify-content:center;margin-bottom:40px}
+.pill{padding:22px 44px;border-radius:50px;font-size:22px;font-weight:700;letter-spacing:4px;text-transform:uppercase}
+.pill.go{background:linear-gradient(135deg,#14b8a6,#3b82f6);color:#fff;box-shadow:0 8px 35px rgba(20,184,166,0.2)}
+.pill.time{border:1.5px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.35)}
+.info{font-size:22px;font-weight:400;letter-spacing:6px;text-transform:uppercase;color:rgba(255,255,255,0.15)}
+</style>
+</head>
+<body>
+<div class="s">
+  <div class="aurora"><div class="aw aw1"></div><div class="aw aw2"></div><div class="aw aw3"></div></div>
+  <div class="glass"></div>
+  <div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div>
+  <div class="grain"></div>
+  <div class="av-logo"><img src="../Logobranco_av_orlando.jpeg" alt="AV Orlando"></div>
+  <div class="c">
+    <div class="top-row">
+      <div class="chip live"><span class="dot"></span>Amanh&atilde;</div>
+      <div class="chip day">GC &mdash; Grupo de Encontro</div>
+    </div>
+    <div class="hook">
+      <span class="w">O encontro que<br>sua alma</span>
+      <span class="grad">t&aacute; precisando.</span>
+    </div>
+    <div class="sub">Lugar de ser real. De chorar,<br>rir e crescer junto.</div>
+    <div class="verse">Eclesiastes 4:9</div>
+    <div class="cta-row">
+      <div class="pill go">Bora</div>
+      <div class="pill time">Quarta 8PM</div>
+    </div>
+    <div class="info">Manda DM &middot; A gente te espera</div>
+  </div>
+</div>
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+<script>
+if(window===window.top){var b=document.createElement('button');b.innerHTML='&#11015; BAIXAR JPG';b.style.cssText='position:fixed;bottom:30px;right:30px;z-index:9999;background:#14b8a6;color:#fff;border:none;padding:16px 32px;font-family:Montserrat,sans-serif;font-size:14px;font-weight:800;letter-spacing:3px;text-transform:uppercase;cursor:pointer;border-radius:8px;box-shadow:0 4px 20px rgba(20,184,166,0.3)';b.onmouseenter=function(){b.style.background='#2dd4bf'};b.onmouseleave=function(){b.style.background='#14b8a6'};b.onclick=function(){b.style.display='none';html2canvas(document.querySelector('.s'),{width:1080,height:1920,scale:1,backgroundColor:null,useCORS:true}).then(function(c){var a=document.createElement('a');a.download=document.title.replace(/[^a-zA-Z0-9]/g,'-')+'.jpg';a.href=c.toDataURL('image/jpeg',0.95);a.click();b.style.display=''})};document.body.appendChild(b)}if(window===window.top){var bk=document.createElement("a");bk.innerHTML="&#8592; PAINEL";bk.href="../painel.html";bk.style.cssText="position:fixed;top:30px;left:30px;z-index:9999;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.12);text-decoration:none;padding:14px 28px;font-family:Montserrat,sans-serif;font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;cursor:pointer;border-radius:8px;backdrop-filter:blur(10px)";bk.onmouseenter=function(){bk.style.background="rgba(255,255,255,0.15)";bk.style.color="#fff"};bk.onmouseleave=function(){bk.style.background="rgba(255,255,255,0.08)";bk.style.color="rgba(255,255,255,0.6)"};document.body.appendChild(bk)}
+</script>
+</body>
+</html>

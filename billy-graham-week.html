@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AV Orlando — Billy Graham | Stories Semana</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --gold: #D4A520;
+      --gold-light: #E6C44A;
+      --gold-dark: #B8860B;
+      --black: #000;
+      --bg: #0A0A0A;
+    }
+
+    body {
+      background: #080808;
+      font-family: 'Montserrat', sans-serif;
+      color: #fff;
+      padding: 40px 20px;
+    }
+
+    .page-title {
+      text-align: center;
+      margin-bottom: 6px;
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .page-subtitle {
+      text-align: center;
+      margin-bottom: 10px;
+      font-size: 14px;
+      font-weight: 300;
+      letter-spacing: 2px;
+      color: #888;
+    }
+
+    .page-strategy {
+      text-align: center;
+      margin-bottom: 50px;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 1px;
+      color: #555;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.8;
+    }
+
+    .stories-grid {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 60px;
+    }
+
+    .story-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .story-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .story-day {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #666;
+      margin-top: -10px;
+    }
+
+    .story-frame {
+      width: 360px;
+      height: 640px;
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    }
+
+    .story-content {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      padding: 40px 28px;
+    }
+
+    /* ===== AV LOGO (real geometric /\/ shape) ===== */
+    .av-logo {
+      position: absolute;
+      top: 55px;
+      right: 20px;
+      z-index: 20;
+    }
+
+    /* ===== STORY PROGRESS BAR ===== */
+    .story-progress {
+      position: absolute;
+      top: 12px;
+      left: 16px;
+      right: 16px;
+      display: flex;
+      gap: 4px;
+      z-index: 20;
+    }
+
+    .story-progress-bar {
+      flex: 1;
+      height: 2px;
+      background: rgba(255,255,255,0.3);
+      border-radius: 2px;
+    }
+
+    .story-progress-bar.active {
+      background: rgba(255,255,255,0.9);
+    }
+
+    /* ===== INSTAGRAM HEADER ===== */
+    .ig-header {
+      position: absolute;
+      top: 22px;
+      left: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 20;
+    }
+
+    .ig-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: 800;
+      color: #000;
+    }
+
+    .ig-name {
+      font-size: 12px;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .ig-time {
+      font-size: 12px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.6);
+      margin-left: 4px;
+    }
+
+    /* ===== SWIPE UP / CTA ===== */
+    .swipe-up {
+      position: absolute;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      z-index: 20;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .swipe-up-icon {
+      width: 28px;
+      height: 28px;
+      border: 2px solid rgba(255,255,255,0.4);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .swipe-up-icon svg {
+      width: 12px;
+      height: 12px;
+      fill: none;
+      stroke: rgba(255,255,255,0.7);
+      stroke-width: 2;
+    }
+
+    .swipe-up-text {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: translateX(-50%) translateY(0); opacity: 1; }
+      50% { transform: translateX(-50%) translateY(-5px); opacity: 0.7; }
+    }
+
+    /* ==========================================
+       STORY 1 — GRAÇA (Terça-feira)
+       ========================================== */
+    .story-bg-1 {
+      background: var(--black);
+      overflow: hidden;
+    }
+
+    .story-bg-1::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background:
+        radial-gradient(ellipse at 50% 35%, rgba(212, 165, 32, 0.06) 0%, transparent 50%),
+        radial-gradient(ellipse at 30% 65%, rgba(184, 134, 11, 0.04) 0%, transparent 40%),
+        radial-gradient(ellipse at 70% 55%, rgba(140, 80, 10, 0.03) 0%, transparent 40%);
+      z-index: 1;
+    }
+
+    /* Vertical light beam */
+    .story-bg-1 .light-beam {
+      position: absolute;
+      top: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 1px;
+      height: 100%;
+      background: linear-gradient(180deg,
+        rgba(212, 165, 32, 0.2) 0%,
+        rgba(212, 165, 32, 0.04) 35%,
+        transparent 60%
+      );
+      z-index: 2;
+    }
+
+    .story-bg-1 .light-beam-h {
+      position: absolute;
+      top: 33%;
+      left: 0; width: 100%; height: 1px;
+      background: linear-gradient(90deg,
+        transparent 15%,
+        rgba(212, 165, 32, 0.06) 35%,
+        rgba(212, 165, 32, 0.1) 50%,
+        rgba(212, 165, 32, 0.06) 65%,
+        transparent 85%
+      );
+      z-index: 2;
+    }
+
+    .story-bg-1 .quote-block {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .story-bg-1 .open-quote {
+      font-family: 'Playfair Display', serif;
+      font-size: 90px;
+      font-style: italic;
+      color: rgba(212, 165, 32, 0.2);
+      line-height: 0.4;
+      margin-bottom: 15px;
+    }
+
+    .story-bg-1 .quote-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.45;
+      color: #fff;
+      margin-bottom: 30px;
+      padding: 0 8px;
+    }
+
+    .story-bg-1 .quote-text strong {
+      font-weight: 700;
+      font-style: normal;
+      color: var(--gold);
+    }
+
+    .story-bg-1 .quote-divider {
+      width: 50px;
+      height: 1px;
+      background: var(--gold);
+      margin: 0 auto 18px;
+    }
+
+    .story-bg-1 .quote-signature {
+      font-family: 'Great Vibes', cursive;
+      font-size: 30px;
+      color: var(--gold);
+      opacity: 0.7;
+      margin-bottom: 4px;
+    }
+
+    .story-bg-1 .quote-author-name {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+    }
+
+    .story-bg-1 .info-bottom {
+      position: absolute;
+      bottom: 68px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      z-index: 10;
+      white-space: nowrap;
+    }
+
+    .story-bg-1 .info-bottom p {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      line-height: 2;
+    }
+
+    /* ==========================================
+       STORY 2 — AMOR / CRUZ (Quinta-feira)
+       ========================================== */
+    .story-bg-2 {
+      background: linear-gradient(180deg, #000 0%, #1a0f00 45%, #000 100%);
+      overflow: hidden;
+    }
+
+    .story-bg-2::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background:
+        radial-gradient(circle at 50% 40%, rgba(212, 165, 32, 0.05) 0%, transparent 45%);
+      z-index: 1;
+    }
+
+    .story-bg-2 .particles {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 2;
+      overflow: hidden;
+    }
+
+    .story-bg-2 .particle {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: rgba(212, 165, 32, 0.4);
+      border-radius: 50%;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .story-bg-2 .particle:nth-child(1) { top: 18%; left: 15%; animation-delay: 0s; }
+    .story-bg-2 .particle:nth-child(2) { top: 38%; left: 82%; animation-delay: 1.5s; width: 3px; height: 3px; }
+    .story-bg-2 .particle:nth-child(3) { top: 58%; left: 8%; animation-delay: 3s; }
+    .story-bg-2 .particle:nth-child(4) { top: 72%; left: 72%; animation-delay: 0.8s; width: 1.5px; height: 1.5px; }
+    .story-bg-2 .particle:nth-child(5) { top: 28%; left: 92%; animation-delay: 4s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) scale(1); opacity: 0.3; }
+      50% { transform: translateY(-20px) scale(1.5); opacity: 0.8; }
+    }
+
+    .story-bg-2 .quote-block {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .story-bg-2 .quote-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 25px;
+    }
+
+    .story-bg-2 .quote-text {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 18px;
+      font-weight: 300;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 10px;
+      padding: 0 5px;
+    }
+
+    .story-bg-2 .quote-highlight {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 28px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -1px;
+      line-height: 1.15;
+      margin: 12px 0 25px;
+      color: var(--gold);
+    }
+
+    .story-bg-2 .quote-divider {
+      width: 40px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 0 auto 18px;
+    }
+
+    .story-bg-2 .quote-signature {
+      font-family: 'Great Vibes', cursive;
+      font-size: 28px;
+      color: var(--gold);
+      opacity: 0.6;
+      margin-bottom: 4px;
+    }
+
+    .story-bg-2 .quote-author-name {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+    }
+
+    .story-bg-2 .sunday-block {
+      position: absolute;
+      bottom: 65px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      text-align: center;
+    }
+
+    .story-bg-2 .sunday-block .day-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .story-bg-2 .sunday-block .time-big {
+      font-size: 38px;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -2px;
+      line-height: 1.1;
+    }
+
+    .story-bg-2 .sunday-block .addr {
+      font-size: 9px;
+      font-weight: 300;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      margin-top: 4px;
+    }
+
+    /* ==========================================
+       STORY 3 — DECISÃO / URGÊNCIA (Sábado)
+       ========================================== */
+    .story-bg-3 {
+      background: #000;
+      overflow: hidden;
+    }
+
+    .story-bg-3::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background:
+        radial-gradient(ellipse at 50% 35%, rgba(212, 165, 32, 0.07) 0%, transparent 40%);
+      z-index: 1;
+    }
+
+    .story-bg-3 .rays {
+      position: absolute;
+      top: 0; left: 50%;
+      width: 300%;
+      height: 100%;
+      transform: translateX(-50%);
+      z-index: 2;
+      background:
+        linear-gradient(175deg, transparent 38%, rgba(212, 165, 32, 0.015) 43%, transparent 48%),
+        linear-gradient(185deg, transparent 38%, rgba(212, 165, 32, 0.015) 43%, transparent 48%),
+        linear-gradient(170deg, transparent 33%, rgba(212, 165, 32, 0.012) 38%, transparent 43%);
+      opacity: 0.9;
+    }
+
+    .story-bg-3 .quote-block {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      margin-top: 5px;
+    }
+
+    .story-bg-3 .tomorrow-tag {
+      font-size: 12px;
+      font-weight: 200;
+      letter-spacing: 8px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 18px;
+    }
+
+    .story-bg-3 .quote-intro {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 12px;
+      padding: 0 8px;
+    }
+
+    .story-bg-3 .quote-big {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 32px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -1px;
+      line-height: 1.1;
+      margin-bottom: 18px;
+      background: linear-gradient(180deg, #fff 20%, var(--gold) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .story-bg-3 .quote-cta-line {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      font-style: italic;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 22px;
+    }
+
+    .story-bg-3 .vert-line {
+      width: 1px;
+      height: 45px;
+      background: linear-gradient(180deg, transparent, var(--gold), transparent);
+      margin: 0 auto 18px;
+    }
+
+    .story-bg-3 .quote-signature {
+      font-family: 'Great Vibes', cursive;
+      font-size: 28px;
+      color: var(--gold);
+      opacity: 0.6;
+      margin-bottom: 4px;
+    }
+
+    .story-bg-3 .quote-author-name {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 22px;
+    }
+
+    .story-bg-3 .cta-badge {
+      display: inline-block;
+      background: var(--gold);
+      color: #000;
+      padding: 12px 28px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .story-bg-3 .info-bottom {
+      position: absolute;
+      bottom: 65px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      z-index: 10;
+      white-space: nowrap;
+    }
+
+    .story-bg-3 .info-bottom p {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      line-height: 2;
+    }
+
+    /* ===== COPY / STRATEGY SECTION ===== */
+    .copy-section {
+      max-width: 1000px;
+      margin: 60px auto;
+      padding: 40px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(212, 165, 32, 0.12);
+      border-radius: 12px;
+    }
+
+    .copy-section h2 {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .copy-section h3 {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin: 30px 0 15px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(212, 165, 32, 0.12);
+    }
+
+    .strategy-item {
+      margin-bottom: 18px;
+      padding: 18px;
+      background: rgba(255,255,255,0.015);
+      border-left: 3px solid var(--gold);
+    }
+
+    .strategy-item .day-tag {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+
+    .strategy-item .objective {
+      font-size: 14px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .strategy-item .description {
+      font-size: 12px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.7;
+    }
+
+    .copy-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+
+    .copy-table th {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-align: left;
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(212, 165, 32, 0.15);
+    }
+
+    .copy-table td {
+      font-size: 12px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.75);
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      vertical-align: top;
+    }
+
+    .copy-table tr:hover td {
+      background: rgba(212, 165, 32, 0.02);
+    }
+
+    .sn {
+      font-weight: 800;
+      color: var(--gold);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1200px) {
+      .story-frame { width: 300px; height: 533px; }
+      .story-bg-1 .quote-text { font-size: 20px; }
+      .story-bg-2 .quote-text { font-size: 16px; }
+      .story-bg-2 .quote-highlight { font-size: 24px; }
+      .story-bg-2 .sunday-block .time-big { font-size: 32px; }
+      .story-bg-3 .quote-big { font-size: 26px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page-title">Billy Graham &mdash; Frases de Impacto</div>
+  <div class="page-subtitle">AV Orlando &mdash; Stories da Semana (3 Varia&ccedil;&otilde;es)</div>
+  <div class="page-strategy">
+    Estrat&eacute;gia: semear expectativa durante a semana com frases poderosas,
+    construindo uma jornada de ter&ccedil;a a s&aacute;bado que direciona para o culto de domingo.
+    Cada story funciona como lembrete espiritual + convite.
+  </div>
+
+  <div class="stories-grid">
+
+    <!-- ============ STORY 1 — TERÇA-FEIRA: GRAÇA ============ -->
+    <div class="story-wrapper">
+      <div class="story-label">Story 01 &mdash; Gra&ccedil;a</div>
+      <div class="story-day">Ter&ccedil;a-feira</div>
+      <div class="story-frame">
+        <div class="story-content story-bg-1">
+          <div class="story-progress">
+            <div class="story-progress-bar active"></div>
+            <div class="story-progress-bar"></div>
+            <div class="story-progress-bar"></div>
+          </div>
+          <div class="ig-header">
+            <div class="ig-avatar">AV</div>
+            <span class="ig-name">avorlando.ofc</span>
+            <span class="ig-time">3h</span>
+          </div>
+          <!-- Light beams -->
+          <div class="light-beam"></div>
+          <div class="light-beam-h"></div>
+          <!-- AV Logo (top right) -->
+          <div class="av-logo">
+            <svg width="44" height="30" viewBox="0 0 100 65" fill="none">
+              <polygon points="0,65 10,65 40,0 30,0" fill="url(#g1)"/>
+              <polygon points="30,0 40,0 70,65 60,65" fill="url(#g1)"/>
+              <polygon points="60,65 70,65 100,0 90,0" fill="url(#g1)"/>
+              <defs>
+                <linearGradient id="g1" x1="50" y1="0" x2="50" y2="65" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#E6C44A"/>
+                  <stop offset="1" stop-color="#B8860B"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <!-- Quote -->
+          <div class="quote-block">
+            <div class="open-quote">&ldquo;</div>
+            <div class="quote-text">
+              A vontade de Deus<br>nunca vai te levar<br>onde a <strong>gra&ccedil;a de Deus</strong><br>n&atilde;o possa te guardar.
+            </div>
+            <div class="quote-divider"></div>
+            <div class="quote-signature">Billy Graham</div>
+            <div class="quote-author-name">Billy Graham</div>
+          </div>
+          <!-- Bottom -->
+          <div class="info-bottom">
+            <p>Domingo &middot; 7PM</p>
+            <p>607 Avalon Road &middot; Winter Garden</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ STORY 2 — QUINTA-FEIRA: AMOR ============ -->
+    <div class="story-wrapper">
+      <div class="story-label">Story 02 &mdash; O Amor de Deus</div>
+      <div class="story-day">Quinta-feira</div>
+      <div class="story-frame">
+        <div class="story-content story-bg-2">
+          <div class="story-progress">
+            <div class="story-progress-bar active"></div>
+            <div class="story-progress-bar active"></div>
+            <div class="story-progress-bar"></div>
+          </div>
+          <div class="ig-header">
+            <div class="ig-avatar">AV</div>
+            <span class="ig-name">avorlando.ofc</span>
+            <span class="ig-time">2h</span>
+          </div>
+          <!-- Particles -->
+          <div class="particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+          </div>
+          <!-- AV Logo -->
+          <div class="av-logo">
+            <svg width="44" height="30" viewBox="0 0 100 65" fill="none">
+              <polygon points="0,65 10,65 40,0 30,0" fill="url(#g2)"/>
+              <polygon points="30,0 40,0 70,65 60,65" fill="url(#g2)"/>
+              <polygon points="60,65 70,65 100,0 90,0" fill="url(#g2)"/>
+              <defs>
+                <linearGradient id="g2" x1="50" y1="0" x2="50" y2="65" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#E6C44A"/>
+                  <stop offset="1" stop-color="#B8860B"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <!-- Quote -->
+          <div class="quote-block">
+            <div class="quote-label">Reflita</div>
+            <div class="quote-text">
+              Deus provou o Seu amor<br>na Cruz. Quando Cristo<br>foi pendurado, sangrou<br>e morreu, era Deus<br>dizendo ao mundo:
+            </div>
+            <div class="quote-highlight">&ldquo;Eu te amo.&rdquo;</div>
+            <div class="quote-divider"></div>
+            <div class="quote-signature">Billy Graham</div>
+            <div class="quote-author-name">Billy Graham</div>
+          </div>
+          <!-- Sunday block -->
+          <div class="sunday-block">
+            <div class="day-label">Domingo</div>
+            <div class="time-big">7PM</div>
+            <div class="addr">607 Avalon Rd &middot; Winter Garden</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ STORY 3 — SÁBADO: DECISÃO ============ -->
+    <div class="story-wrapper">
+      <div class="story-label">Story 03 &mdash; Decis&atilde;o</div>
+      <div class="story-day">S&aacute;bado</div>
+      <div class="story-frame">
+        <div class="story-content story-bg-3">
+          <div class="story-progress">
+            <div class="story-progress-bar active"></div>
+            <div class="story-progress-bar active"></div>
+            <div class="story-progress-bar active"></div>
+          </div>
+          <div class="ig-header">
+            <div class="ig-avatar">AV</div>
+            <span class="ig-name">avorlando.ofc</span>
+            <span class="ig-time">1h</span>
+          </div>
+          <!-- Rays -->
+          <div class="rays"></div>
+          <!-- AV Logo -->
+          <div class="av-logo">
+            <svg width="44" height="30" viewBox="0 0 100 65" fill="none">
+              <polygon points="0,65 10,65 40,0 30,0" fill="url(#g3)"/>
+              <polygon points="30,0 40,0 70,65 60,65" fill="url(#g3)"/>
+              <polygon points="60,65 70,65 100,0 90,0" fill="url(#g3)"/>
+              <defs>
+                <linearGradient id="g3" x1="50" y1="0" x2="50" y2="65" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#E6C44A"/>
+                  <stop offset="1" stop-color="#B8860B"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <!-- Quote -->
+          <div class="quote-block">
+            <div class="tomorrow-tag">Amanh&atilde;</div>
+            <div class="quote-intro">
+              Ser crist&atilde;o &eacute; mais do que<br>uma convers&atilde;o instant&acirc;nea &mdash;
+            </div>
+            <div class="quote-big">
+              &Eacute; um processo<br>di&aacute;rio.
+            </div>
+            <div class="quote-cta-line">
+              Comece o seu neste domingo.
+            </div>
+            <div class="vert-line"></div>
+            <div class="quote-signature">Billy Graham</div>
+            <div class="quote-author-name">Billy Graham</div>
+            <br>
+            <div class="cta-badge">Te vejo amanh&atilde;</div>
+          </div>
+          <!-- Bottom -->
+          <div class="info-bottom">
+            <p>Domingo 7PM &middot; 607 Avalon Road</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ===== PLANEJAMENTO ===== -->
+  <div class="copy-section">
+    <h2>Planejamento Semanal</h2>
+
+    <h3>Estrat&eacute;gia de Publica&ccedil;&atilde;o</h3>
+
+    <div class="strategy-item">
+      <div class="day-tag">Ter&ccedil;a-feira &mdash; Story 01</div>
+      <div class="objective">Semear &mdash; Toque emocional + Gra&ccedil;a</div>
+      <div class="description">
+        Frase sobre a gra&ccedil;a de Deus que te encontra onde voc&ecirc; est&aacute;.
+        Tom acolhedor, visual minimalista com cruz sutil de luz.
+        Objetivo: gerar saves e compartilhamentos. Alcance org&acirc;nico.
+      </div>
+    </div>
+
+    <div class="strategy-item">
+      <div class="day-tag">Quinta-feira &mdash; Story 02</div>
+      <div class="objective">Construir &mdash; Reflex&atilde;o + Antecipa&ccedil;&atilde;o</div>
+      <div class="description">
+        Frase sobre o amor de Deus provado na cruz. Tom profundo, contemplativo.
+        J&aacute; inclui info do culto de domingo para plantar a semente.
+        Objetivo: engajamento via DM e replies. &ldquo;Responda EU VOU&rdquo;.
+      </div>
+    </div>
+
+    <div class="strategy-item">
+      <div class="day-tag">S&aacute;bado &mdash; Story 03</div>
+      <div class="objective">Converter &mdash; Urg&ecirc;ncia + CTA direto</div>
+      <div class="description">
+        Frase sobre decis&atilde;o e processo di&aacute;rio. &ldquo;Amanh&atilde;&rdquo; como gatilho de urg&ecirc;ncia.
+        CTA forte com badge dourado &ldquo;TE VEJO AMANH&Atilde;&rdquo;.
+        Objetivo: confirma&ccedil;&atilde;o de presen&ccedil;a e compartilhamento.
+      </div>
+    </div>
+
+    <h3>Copies & CTAs</h3>
+
+    <table class="copy-table">
+      <thead>
+        <tr>
+          <th>Story</th>
+          <th>Frase (Billy Graham)</th>
+          <th>Caption / CTA</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="sn">01</td>
+          <td>&ldquo;A vontade de Deus nunca vai te levar onde a gra&ccedil;a de Deus n&atilde;o possa te guardar.&rdquo;</td>
+          <td>&ldquo;Salva esse story pra quando voc&ecirc; precisar de um lembrete. Manda pra algu&eacute;m que precisa ouvir isso hoje.&rdquo;</td>
+        </tr>
+        <tr>
+          <td class="sn">02</td>
+          <td>&ldquo;Deus provou o Seu amor na Cruz. Quando Cristo sangrou e morreu, era Deus dizendo: Eu te amo.&rdquo;</td>
+          <td>&ldquo;Esse domingo a gente celebra esse amor. 7PM &mdash; 607 Avalon Road. Responde EU VOU.&rdquo;</td>
+        </tr>
+        <tr>
+          <td class="sn">03</td>
+          <td>&ldquo;Ser crist&atilde;o &eacute; mais do que uma convers&atilde;o instant&acirc;nea &mdash; &eacute; um processo di&aacute;rio.&rdquo;</td>
+          <td>&ldquo;Amanh&atilde; pode ser o primeiro passo. Te vejo &agrave;s 7PM. Marca quem voc&ecirc; vai trazer.&rdquo;</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Notas de Produ&ccedil;&atilde;o</h3>
+
+    <table class="copy-table">
+      <thead>
+        <tr>
+          <th>Elemento</th>
+          <th>Especifica&ccedil;&atilde;o</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="sn">Formato</td>
+          <td>1080 x 1920px (9:16) &mdash; Instagram Stories</td>
+        </tr>
+        <tr>
+          <td class="sn">Paleta</td>
+          <td>Preto (#000) + Dourado quente (#D4A520 / #E6C44A / #B8860B) + Branco</td>
+        </tr>
+        <tr>
+          <td class="sn">Fontes</td>
+          <td>Montserrat (corpo/t&iacute;tulos) + Playfair Display (cita&ccedil;&otilde;es) + Great Vibes (assinatura)</td>
+        </tr>
+        <tr>
+          <td class="sn">Logo</td>
+          <td>AV geom&eacute;trico (zigzag /\/) em gradiente dourado, posicionado no topo direito</td>
+        </tr>
+        <tr>
+          <td class="sn">Assinatura</td>
+          <td>&ldquo;Billy Graham&rdquo; em fonte cursiva (Great Vibes) + nome em caps abaixo</td>
+        </tr>
+        <tr>
+          <td class="sn">Endere&ccedil;o</td>
+          <td>607 Avalon Road &middot; Winter Garden, FL (10 min do Walmart New Independence)</td>
+        </tr>
+        <tr>
+          <td class="sn">Hor&aacute;rio</td>
+          <td>Domingo 7PM</td>
+        </tr>
+        <tr>
+          <td class="sn">Instagram</td>
+          <td>@avorlando.ofc</td>
+        </tr>
+        <tr>
+          <td class="sn">Refer&ecirc;ncias visuais</td>
+          <td>Linha gr&aacute;fica &ldquo;Chegou o Tempo de Romper&rdquo; / &ldquo;Conquistando Pela F&eacute;&rdquo; &mdash; tons quentes, tipografia bold, AV dourado no canto</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</body>
+</html>

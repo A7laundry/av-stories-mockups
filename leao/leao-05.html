@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<title>Leao 05 — Constellation Lion</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden}
+body{font-family:'Montserrat',sans-serif;color:#fff}
+.s{width:1080px;height:1920px;position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center;background:linear-gradient(180deg,#030108 0%,#0a0610 40%,#080404 100%);overflow:hidden}
+/* Cosmic dust */
+.s::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 40% 30%,rgba(100,60,180,0.04) 0%,transparent 40%),radial-gradient(ellipse at 60% 50%,rgba(212,165,32,0.05) 0%,transparent 35%),radial-gradient(ellipse at 30% 70%,rgba(60,40,120,0.03) 0%,transparent 35%);z-index:1}
+/* Star field */
+.star{position:absolute;border-radius:50%;z-index:2}
+.st1{width:2px;height:2px;top:8%;left:12%;background:#fff;opacity:0.3}
+.st2{width:3px;height:3px;top:15%;left:68%;background:#D4A520;opacity:0.2}
+.st3{width:2px;height:2px;top:22%;left:88%;background:#fff;opacity:0.25}
+.st4{width:2px;height:2px;top:35%;left:5%;background:#fff;opacity:0.2}
+.st5{width:3px;height:3px;top:55%;left:92%;background:#D4A520;opacity:0.15}
+.st6{width:2px;height:2px;top:72%;left:8%;background:#fff;opacity:0.2}
+.st7{width:2px;height:2px;top:80%;left:78%;background:#fff;opacity:0.25}
+.st8{width:3px;height:3px;top:88%;left:42%;background:#D4A520;opacity:0.15}
+.st9{width:2px;height:2px;top:45%;left:48%;background:#fff;opacity:0.15}
+.st10{width:2px;height:2px;top:62%;left:22%;background:#fff;opacity:0.2}
+/* Pulsing nodes */
+@keyframes np{0%,100%{opacity:0.3;transform:scale(1)}50%{opacity:1;transform:scale(1.8)}}
+.node{animation:np 4s ease-in-out infinite}
+/* AV Logo */
+.av-logo{position:absolute;top:60px;right:40px;z-index:20}
+.av-logo img{width:120px;height:auto;mix-blend-mode:screen}
+/* Constellation Lion */
+.lion-wrap{position:relative;z-index:10;margin-bottom:15px}
+.lion-wrap svg{filter:drop-shadow(0 0 50px rgba(212,165,32,0.1))}
+/* Content */
+.c{position:relative;z-index:10;text-align:center;padding:0 80px}
+.tag{font-size:24px;font-weight:200;letter-spacing:18px;text-transform:uppercase;color:rgba(167,139,250,0.4);margin-bottom:30px}
+.hook{font-size:68px;font-weight:900;text-transform:uppercase;letter-spacing:-2px;line-height:1.1;margin-bottom:20px}
+.hook .w{color:rgba(255,255,255,0.9)}
+.hook .g{background:linear-gradient(135deg,#D4A520,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sub{font-size:38px;font-weight:300;color:rgba(255,255,255,0.35);line-height:1.45;margin-bottom:15px}
+.ref{font-size:22px;font-weight:700;letter-spacing:10px;text-transform:uppercase;color:#D4A520;margin-bottom:50px}
+.divider{width:100px;height:1px;background:linear-gradient(90deg,transparent,rgba(167,139,250,0.4),#D4A520,rgba(167,139,250,0.4),transparent);margin:0 auto 40px}
+.info{font-size:24px;font-weight:400;letter-spacing:8px;text-transform:uppercase;color:rgba(255,255,255,0.18)}
+</style>
+</head>
+<body>
+<div class="s">
+  <div class="star st1"></div><div class="star st2"></div><div class="star st3"></div><div class="star st4"></div><div class="star st5"></div>
+  <div class="star st6"></div><div class="star st7"></div><div class="star st8"></div><div class="star st9"></div><div class="star st10"></div>
+  <div class="av-logo"><img src="../Logobranco_av_orlando.jpeg" alt="AV Orlando"></div>
+
+  <!-- Constellation Lion -->
+  <div class="lion-wrap">
+    <svg width="520" height="480" viewBox="0 0 320 300" fill="none">
+      <!-- Connection lines -->
+      <g stroke="rgba(212,165,32,0.12)" stroke-width="0.8">
+        <!-- Mane outline connections -->
+        <line x1="160" y1="10" x2="125" y2="35"/>
+        <line x1="160" y1="10" x2="195" y2="35"/>
+        <line x1="125" y1="35" x2="90" y2="28"/>
+        <line x1="195" y1="35" x2="230" y2="28"/>
+        <line x1="90" y1="28" x2="58" y2="50"/>
+        <line x1="230" y1="28" x2="262" y2="50"/>
+        <line x1="58" y1="50" x2="35" y2="82"/>
+        <line x1="262" y1="50" x2="285" y2="82"/>
+        <line x1="35" y1="82" x2="22" y2="120"/>
+        <line x1="285" y1="82" x2="298" y2="120"/>
+        <line x1="22" y1="120" x2="18" y2="160"/>
+        <line x1="298" y1="120" x2="302" y2="160"/>
+        <line x1="18" y1="160" x2="28" y2="198"/>
+        <line x1="302" y1="160" x2="292" y2="198"/>
+        <line x1="28" y1="198" x2="50" y2="228"/>
+        <line x1="292" y1="198" x2="270" y2="228"/>
+        <line x1="50" y1="228" x2="85" y2="252"/>
+        <line x1="270" y1="228" x2="235" y2="252"/>
+        <line x1="85" y1="252" x2="125" y2="268"/>
+        <line x1="235" y1="252" x2="195" y2="268"/>
+        <line x1="125" y1="268" x2="160" y2="278"/>
+        <line x1="195" y1="268" x2="160" y2="278"/>
+        <!-- Cross connections -->
+        <line x1="125" y1="35" x2="195" y2="35"/>
+        <line x1="58" y1="50" x2="125" y2="35"/>
+        <line x1="262" y1="50" x2="195" y2="35"/>
+        <line x1="35" y1="82" x2="58" y2="50"/>
+        <line x1="285" y1="82" x2="262" y2="50"/>
+        <!-- Face internal -->
+        <line x1="125" y1="35" x2="110" y2="75"/>
+        <line x1="195" y1="35" x2="210" y2="75"/>
+        <line x1="110" y1="75" x2="130" y2="100"/>
+        <line x1="210" y1="75" x2="190" y2="100"/>
+        <line x1="130" y1="100" x2="160" y2="90"/>
+        <line x1="190" y1="100" x2="160" y2="90"/>
+        <line x1="160" y1="90" x2="160" y2="120"/>
+        <line x1="130" y1="100" x2="145" y2="140"/>
+        <line x1="190" y1="100" x2="175" y2="140"/>
+        <line x1="145" y1="140" x2="160" y2="120"/>
+        <line x1="175" y1="140" x2="160" y2="120"/>
+        <line x1="145" y1="140" x2="160" y2="165"/>
+        <line x1="175" y1="140" x2="160" y2="165"/>
+        <line x1="160" y1="165" x2="160" y2="200"/>
+        <!-- Whisker lines -->
+        <line x1="130" y1="100" x2="70" y2="105" stroke="rgba(212,165,32,0.06)"/>
+        <line x1="190" y1="100" x2="250" y2="105" stroke="rgba(212,165,32,0.06)"/>
+        <line x1="145" y1="140" x2="80" y2="150" stroke="rgba(212,165,32,0.06)"/>
+        <line x1="175" y1="140" x2="240" y2="150" stroke="rgba(212,165,32,0.06)"/>
+      </g>
+      <!-- Nodes - constellation points -->
+      <g fill="#D4A520">
+        <!-- Mane nodes -->
+        <circle class="node" cx="160" cy="10" r="4" opacity="0.8" style="animation-delay:0s"/>
+        <circle class="node" cx="125" cy="35" r="3" opacity="0.6" style="animation-delay:-0.5s"/>
+        <circle class="node" cx="195" cy="35" r="3" opacity="0.6" style="animation-delay:-1s"/>
+        <circle class="node" cx="90" cy="28" r="2.5" opacity="0.5" style="animation-delay:-1.5s"/>
+        <circle class="node" cx="230" cy="28" r="2.5" opacity="0.5" style="animation-delay:-2s"/>
+        <circle class="node" cx="58" cy="50" r="2.5" opacity="0.5" style="animation-delay:-0.3s"/>
+        <circle class="node" cx="262" cy="50" r="2.5" opacity="0.5" style="animation-delay:-0.8s"/>
+        <circle class="node" cx="35" cy="82" r="2" opacity="0.4" style="animation-delay:-1.2s"/>
+        <circle class="node" cx="285" cy="82" r="2" opacity="0.4" style="animation-delay:-1.7s"/>
+        <circle class="node" cx="22" cy="120" r="2.5" opacity="0.45" style="animation-delay:-2.2s"/>
+        <circle class="node" cx="298" cy="120" r="2.5" opacity="0.45" style="animation-delay:-2.7s"/>
+        <circle class="node" cx="18" cy="160" r="2" opacity="0.4" style="animation-delay:-0.6s"/>
+        <circle class="node" cx="302" cy="160" r="2" opacity="0.4" style="animation-delay:-1.1s"/>
+        <circle class="node" cx="28" cy="198" r="2" opacity="0.35" style="animation-delay:-1.6s"/>
+        <circle class="node" cx="292" cy="198" r="2" opacity="0.35" style="animation-delay:-2.1s"/>
+        <circle class="node" cx="50" cy="228" r="2" opacity="0.3" style="animation-delay:-2.6s"/>
+        <circle class="node" cx="270" cy="228" r="2" opacity="0.3" style="animation-delay:-0.4s"/>
+        <circle class="node" cx="85" cy="252" r="2" opacity="0.3" style="animation-delay:-0.9s"/>
+        <circle class="node" cx="235" cy="252" r="2" opacity="0.3" style="animation-delay:-1.4s"/>
+        <circle class="node" cx="160" cy="278" r="3" opacity="0.5" style="animation-delay:-1.9s"/>
+        <!-- Face nodes -->
+        <circle class="node" cx="110" cy="75" r="2" opacity="0.5" style="animation-delay:-2.4s"/>
+        <circle class="node" cx="210" cy="75" r="2" opacity="0.5" style="animation-delay:-0.2s"/>
+        <circle class="node" cx="160" cy="90" r="3" opacity="0.6" style="animation-delay:-0.7s"/>
+        <circle class="node" cx="160" cy="120" r="3.5" opacity="0.7" style="animation-delay:-1.3s"/>
+        <circle class="node" cx="160" cy="165" r="3" opacity="0.6" style="animation-delay:-1.8s"/>
+        <circle class="node" cx="160" cy="200" r="2.5" opacity="0.5" style="animation-delay:-2.3s"/>
+        <!-- Eyes - bright -->
+        <circle cx="130" cy="100" r="5" opacity="0.9" filter="url(#eg)"/>
+        <circle cx="190" cy="100" r="5" opacity="0.9" filter="url(#eg)"/>
+        <circle cx="130" cy="100" r="2" fill="#fff" opacity="0.6"/>
+        <circle cx="190" cy="100" r="2" fill="#fff" opacity="0.6"/>
+      </g>
+      <defs>
+        <filter id="eg" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="4" result="blur"/>
+          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+      </defs>
+    </svg>
+  </div>
+
+  <div class="c">
+    <div class="tag">Constela&ccedil;&atilde;o</div>
+    <div class="hook">
+      <span class="w">N&atilde;o temas,<br>porque Eu</span><br>
+      <span class="g">estou contigo.</span>
+    </div>
+    <div class="sub">O mesmo Deus que colocou<br>estrelas no c&eacute;u, cuida de voc&ecirc;.</div>
+    <div class="ref">Isa&iacute;as 41:10</div>
+    <div class="divider"></div>
+    <div class="info">Domingo 7PM &middot; 607 Avalon Rd</div>
+  </div>
+</div>
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+<script>
+if(window===window.top){var b=document.createElement('button');b.innerHTML='&#11015; BAIXAR JPG';b.style.cssText='position:fixed;bottom:30px;right:30px;z-index:9999;background:#D4A520;color:#000;border:none;padding:16px 32px;font-family:Montserrat,sans-serif;font-size:14px;font-weight:800;letter-spacing:3px;text-transform:uppercase;cursor:pointer;border-radius:8px;box-shadow:0 4px 20px rgba(212,165,32,0.3)';b.onmouseenter=function(){b.style.background='#E6C44A'};b.onmouseleave=function(){b.style.background='#D4A520'};b.onclick=function(){b.style.display='none';html2canvas(document.querySelector('.s'),{width:1080,height:1920,scale:1,backgroundColor:null,useCORS:true}).then(function(c){var a=document.createElement('a');a.download=document.title.replace(/[^a-zA-Z0-9]/g,'-')+'.jpg';a.href=c.toDataURL('image/jpeg',0.95);a.click();b.style.display=''})};document.body.appendChild(b)}if(window===window.top){var bk=document.createElement("a");bk.innerHTML="&#8592; PAINEL";bk.href="../painel.html";bk.style.cssText="position:fixed;top:30px;left:30px;z-index:9999;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.12);text-decoration:none;padding:14px 28px;font-family:Montserrat,sans-serif;font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;cursor:pointer;border-radius:8px;backdrop-filter:blur(10px)";bk.onmouseenter=function(){bk.style.background="rgba(255,255,255,0.15)";bk.style.color="#fff"};bk.onmouseleave=function(){bk.style.background="rgba(255,255,255,0.08)";bk.style.color="rgba(255,255,255,0.6)"};document.body.appendChild(bk)}
+</script>
+</body>
+</html>

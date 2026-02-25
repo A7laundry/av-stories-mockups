@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<title>GC 02</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden}
+body{font-family:'Montserrat',sans-serif;color:#fff}
+.s{width:1080px;height:1920px;position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center;background:#060b12;overflow:hidden;padding:120px 80px}
+.s::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(circle at 50% 45%,rgba(52,211,153,0.04) 0%,transparent 50%);z-index:1}
+.ring{position:absolute;border-radius:50%;border:2px solid;top:50%;left:50%;z-index:2}
+.r1{width:540px;height:540px;transform:translate(-50%,-50%);border-color:rgba(52,211,153,0.1);box-shadow:0 0 90px rgba(52,211,153,0.03)}
+.r2{width:780px;height:780px;transform:translate(-50%,-50%);border-color:rgba(96,165,250,0.06)}
+.r3{width:1050px;height:1050px;transform:translate(-50%,-50%);border-color:rgba(167,139,250,0.035)}
+.dot{position:absolute;border-radius:50%;z-index:3;animation:orbit 8s linear infinite}
+.d1{top:40%;left:22%;width:18px;height:18px;background:rgba(52,211,153,0.6);box-shadow:0 0 36px rgba(52,211,153,0.4)}
+.d2{top:56%;right:18%;width:12px;height:12px;background:rgba(96,165,250,0.6);box-shadow:0 0 30px rgba(96,165,250,0.4);animation-delay:-3s}
+.d3{top:36%;right:28%;width:9px;height:9px;background:rgba(167,139,250,0.5);box-shadow:0 0 24px rgba(167,139,250,0.3);animation-delay:-5s}
+@keyframes orbit{0%{transform:translateY(0) translateX(0)}25%{transform:translateY(-24px) translateX(15px)}50%{transform:translateY(0) translateX(30px)}75%{transform:translateY(24px) translateX(15px)}100%{transform:translateY(0) translateX(0)}}
+.c{position:relative;z-index:10;text-align:center}
+.mono{font-size:192px;font-weight:900;letter-spacing:-12px;line-height:1;margin-bottom:15px;background:linear-gradient(135deg,#34d399 0%,#60a5fa 50%,#a78bfa 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.name{font-size:30px;font-weight:600;letter-spacing:18px;text-transform:uppercase;color:rgba(52,211,153,0.45);margin-bottom:100px}
+.q1{font-size:42px;font-weight:300;color:rgba(255,255,255,0.45);letter-spacing:4px;margin-bottom:20px}
+.qb{font-size:80px;font-weight:900;text-transform:uppercase;letter-spacing:-3px;line-height:1.1;color:#fff;margin-bottom:20px}
+.qb span{background:linear-gradient(135deg,#34d399,#60a5fa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.qs{font-family:'Playfair Display',serif;font-size:44px;font-style:italic;color:rgba(255,255,255,0.35);margin-bottom:80px}
+.pill{display:inline-block;padding:30px 72px;border-radius:90px;font-size:30px;font-weight:700;letter-spacing:8px;text-transform:uppercase;color:#000;background:linear-gradient(135deg,#34d399,#60a5fa)}
+.bot{position:absolute;bottom:100px;left:50%;transform:translateX(-50%);text-align:center;z-index:10}
+.bot p{font-size:30px;font-weight:400;letter-spacing:10px;text-transform:uppercase;color:rgba(255,255,255,0.18)}
+</style>
+</head>
+<body>
+<div class="s">
+  <div class="ring r1"></div>
+  <div class="ring r2"></div>
+  <div class="ring r3"></div>
+  <div class="dot d1"></div>
+  <div class="dot d2"></div>
+  <div class="dot d3"></div>
+  <div class="c">
+    <div class="mono">GC</div>
+    <div class="name">Grupo de Encontro</div>
+    <div class="q1">Melhor &eacute; serem</div>
+    <div class="qb">Dois do que <span>um.</span></div>
+    <div class="qs">Pois juntos podem enfrentar<br>melhor qualquer situa&ccedil;&atilde;o.</div>
+    <div class="pill">Eclesiastes 4:9</div>
+  </div>
+  <div class="bot"><p>Quarta &middot; 8PM</p></div>
+</div>
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+<script>
+if(window===window.top){var b=document.createElement("button");b.innerHTML="\u2B07 BAIXAR JPG";b.style.cssText="position:fixed;bottom:30px;right:30px;z-index:9999;background:#D4A520;color:#000;border:none;padding:16px 32px;font-family:Montserrat,sans-serif;font-size:14px;font-weight:800;letter-spacing:3px;text-transform:uppercase;cursor:pointer;border-radius:8px;box-shadow:0 4px 20px rgba(212,165,32,0.3)";b.onmouseenter=function(){b.style.background="#E6C44A"};b.onmouseleave=function(){b.style.background="#D4A520"};b.onclick=function(){b.style.display="none";html2canvas(document.querySelector(".s"),{width:1080,height:1920,scale:1,backgroundColor:null,useCORS:true}).then(function(c){var a=document.createElement("a");a.download=document.title.replace(/[^a-zA-Z0-9]/g,"-")+".png";a.href=c.toDataURL("image/png");a.click();b.style.display=""})};document.body.appendChild(b)}if(window===window.top){var bk=document.createElement("a");bk.innerHTML="&#8592; PAINEL";bk.href="../painel.html";bk.style.cssText="position:fixed;top:30px;left:30px;z-index:9999;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.12);text-decoration:none;padding:14px 28px;font-family:Montserrat,sans-serif;font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;cursor:pointer;border-radius:8px;backdrop-filter:blur(10px)";bk.onmouseenter=function(){bk.style.background="rgba(255,255,255,0.15)";bk.style.color="#fff"};bk.onmouseleave=function(){bk.style.background="rgba(255,255,255,0.08)";bk.style.color="rgba(255,255,255,0.6)"};document.body.appendChild(bk)}
+</script>
+</body>
+</html>

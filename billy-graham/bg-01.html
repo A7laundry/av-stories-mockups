@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<title>Billy Graham 01 — Graça</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden}
+body{font-family:'Montserrat',sans-serif;color:#fff}
+.s{width:1080px;height:1920px;position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center;background:#000;overflow:hidden;padding:120px 80px}
+.s::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 50% 35%,rgba(212,165,32,0.06) 0%,transparent 50%),radial-gradient(ellipse at 30% 65%,rgba(184,134,11,0.04) 0%,transparent 40%),radial-gradient(ellipse at 70% 55%,rgba(140,80,10,0.03) 0%,transparent 40%);z-index:1}
+.beam{position:absolute;top:0;left:50%;transform:translateX(-50%);width:2px;height:100%;background:linear-gradient(180deg,rgba(212,165,32,0.25) 0%,rgba(212,165,32,0.04) 35%,transparent 60%);z-index:2}
+.beam-w{position:absolute;top:0;left:50%;transform:translateX(-50%);width:400px;height:100%;background:linear-gradient(180deg,rgba(212,165,32,0.04) 0%,transparent 50%);z-index:1;filter:blur(60px)}
+.hglow{position:absolute;top:38%;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent 10%,rgba(212,165,32,0.06) 40%,rgba(212,165,32,0.1) 50%,rgba(212,165,32,0.06) 60%,transparent 90%);z-index:2}
+/* AV Logo */
+.av-logo{position:absolute;top:60px;right:40px;z-index:20}
+.av-logo img{width:120px;height:auto;mix-blend-mode:screen}
+.c{position:relative;z-index:10;text-align:center}
+.oq{font-family:'Playfair Display',serif;font-size:200px;font-style:italic;color:rgba(212,165,32,0.15);line-height:0.4;margin-bottom:40px}
+.qt{font-family:'Playfair Display',serif;font-size:60px;font-weight:400;font-style:italic;line-height:1.4;color:#fff;margin-bottom:60px;padding:0 20px}
+.qt strong{font-weight:700;font-style:normal;color:#D4A520}
+.qdiv{width:120px;height:2px;background:#D4A520;margin:0 auto 40px}
+.sig{font-family:'Great Vibes',cursive;font-size:72px;color:#D4A520;opacity:0.7;margin-bottom:10px}
+.auth{font-size:22px;font-weight:700;letter-spacing:10px;text-transform:uppercase;color:rgba(255,255,255,0.3)}
+.info{position:absolute;bottom:120px;left:50%;transform:translateX(-50%);text-align:center;z-index:10;white-space:nowrap}
+.info p{font-size:26px;font-weight:400;letter-spacing:8px;text-transform:uppercase;color:rgba(255,255,255,0.25);line-height:2}
+</style>
+</head>
+<body>
+<div class="s">
+  <div class="beam"></div>
+  <div class="beam-w"></div>
+  <div class="hglow"></div>
+  <div class="av-logo"><img src="../Logobranco_av_orlando.jpeg" alt="AV Orlando"></div>
+  <div class="c">
+    <div class="oq">&ldquo;</div>
+    <div class="qt">A vontade de Deus<br>nunca vai te levar<br>onde a <strong>gra&ccedil;a de Deus</strong><br>n&atilde;o possa te guardar.</div>
+    <div class="qdiv"></div>
+    <div class="sig">Billy Graham</div>
+    <div class="auth">Billy Graham</div>
+  </div>
+  <div class="info">
+    <p>Domingo &middot; 7PM</p>
+    <p>607 Avalon Road &middot; Winter Garden</p>
+  </div>
+</div>
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+<script>
+if(window===window.top){var b=document.createElement("button");b.innerHTML="\u2B07 BAIXAR JPG";b.style.cssText="position:fixed;bottom:30px;right:30px;z-index:9999;background:#D4A520;color:#000;border:none;padding:16px 32px;font-family:Montserrat,sans-serif;font-size:14px;font-weight:800;letter-spacing:3px;text-transform:uppercase;cursor:pointer;border-radius:8px;box-shadow:0 4px 20px rgba(212,165,32,0.3)";b.onmouseenter=function(){b.style.background="#E6C44A"};b.onmouseleave=function(){b.style.background="#D4A520"};b.onclick=function(){b.style.display="none";html2canvas(document.querySelector(".s"),{width:1080,height:1920,scale:1,backgroundColor:null,useCORS:true}).then(function(c){var a=document.createElement("a");a.download=document.title.replace(/[^a-zA-Z0-9]/g,"-")+".png";a.href=c.toDataURL("image/png");a.click();b.style.display=""})};document.body.appendChild(b)}if(window===window.top){var bk=document.createElement("a");bk.innerHTML="&#8592; PAINEL";bk.href="../painel.html";bk.style.cssText="position:fixed;top:30px;left:30px;z-index:9999;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.12);text-decoration:none;padding:14px 28px;font-family:Montserrat,sans-serif;font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;cursor:pointer;border-radius:8px;backdrop-filter:blur(10px)";bk.onmouseenter=function(){bk.style.background="rgba(255,255,255,0.15)";bk.style.color="#fff"};bk.onmouseleave=function(){bk.style.background="rgba(255,255,255,0.08)";bk.style.color="rgba(255,255,255,0.6)"};document.body.appendChild(bk)}
+</script>
+</body>
+</html>

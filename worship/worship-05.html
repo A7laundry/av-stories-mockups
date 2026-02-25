@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<title>Worship 05 — Geração</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden}
+body{font-family:'Montserrat',sans-serif;color:#fff}
+.s{width:1080px;height:1920px;position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center;background:#0a0010;overflow:hidden}
+/* Animated gradient background */
+.bg-grad{position:absolute;top:0;left:0;right:0;bottom:0;z-index:1;background:linear-gradient(135deg,rgba(168,85,247,0.08) 0%,rgba(236,72,153,0.06) 25%,rgba(249,115,22,0.04) 50%,rgba(59,130,246,0.06) 75%,rgba(20,184,166,0.04) 100%);background-size:400% 400%;animation:gradmove 12s ease infinite}
+@keyframes gradmove{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+/* Grid overlay */
+.grid{position:absolute;top:0;left:0;right:0;bottom:0;z-index:2;opacity:0.025;background:repeating-linear-gradient(90deg,transparent,transparent 53px,rgba(168,85,247,0.5) 53px,rgba(168,85,247,0.5) 54px),repeating-linear-gradient(0deg,transparent,transparent 53px,rgba(168,85,247,0.5) 53px,rgba(168,85,247,0.5) 54px)}
+/* Big glowing orb behind text */
+.orb{position:absolute;top:45%;left:50%;transform:translate(-50%,-50%);width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(168,85,247,0.12) 0%,rgba(236,72,153,0.06) 40%,transparent 65%);z-index:3;filter:blur(40px)}
+/* Floating tags */
+.ftag{position:absolute;z-index:4;padding:10px 22px;border-radius:30px;border:1px solid rgba(255,255,255,0.06);font-size:16px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.12);backdrop-filter:blur(5px);background:rgba(255,255,255,0.02);animation:ftf 7s ease-in-out infinite}
+.ft1{top:12%;left:8%;animation-delay:0s}
+.ft2{top:18%;right:10%;animation-delay:-2s}
+.ft3{top:75%;left:5%;animation-delay:-4s}
+.ft4{top:82%;right:8%;animation-delay:-1s}
+.ft5{top:45%;left:3%;animation-delay:-5s}
+@keyframes ftf{0%,100%{transform:translateY(0);opacity:0.5}50%{transform:translateY(-10px);opacity:1}}
+/* AV Logo */
+.av-logo{position:absolute;top:60px;right:40px;z-index:20}
+.av-logo img{width:120px;height:auto;mix-blend-mode:screen}
+/* Content */
+.c{position:relative;z-index:10;text-align:center;padding:0 65px}
+.main-tag{display:inline-block;padding:16px 44px;border-radius:60px;font-size:22px;font-weight:800;letter-spacing:6px;text-transform:uppercase;background:linear-gradient(135deg,rgba(168,85,247,0.2),rgba(236,72,153,0.2));border:1px solid rgba(168,85,247,0.3);color:#e879f9;margin-bottom:45px;backdrop-filter:blur(10px)}
+.hook{font-size:80px;font-weight:900;text-transform:uppercase;letter-spacing:-3px;line-height:1.02;margin-bottom:20px}
+.hook .w{color:#fff}
+.hook .grad{display:block;background:linear-gradient(135deg,#a855f7,#ec4899,#f97316);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sub{font-size:36px;font-weight:300;color:rgba(255,255,255,0.35);line-height:1.5;margin-bottom:50px}
+.hashtag{font-size:28px;font-weight:700;letter-spacing:2px;margin-bottom:50px}
+.hashtag span{background:linear-gradient(135deg,#a855f7,#ec4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.cta{display:inline-block;padding:28px 64px;border-radius:60px;font-size:26px;font-weight:800;letter-spacing:5px;text-transform:uppercase;color:#fff;background:linear-gradient(135deg,#a855f7,#ec4899,#f97316);box-shadow:0 10px 50px rgba(168,85,247,0.25);margin-bottom:45px}
+.info{font-size:22px;font-weight:400;letter-spacing:6px;text-transform:uppercase;color:rgba(255,255,255,0.18)}
+</style>
+</head>
+<body>
+<div class="s">
+  <div class="bg-grad"></div>
+  <div class="grid"></div>
+  <div class="orb"></div>
+  <div class="ftag ft1">louvor</div>
+  <div class="ftag ft2">worship</div>
+  <div class="ftag ft3">presen&ccedil;a</div>
+  <div class="ftag ft4">adora&ccedil;&atilde;o</div>
+  <div class="ftag ft5">fogo</div>
+  <div class="av-logo"><img src="../Logobranco_av_orlando.jpeg" alt="AV Orlando"></div>
+  <div class="c">
+    <div class="main-tag">Gera&ccedil;&atilde;o de Adoradores</div>
+    <div class="hook">
+      <span class="w">Essa gera&ccedil;&atilde;o</span>
+      <span class="grad">nasceu pra<br>adorar.</span>
+    </div>
+    <div class="sub">N&atilde;o &eacute; show. &Eacute; encontro.<br>N&atilde;o &eacute; m&uacute;sica. &Eacute; altar.</div>
+    <div class="hashtag"><span>#VemPraAV</span></div>
+    <div class="cta">Eu sou dessa gera&ccedil;&atilde;o</div>
+    <div class="info">Domingo 7PM &middot; 607 Avalon Rd</div>
+  </div>
+</div>
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+<script>
+if(window===window.top){var b=document.createElement('button');b.innerHTML='&#11015; BAIXAR JPG';b.style.cssText='position:fixed;bottom:30px;right:30px;z-index:9999;background:#a855f7;color:#fff;border:none;padding:16px 32px;font-family:Montserrat,sans-serif;font-size:14px;font-weight:800;letter-spacing:3px;text-transform:uppercase;cursor:pointer;border-radius:8px;box-shadow:0 4px 20px rgba(168,85,247,0.3)';b.onmouseenter=function(){b.style.background='#c084fc'};b.onmouseleave=function(){b.style.background='#a855f7'};b.onclick=function(){b.style.display='none';html2canvas(document.querySelector('.s'),{width:1080,height:1920,scale:1,backgroundColor:null,useCORS:true}).then(function(c){var a=document.createElement('a');a.download=document.title.replace(/[^a-zA-Z0-9]/g,'-')+'.jpg';a.href=c.toDataURL('image/jpeg',0.95);a.click();b.style.display=''})};document.body.appendChild(b)}if(window===window.top){var bk=document.createElement("a");bk.innerHTML="&#8592; PAINEL";bk.href="../painel.html";bk.style.cssText="position:fixed;top:30px;left:30px;z-index:9999;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.12);text-decoration:none;padding:14px 28px;font-family:Montserrat,sans-serif;font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;cursor:pointer;border-radius:8px;backdrop-filter:blur(10px)";bk.onmouseenter=function(){bk.style.background="rgba(255,255,255,0.15)";bk.style.color="#fff"};bk.onmouseleave=function(){bk.style.background="rgba(255,255,255,0.08)";bk.style.color="rgba(255,255,255,0.6)"};document.body.appendChild(bk)}
+</script>
+</body>
+</html>

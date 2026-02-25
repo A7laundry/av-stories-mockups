@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<title>Leao 04 — Geometric Lion</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden}
+body{font-family:'Montserrat',sans-serif;color:#fff}
+.s{width:1080px;height:1920px;position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center;background:#050505;overflow:hidden}
+/* Scanlines */
+.s::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(212,165,32,0.015) 3px,rgba(212,165,32,0.015) 4px);z-index:15;pointer-events:none}
+/* Grid floor */
+.grid-floor{position:absolute;bottom:0;left:-20%;width:140%;height:50%;background:linear-gradient(0deg,rgba(212,165,32,0.04) 0%,transparent 60%);z-index:1;perspective:800px}
+.grid-floor::before{content:'';position:absolute;bottom:0;left:0;right:0;height:100%;background:repeating-linear-gradient(90deg,transparent,transparent 98px,rgba(212,165,32,0.06) 98px,rgba(212,165,32,0.06) 100px),repeating-linear-gradient(0deg,transparent,transparent 58px,rgba(212,165,32,0.04) 58px,rgba(212,165,32,0.04) 60px);transform:rotateX(65deg);transform-origin:bottom}
+/* Glow behind lion */
+.lion-glow{position:absolute;top:22%;left:50%;transform:translateX(-50%);width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(212,165,32,0.08) 0%,transparent 60%);z-index:2;filter:blur(60px)}
+/* AV Logo */
+.av-logo{position:absolute;top:60px;right:40px;z-index:20}
+.av-logo img{width:120px;height:auto;mix-blend-mode:screen}
+/* Geometric Lion */
+.lion-wrap{position:relative;z-index:10;margin-bottom:20px}
+.lion-wrap svg{filter:drop-shadow(0 0 40px rgba(212,165,32,0.15))}
+/* Vertices glow */
+@keyframes pulse-v{0%,100%{opacity:0.4;r:3}50%{opacity:1;r:5}}
+.vtx{animation:pulse-v 3s ease-in-out infinite}
+.vtx:nth-child(odd){animation-delay:-1.5s}
+/* Content */
+.c{position:relative;z-index:10;text-align:center;padding:0 80px}
+.tag{font-size:24px;font-weight:300;letter-spacing:16px;text-transform:uppercase;color:rgba(212,165,32,0.3);margin-bottom:30px}
+.hook{font-size:72px;font-weight:900;text-transform:uppercase;letter-spacing:-3px;line-height:1.05;margin-bottom:15px}
+.hook .w{color:#fff}
+.hook .g{color:#D4A520}
+.sub{font-size:34px;font-weight:300;color:rgba(255,255,255,0.35);line-height:1.5;margin-bottom:15px}
+.ref{font-size:22px;font-weight:700;letter-spacing:10px;text-transform:uppercase;color:#D4A520;margin-bottom:50px}
+.divider{width:100px;height:1px;background:linear-gradient(90deg,transparent,#D4A520,transparent);margin:0 auto 40px}
+.info{font-size:24px;font-weight:400;letter-spacing:8px;text-transform:uppercase;color:rgba(255,255,255,0.18)}
+</style>
+</head>
+<body>
+<div class="s">
+  <div class="grid-floor"></div>
+  <div class="lion-glow"></div>
+  <div class="av-logo"><img src="../Logobranco_av_orlando.jpeg" alt="AV Orlando"></div>
+
+  <!-- Geometric Wireframe Lion -->
+  <div class="lion-wrap">
+    <svg width="500" height="500" viewBox="0 0 300 300" fill="none">
+      <!-- Mane - outer wireframe triangles -->
+      <g stroke="url(#wg1)" stroke-width="0.6" opacity="0.5">
+        <!-- Top mane -->
+        <polygon points="150,8 120,40 180,40"/>
+        <polygon points="120,40 90,25 100,55"/>
+        <polygon points="180,40 210,25 200,55"/>
+        <polygon points="90,25 60,45 100,55"/>
+        <polygon points="210,25 240,45 200,55"/>
+        <!-- Left mane -->
+        <polygon points="60,45 40,75 80,70"/>
+        <polygon points="40,75 28,110 65,95"/>
+        <polygon points="28,110 22,148 55,130"/>
+        <polygon points="22,148 30,185 52,165"/>
+        <polygon points="30,185 48,215 65,195"/>
+        <!-- Right mane -->
+        <polygon points="240,45 260,75 220,70"/>
+        <polygon points="260,75 272,110 235,95"/>
+        <polygon points="272,110 278,148 245,130"/>
+        <polygon points="278,148 270,185 248,165"/>
+        <polygon points="270,185 252,215 235,195"/>
+        <!-- Bottom mane -->
+        <polygon points="48,215 80,240 100,210"/>
+        <polygon points="252,215 220,240 200,210"/>
+        <polygon points="80,240 120,255 110,225"/>
+        <polygon points="220,240 180,255 190,225"/>
+        <polygon points="120,255 150,265 180,255"/>
+      </g>
+      <!-- Face - inner triangles -->
+      <g stroke="url(#wg1)" stroke-width="0.8" opacity="0.7">
+        <!-- Forehead -->
+        <polygon points="150,50 120,55 135,80"/>
+        <polygon points="150,50 180,55 165,80"/>
+        <polygon points="135,80 165,80 150,65"/>
+        <!-- Cheeks -->
+        <polygon points="100,55 80,70 95,95" fill="rgba(212,165,32,0.02)"/>
+        <polygon points="200,55 220,70 205,95" fill="rgba(212,165,32,0.02)"/>
+        <polygon points="95,95 80,70 65,95"/>
+        <polygon points="205,95 220,70 235,95"/>
+        <!-- Eye area -->
+        <polygon points="120,90 105,100 125,110" fill="rgba(212,165,32,0.04)"/>
+        <polygon points="180,90 195,100 175,110" fill="rgba(212,165,32,0.04)"/>
+        <!-- Nose bridge -->
+        <polygon points="135,80 150,110 165,80"/>
+        <polygon points="135,110 150,110 140,130"/>
+        <polygon points="165,110 150,110 160,130"/>
+        <!-- Nose -->
+        <polygon points="140,130 150,140 160,130" fill="rgba(212,165,32,0.06)"/>
+        <!-- Jaw -->
+        <polygon points="105,145 130,160 120,135"/>
+        <polygon points="195,145 170,160 180,135"/>
+        <polygon points="130,160 150,170 170,160"/>
+        <polygon points="120,135 140,130 130,160"/>
+        <polygon points="180,135 160,130 170,160"/>
+        <!-- Lower jaw -->
+        <polygon points="130,160 150,185 170,160"/>
+        <polygon points="105,145 100,170 130,160"/>
+        <polygon points="195,145 200,170 170,160"/>
+      </g>
+      <!-- Eyes - glowing -->
+      <polygon points="115,95 125,90 135,95 125,105" fill="#D4A520" opacity="0.8"/>
+      <polygon points="165,95 175,90 185,95 175,105" fill="#D4A520" opacity="0.8"/>
+      <circle cx="125" cy="97" r="3" fill="#fff" opacity="0.5"/>
+      <circle cx="175" cy="97" r="3" fill="#fff" opacity="0.5"/>
+      <!-- Glowing vertices -->
+      <g fill="#D4A520">
+        <circle class="vtx" cx="150" cy="8" r="3" opacity="0.6"/>
+        <circle class="vtx" cx="120" cy="40" r="2.5" opacity="0.5"/>
+        <circle class="vtx" cx="180" cy="40" r="2.5" opacity="0.5"/>
+        <circle class="vtx" cx="60" cy="45" r="2" opacity="0.4"/>
+        <circle class="vtx" cx="240" cy="45" r="2" opacity="0.4"/>
+        <circle class="vtx" cx="28" cy="110" r="2" opacity="0.3"/>
+        <circle class="vtx" cx="272" cy="110" r="2" opacity="0.3"/>
+        <circle class="vtx" cx="22" cy="148" r="2.5" opacity="0.4"/>
+        <circle class="vtx" cx="278" cy="148" r="2.5" opacity="0.4"/>
+        <circle class="vtx" cx="150" cy="140" r="3" opacity="0.6"/>
+        <circle class="vtx" cx="150" cy="185" r="2.5" opacity="0.5"/>
+        <circle class="vtx" cx="150" cy="265" r="2" opacity="0.3"/>
+      </g>
+      <defs>
+        <linearGradient id="wg1" x1="150" y1="0" x2="150" y2="300" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#E6C44A"/>
+          <stop offset="0.5" stop-color="#D4A520"/>
+          <stop offset="1" stop-color="#8B6914"/>
+        </linearGradient>
+      </defs>
+    </svg>
+  </div>
+
+  <div class="c">
+    <div class="tag">Futurista</div>
+    <div class="hook">
+      <span class="w">O justo &eacute;</span><br>
+      <span class="w">ousado como</span><br>
+      <span class="g">um le&atilde;o.</span>
+    </div>
+    <div class="sub">N&atilde;o recue. N&atilde;o tema.<br>Avance com ousadia.</div>
+    <div class="ref">Prov&eacute;rbios 28:1</div>
+    <div class="divider"></div>
+    <div class="info">Domingo 7PM &middot; 607 Avalon Rd</div>
+  </div>
+</div>
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+<script>
+if(window===window.top){var b=document.createElement('button');b.innerHTML='&#11015; BAIXAR JPG';b.style.cssText='position:fixed;bottom:30px;right:30px;z-index:9999;background:#D4A520;color:#000;border:none;padding:16px 32px;font-family:Montserrat,sans-serif;font-size:14px;font-weight:800;letter-spacing:3px;text-transform:uppercase;cursor:pointer;border-radius:8px;box-shadow:0 4px 20px rgba(212,165,32,0.3)';b.onmouseenter=function(){b.style.background='#E6C44A'};b.onmouseleave=function(){b.style.background='#D4A520'};b.onclick=function(){b.style.display='none';html2canvas(document.querySelector('.s'),{width:1080,height:1920,scale:1,backgroundColor:null,useCORS:true}).then(function(c){var a=document.createElement('a');a.download=document.title.replace(/[^a-zA-Z0-9]/g,'-')+'.jpg';a.href=c.toDataURL('image/jpeg',0.95);a.click();b.style.display=''})};document.body.appendChild(b)}if(window===window.top){var bk=document.createElement("a");bk.innerHTML="&#8592; PAINEL";bk.href="../painel.html";bk.style.cssText="position:fixed;top:30px;left:30px;z-index:9999;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.12);text-decoration:none;padding:14px 28px;font-family:Montserrat,sans-serif;font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;cursor:pointer;border-radius:8px;backdrop-filter:blur(10px)";bk.onmouseenter=function(){bk.style.background="rgba(255,255,255,0.15)";bk.style.color="#fff"};bk.onmouseleave=function(){bk.style.background="rgba(255,255,255,0.08)";bk.style.color="rgba(255,255,255,0.6)"};document.body.appendChild(bk)}
+</script>
+</body>
+</html>

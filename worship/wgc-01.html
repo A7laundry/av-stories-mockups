@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<title>Worship GC 01 — Conexao</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden}
+body{font-family:'Montserrat',sans-serif;color:#fff}
+.s{width:1080px;height:1920px;position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center;background:#06020f;overflow:hidden}
+/* Dopamine blobs */
+.blob{position:absolute;border-radius:50%;filter:blur(130px);z-index:1}
+.b1{width:700px;height:700px;top:-8%;right:-20%;background:rgba(236,72,153,0.22)}
+.b2{width:600px;height:600px;bottom:0;left:-15%;background:rgba(168,85,247,0.18)}
+.b3{width:450px;height:450px;top:40%;left:50%;transform:translateX(-50%);background:rgba(59,130,246,0.10)}
+/* Connection nodes */
+.nd{position:absolute;border-radius:50%;z-index:3}
+.nd::after{content:'';position:absolute;top:50%;left:50%;width:1px;background:rgba(168,85,247,0.08);transform-origin:top left}
+.n1{width:8px;height:8px;top:18%;left:22%;background:rgba(168,85,247,0.5);box-shadow:0 0 20px rgba(168,85,247,0.3);animation:ndp 4s ease-in-out infinite}
+.n2{width:12px;height:12px;top:28%;left:72%;background:rgba(236,72,153,0.5);box-shadow:0 0 25px rgba(236,72,153,0.3);animation:ndp 4s ease-in-out infinite;animation-delay:-1s}
+.n3{width:6px;height:6px;top:50%;left:12%;background:rgba(59,130,246,0.4);box-shadow:0 0 15px rgba(59,130,246,0.3);animation:ndp 4s ease-in-out infinite;animation-delay:-2s}
+.n4{width:10px;height:10px;top:62%;left:82%;background:rgba(168,85,247,0.4);box-shadow:0 0 20px rgba(168,85,247,0.2);animation:ndp 4s ease-in-out infinite;animation-delay:-3s}
+.n5{width:7px;height:7px;top:75%;left:35%;background:rgba(236,72,153,0.35);box-shadow:0 0 18px rgba(236,72,153,0.2);animation:ndp 4s ease-in-out infinite;animation-delay:-0.5s}
+.n6{width:9px;height:9px;top:40%;left:55%;background:rgba(20,184,166,0.4);box-shadow:0 0 20px rgba(20,184,166,0.2);animation:ndp 4s ease-in-out infinite;animation-delay:-2.5s}
+@keyframes ndp{0%,100%{transform:scale(1);opacity:0.4}50%{transform:scale(1.8);opacity:1}}
+/* Connection lines SVG */
+.lines{position:absolute;top:0;left:0;width:100%;height:100%;z-index:2}
+.lines line{stroke:rgba(168,85,247,0.04);stroke-width:1}
+/* Grain */
+.grain{position:absolute;top:0;left:0;right:0;bottom:0;z-index:14;opacity:0.03;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:128px;pointer-events:none}
+/* AV Logo */
+.av-logo{position:absolute;top:60px;right:40px;z-index:20}
+.av-logo img{width:120px;height:auto;mix-blend-mode:screen}
+/* Content */
+.c{position:relative;z-index:10;text-align:center;padding:0 65px}
+.tomorrow{display:inline-block;padding:14px 40px;border-radius:50px;font-size:22px;font-weight:800;letter-spacing:8px;text-transform:uppercase;background:linear-gradient(135deg,rgba(236,72,153,0.2),rgba(168,85,247,0.2));border:1.5px solid rgba(236,72,153,0.3);color:#f472b6;margin-bottom:20px;backdrop-filter:blur(10px)}
+.gc-label{font-size:28px;font-weight:300;letter-spacing:14px;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-bottom:45px}
+.hook{font-size:78px;font-weight:900;text-transform:uppercase;letter-spacing:-3px;line-height:1.05;margin-bottom:25px}
+.hook .w{color:#fff}
+.hook .grad{display:block;background:linear-gradient(135deg,#a855f7,#ec4899,#f472b6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sub{font-size:36px;font-weight:300;color:rgba(255,255,255,0.38);line-height:1.5;margin-bottom:55px}
+.cta{display:inline-block;background:linear-gradient(135deg,#a855f7,#ec4899);color:#fff;padding:28px 64px;font-size:26px;font-weight:800;letter-spacing:5px;text-transform:uppercase;border-radius:60px;margin-bottom:20px;box-shadow:0 8px 40px rgba(168,85,247,0.25)}
+.time{display:inline-block;padding:16px 40px;border-radius:50px;font-size:20px;font-weight:600;letter-spacing:6px;text-transform:uppercase;border:1.5px solid rgba(255,255,255,0.08);color:rgba(255,255,255,0.35);margin-bottom:40px;backdrop-filter:blur(5px)}
+.info{font-size:22px;font-weight:400;letter-spacing:6px;text-transform:uppercase;color:rgba(255,255,255,0.15)}
+</style>
+</head>
+<body>
+<div class="s">
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+  <div class="grain"></div>
+  <div class="nd n1"></div><div class="nd n2"></div><div class="nd n3"></div><div class="nd n4"></div><div class="nd n5"></div><div class="nd n6"></div>
+  <svg class="lines" viewBox="0 0 1080 1920">
+    <line x1="238" y1="346" x2="778" y2="538"/>
+    <line x1="778" y1="538" x2="130" y2="960"/>
+    <line x1="130" y1="960" x2="886" y2="1190"/>
+    <line x1="886" y1="1190" x2="378" y2="1440"/>
+    <line x1="238" y1="346" x2="594" y2="768"/>
+    <line x1="594" y1="768" x2="378" y2="1440"/>
+  </svg>
+  <div class="av-logo"><img src="../Logobranco_av_orlando.jpeg" alt="AV Orlando"></div>
+  <div class="c">
+    <div class="tomorrow">Amanh&atilde;</div>
+    <div class="gc-label">Grupo de Encontro</div>
+    <div class="hook">
+      <span class="w">Sua hist&oacute;ria muda</span>
+      <span class="grad">quando voc&ecirc; se conecta.</span>
+    </div>
+    <div class="sub">N&atilde;o foi feito pra viver sozinho.<br>Tem gente esperando por voc&ecirc;.</div>
+    <div class="cta">Eu vou</div><br>
+    <div class="time">Quarta &middot; 8PM</div>
+    <div class="info">Manda mensagem &middot; Vem pro GC</div>
+  </div>
+</div>
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+<script>
+if(window===window.top){var b=document.createElement('button');b.innerHTML='&#11015; BAIXAR JPG';b.style.cssText='position:fixed;bottom:30px;right:30px;z-index:9999;background:#a855f7;color:#fff;border:none;padding:16px 32px;font-family:Montserrat,sans-serif;font-size:14px;font-weight:800;letter-spacing:3px;text-transform:uppercase;cursor:pointer;border-radius:8px;box-shadow:0 4px 20px rgba(168,85,247,0.3)';b.onmouseenter=function(){b.style.background='#c084fc'};b.onmouseleave=function(){b.style.background='#a855f7'};b.onclick=function(){b.style.display='none';html2canvas(document.querySelector('.s'),{width:1080,height:1920,scale:1,backgroundColor:null,useCORS:true}).then(function(c){var a=document.createElement('a');a.download=document.title.replace(/[^a-zA-Z0-9]/g,'-')+'.jpg';a.href=c.toDataURL('image/jpeg',0.95);a.click();b.style.display=''})};document.body.appendChild(b)}if(window===window.top){var bk=document.createElement("a");bk.innerHTML="&#8592; PAINEL";bk.href="../painel.html";bk.style.cssText="position:fixed;top:30px;left:30px;z-index:9999;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.12);text-decoration:none;padding:14px 28px;font-family:Montserrat,sans-serif;font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;cursor:pointer;border-radius:8px;backdrop-filter:blur(10px)";bk.onmouseenter=function(){bk.style.background="rgba(255,255,255,0.15)";bk.style.color="#fff"};bk.onmouseleave=function(){bk.style.background="rgba(255,255,255,0.08)";bk.style.color="rgba(255,255,255,0.6)"};document.body.appendChild(bk)}
+</script>
+</body>
+</html>

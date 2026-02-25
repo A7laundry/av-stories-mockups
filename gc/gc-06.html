@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<title>GC 06</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden}
+body{font-family:'Montserrat',sans-serif;color:#fff}
+.s{width:1080px;height:1920px;position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center;background:#0a080c;overflow:hidden;padding:120px 80px}
+/* Wave background */
+.wave{position:absolute;z-index:1;width:200%;opacity:0.06}
+.w1{top:15%;left:-50%;height:400px;background:linear-gradient(180deg,transparent,#a78bfa,transparent);transform:rotate(-5deg);filter:blur(100px)}
+.w2{top:50%;left:-30%;height:300px;background:linear-gradient(180deg,transparent,#f472b6,transparent);transform:rotate(3deg);filter:blur(120px);opacity:0.04}
+.w3{bottom:10%;left:-40%;height:350px;background:linear-gradient(180deg,transparent,#60a5fa,transparent);transform:rotate(-2deg);filter:blur(100px);opacity:0.05}
+/* Horizontal accent lines */
+.accent{position:absolute;z-index:2;height:1px;left:0;right:0}
+.ac1{top:30%;background:linear-gradient(90deg,transparent 10%,rgba(167,139,250,0.08) 50%,transparent 90%)}
+.ac2{top:65%;background:linear-gradient(90deg,transparent 20%,rgba(244,114,182,0.06) 50%,transparent 80%)}
+.c{position:relative;z-index:10;text-align:center}
+.tag{font-size:30px;font-weight:200;letter-spacing:24px;text-transform:uppercase;color:rgba(167,139,250,0.35);margin-bottom:20px}
+.big{font-size:200px;font-weight:900;letter-spacing:-14px;line-height:0.85;margin-bottom:15px;background:linear-gradient(135deg,#f472b6 0%,#a78bfa 50%,#60a5fa 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sub{font-size:28px;font-weight:500;letter-spacing:18px;text-transform:uppercase;color:rgba(244,114,182,0.25);margin-bottom:100px}
+.vline{width:2px;height:120px;margin:0 auto 60px;background:linear-gradient(180deg,transparent,rgba(167,139,250,0.3),transparent)}
+.quote{font-family:'Playfair Display',serif;font-size:60px;font-weight:400;font-style:italic;line-height:1.4;color:rgba(255,255,255,0.85);margin-bottom:25px;padding:0 30px}
+.quote em{font-style:normal;font-weight:700;background:linear-gradient(90deg,#f472b6,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.cta{font-size:40px;font-weight:300;color:rgba(255,255,255,0.35);margin-bottom:50px;line-height:1.5}
+.ref{font-size:28px;font-weight:600;letter-spacing:10px;text-transform:uppercase;color:rgba(167,139,250,0.35);margin-bottom:80px}
+.pill{display:inline-block;padding:28px 66px;border-radius:90px;font-size:28px;font-weight:700;letter-spacing:6px;text-transform:uppercase;color:#fff;background:linear-gradient(135deg,rgba(244,114,182,0.3),rgba(167,139,250,0.3));border:1px solid rgba(167,139,250,0.2)}
+.bot{position:absolute;bottom:100px;left:50%;transform:translateX(-50%);text-align:center;z-index:10}
+.bot p{font-size:30px;font-weight:400;letter-spacing:10px;text-transform:uppercase;color:rgba(255,255,255,0.18)}
+</style>
+</head>
+<body>
+<div class="s">
+  <div class="wave w1"></div>
+  <div class="wave w2"></div>
+  <div class="wave w3"></div>
+  <div class="accent ac1"></div>
+  <div class="accent ac2"></div>
+  <div class="c">
+    <div class="tag">Grupo de Encontro</div>
+    <div class="big">GC</div>
+    <div class="sub">Sabedoria</div>
+    <div class="vline"></div>
+    <div class="quote">&ldquo;Quem anda com <em>s&aacute;bios</em> ser&aacute; s&aacute;bio.&rdquo;</div>
+    <div class="cta">Seu pr&oacute;ximo n&iacute;vel come&ccedil;a<br>com as pessoas certas.</div>
+    <div class="ref">Prov&eacute;rbios 13:20</div>
+    <div class="pill">Vem pro GC</div>
+  </div>
+  <div class="bot"><p>Quarta &middot; 8PM</p></div>
+</div>
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+<script>
+if(window===window.top){var b=document.createElement("button");b.innerHTML="\u2B07 BAIXAR JPG";b.style.cssText="position:fixed;bottom:30px;right:30px;z-index:9999;background:#D4A520;color:#000;border:none;padding:16px 32px;font-family:Montserrat,sans-serif;font-size:14px;font-weight:800;letter-spacing:3px;text-transform:uppercase;cursor:pointer;border-radius:8px;box-shadow:0 4px 20px rgba(212,165,32,0.3)";b.onmouseenter=function(){b.style.background="#E6C44A"};b.onmouseleave=function(){b.style.background="#D4A520"};b.onclick=function(){b.style.display="none";html2canvas(document.querySelector(".s"),{width:1080,height:1920,scale:1,backgroundColor:null,useCORS:true}).then(function(c){var a=document.createElement("a");a.download=document.title.replace(/[^a-zA-Z0-9]/g,"-")+".png";a.href=c.toDataURL("image/png");a.click();b.style.display=""})};document.body.appendChild(b)}if(window===window.top){var bk=document.createElement("a");bk.innerHTML="&#8592; PAINEL";bk.href="../painel.html";bk.style.cssText="position:fixed;top:30px;left:30px;z-index:9999;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.12);text-decoration:none;padding:14px 28px;font-family:Montserrat,sans-serif;font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;cursor:pointer;border-radius:8px;backdrop-filter:blur(10px)";bk.onmouseenter=function(){bk.style.background="rgba(255,255,255,0.15)";bk.style.color="#fff"};bk.onmouseleave=function(){bk.style.background="rgba(255,255,255,0.08)";bk.style.color="rgba(255,255,255,0.6)"};document.body.appendChild(bk)}
+</script>
+</body>
+</html>
