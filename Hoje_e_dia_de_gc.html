@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hoje é Dia de GC — Stories</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Permanent+Marker&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #060608;
+      font-family: 'Montserrat', sans-serif;
+      color: #fff;
+      padding: 40px 20px;
+    }
+
+    .page-title {
+      text-align: center;
+      margin-bottom: 6px;
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, #d4a017, #f5c842, #e8952e);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .page-subtitle {
+      text-align: center;
+      margin-bottom: 50px;
+      font-size: 13px;
+      font-weight: 300;
+      letter-spacing: 2px;
+      color: #555;
+    }
+
+    .stories-grid {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 60px;
+    }
+
+    .story-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .story-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      background: linear-gradient(90deg, #d4a017, #f5c842);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .story-frame {
+      width: 360px;
+      height: 640px;
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+
+    .story-content {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      position: relative;
+      padding: 40px 28px 80px;
+    }
+
+    /* ===== SHARED: PROGRESS & IG HEADER ===== */
+    .story-progress {
+      position: absolute;
+      top: 12px;
+      left: 16px;
+      right: 16px;
+      display: flex;
+      gap: 4px;
+      z-index: 20;
+    }
+
+    .story-progress-bar {
+      flex: 1;
+      height: 2px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 2px;
+    }
+
+    .story-progress-bar.active {
+      background: rgba(255,255,255,0.8);
+    }
+
+    .ig-header {
+      position: absolute;
+      top: 22px;
+      left: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 20;
+    }
+
+    .ig-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 8px;
+      font-weight: 800;
+      color: #fff;
+      background: linear-gradient(135deg, #1a1a2e, #2d2d44);
+      border: 2px solid rgba(212,160,23,0.5);
+    }
+
+    .ig-name {
+      font-size: 12px;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .ig-time {
+      font-size: 12px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.5);
+      margin-left: 4px;
+    }
+
+    .swipe-up {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      z-index: 20;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .swipe-up-icon {
+      width: 28px;
+      height: 28px;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .swipe-up-icon svg {
+      width: 12px;
+      height: 12px;
+      fill: none;
+      stroke: rgba(255,255,255,0.6);
+      stroke-width: 2;
+    }
+
+    .swipe-up-text {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: translateX(-50%) translateY(0); opacity: 1; }
+      50% { transform: translateX(-50%) translateY(-5px); opacity: 0.7; }
+    }
+
+    /* SHARED: content block */
+    .content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+    }
+
+    .brand-tag {
+      font-family: 'Permanent Marker', cursive;
+      font-size: 20px;
+      color: #f5c842;
+      margin-bottom: 18px;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.6);
+    }
+
+    .hero-text {
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 4px;
+      text-shadow: 0 1px 8px rgba(0,0,0,0.5);
+    }
+
+    .hero-dia {
+      font-size: 42px;
+      font-weight: 900;
+      letter-spacing: -2px;
+      line-height: 1;
+      color: #fff;
+      margin-bottom: 2px;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+    }
+
+    .hero-gc {
+      font-family: 'Permanent Marker', cursive;
+      font-size: 56px;
+      line-height: 1;
+      color: #f5c842;
+      text-shadow: 0 2px 15px rgba(212,160,23,0.5);
+      margin-bottom: 22px;
+    }
+
+    .info-line {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      line-height: 2;
+      text-shadow: 0 1px 6px rgba(0,0,0,0.5);
+    }
+
+    .info-line strong {
+      color: #f5c842;
+      font-weight: 700;
+    }
+
+    .link-sticker {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 14px;
+      padding: 8px 18px;
+      background: rgba(255,255,255,0.95);
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #222;
+    }
+
+    .link-sticker svg {
+      width: 14px;
+      height: 14px;
+      stroke: #1d9bf0;
+      fill: none;
+      stroke-width: 2;
+    }
+
+    /* ==========================================
+       VARIATION 1 — ORAÇÃO EM GRUPO
+       Foto: pessoas orando juntas, mãos nos ombros
+       ========================================== */
+    .v1-bg {
+      background: url('gc-foto-01.jpg') center center / cover no-repeat;
+    }
+
+    .v1-bg .overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(0,0,0,0.35) 0%,
+        rgba(0,0,0,0.05) 25%,
+        rgba(0,0,0,0.1) 45%,
+        rgba(0,0,0,0.6) 65%,
+        rgba(0,0,0,0.92) 100%
+      );
+      z-index: 1;
+    }
+
+    .v1-bg .geo-pattern {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 2;
+      opacity: 0.05;
+      background:
+        repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(212,160,23,0.3) 20px, rgba(212,160,23,0.3) 21px),
+        repeating-linear-gradient(-45deg, transparent, transparent 20px, rgba(212,160,23,0.3) 20px, rgba(212,160,23,0.3) 21px);
+    }
+
+    /* ==========================================
+       VARIATION 2 — FIST BUMP / CONEXÃO
+       Foto: jovens com punhos juntos
+       ========================================== */
+    .v2-bg {
+      background: url('gc-foto-02.jpg') center center / cover no-repeat;
+    }
+
+    .v2-bg .overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(0,0,0,0.3) 0%,
+        rgba(0,0,0,0.05) 20%,
+        rgba(0,0,0,0.15) 45%,
+        rgba(0,0,0,0.65) 65%,
+        rgba(0,0,0,0.93) 100%
+      );
+      z-index: 1;
+    }
+
+    /* Warm tint for this cooler photo */
+    .v2-bg .warm-tint {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(180,130,20,0.08) 0%,
+        transparent 40%,
+        rgba(120,80,10,0.1) 100%
+      );
+      z-index: 2;
+    }
+
+    /* ==========================================
+       VARIATION 3 — WORSHIP / MÃOS LEVANTADAS
+       Foto: multidão com mãos no ar
+       ========================================== */
+    .v3-bg {
+      background: url('gc-foto-03.jpg') center 40% / cover no-repeat;
+    }
+
+    .v3-bg .overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(0,0,0,0.5) 0%,
+        rgba(0,0,0,0.1) 20%,
+        rgba(0,0,0,0.05) 40%,
+        rgba(0,0,0,0.55) 65%,
+        rgba(0,0,0,0.93) 100%
+      );
+      z-index: 1;
+    }
+
+    /* Subtle golden vignette */
+    .v3-bg .vignette {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(
+        ellipse at 50% 40%,
+        transparent 40%,
+        rgba(10,5,0,0.3) 100%
+      );
+      z-index: 2;
+    }
+
+    /* ===== COPY SECTION ===== */
+    .copy-section {
+      max-width: 1000px;
+      margin: 60px auto;
+      padding: 40px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(212,160,23,0.1);
+      border-radius: 12px;
+    }
+
+    .copy-section h2 {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 30px;
+      text-align: center;
+      background: linear-gradient(90deg, #d4a017, #f5c842, #e8952e);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .copy-section h3 {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #d4a017;
+      margin: 30px 0 15px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(212,160,23,0.1);
+    }
+
+    .copy-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+
+    .copy-table th {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #d4a017;
+      text-align: left;
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(212,160,23,0.12);
+    }
+
+    .copy-table td {
+      font-size: 12px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.7);
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+      vertical-align: top;
+    }
+
+    .copy-table tr:hover td {
+      background: rgba(212,160,23,0.02);
+    }
+
+    .sn {
+      font-weight: 800;
+      background: linear-gradient(135deg, #d4a017, #f5c842);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1200px) {
+      .story-frame { width: 300px; height: 533px; }
+      .hero-dia { font-size: 36px; }
+      .hero-gc { font-size: 46px; }
+    }
+
+    /* ===== PHOTO CREDITS ===== */
+    .credits {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 1px;
+      color: rgba(255,255,255,0.2);
+    }
+
+    .credits a {
+      color: rgba(212,160,23,0.4);
+      text-decoration: none;
+    }
+
+    .credits a:hover {
+      color: #f5c842;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page-title">Hoje &eacute; Dia de GC</div>
+  <div class="page-subtitle">3 Varia&ccedil;&otilde;es de Stories &mdash; 25/02/2026 &middot; Quarta-feira</div>
+
+  <div class="stories-grid">
+
+    <!-- ============ VARIATION 1 — ORAÇÃO EM GRUPO ============ -->
+    <div class="story-wrapper">
+      <div class="story-label">Varia&ccedil;&atilde;o 01 &mdash; Ora&ccedil;&atilde;o</div>
+      <div class="story-frame">
+        <div class="story-content v1-bg">
+          <div class="story-progress">
+            <div class="story-progress-bar active"></div>
+            <div class="story-progress-bar"></div>
+            <div class="story-progress-bar"></div>
+          </div>
+          <div class="ig-header">
+            <div class="ig-avatar">AV</div>
+            <span class="ig-name">avorlando.ofc</span>
+            <span class="ig-time">2h</span>
+          </div>
+          <div class="overlay"></div>
+          <div class="geo-pattern"></div>
+          <div class="content">
+            <div class="brand-tag">Conex&atilde;o &amp; Comunh&atilde;o</div>
+            <div class="hero-text">Hoje &eacute;</div>
+            <div class="hero-dia">Dia de</div>
+            <div class="hero-gc">GC</div>
+            <div class="info-line"><strong>8 PM</strong></div>
+            <div class="info-line">8007 Sayings Dr</div>
+            <div class="info-line">Winter Garden</div>
+            <div class="link-sticker">
+              <svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+              s&oacute; chegar
+            </div>
+          </div>
+          <div class="swipe-up">
+            <div class="swipe-up-icon">
+              <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+            </div>
+            <div class="swipe-up-text">Participe</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ VARIATION 2 — FIST BUMP / CONEXÃO ============ -->
+    <div class="story-wrapper">
+      <div class="story-label">Varia&ccedil;&atilde;o 02 &mdash; Conex&atilde;o</div>
+      <div class="story-frame">
+        <div class="story-content v2-bg">
+          <div class="story-progress">
+            <div class="story-progress-bar active"></div>
+            <div class="story-progress-bar active"></div>
+            <div class="story-progress-bar"></div>
+          </div>
+          <div class="ig-header">
+            <div class="ig-avatar">AV</div>
+            <span class="ig-name">avorlando.ofc</span>
+            <span class="ig-time">1h</span>
+          </div>
+          <div class="overlay"></div>
+          <div class="warm-tint"></div>
+          <div class="content">
+            <div class="brand-tag">Conex&atilde;o &amp; Comunh&atilde;o</div>
+            <div class="hero-text">Hoje &eacute;</div>
+            <div class="hero-dia">Dia de</div>
+            <div class="hero-gc">GC</div>
+            <div class="info-line"><strong>8 PM</strong></div>
+            <div class="info-line">8007 Sayings Dr</div>
+            <div class="info-line">Winter Garden</div>
+            <div class="link-sticker">
+              <svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+              s&oacute; chegar
+            </div>
+          </div>
+          <div class="swipe-up">
+            <div class="swipe-up-icon">
+              <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+            </div>
+            <div class="swipe-up-text">Participe</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ VARIATION 3 — WORSHIP / MÃOS LEVANTADAS ============ -->
+    <div class="story-wrapper">
+      <div class="story-label">Varia&ccedil;&atilde;o 03 &mdash; Worship</div>
+      <div class="story-frame">
+        <div class="story-content v3-bg">
+          <div class="story-progress">
+            <div class="story-progress-bar active"></div>
+            <div class="story-progress-bar active"></div>
+            <div class="story-progress-bar active"></div>
+          </div>
+          <div class="ig-header">
+            <div class="ig-avatar">AV</div>
+            <span class="ig-name">avorlando.ofc</span>
+            <span class="ig-time">30 min</span>
+          </div>
+          <div class="overlay"></div>
+          <div class="vignette"></div>
+          <div class="content">
+            <div class="brand-tag">Conex&atilde;o &amp; Comunh&atilde;o</div>
+            <div class="hero-text">Hoje &eacute;</div>
+            <div class="hero-dia">Dia de</div>
+            <div class="hero-gc">GC</div>
+            <div class="info-line"><strong>8 PM</strong></div>
+            <div class="info-line">8007 Sayings Dr</div>
+            <div class="info-line">Winter Garden</div>
+            <div class="link-sticker">
+              <svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+              s&oacute; chegar
+            </div>
+          </div>
+          <div class="swipe-up">
+            <div class="swipe-up-icon">
+              <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+            </div>
+            <div class="swipe-up-text">Participe</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ===== COPIES ===== -->
+  <div class="copy-section">
+    <h2>Hoje &eacute; Dia de GC &mdash; Copies &amp; Estrat&eacute;gia</h2>
+
+    <h3>Texto (igual em todas)</h3>
+    <table class="copy-table">
+      <thead>
+        <tr>
+          <th>Elemento</th>
+          <th>Conte&uacute;do</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="sn">Marca</td>
+          <td>Conex&atilde;o &amp; Comunh&atilde;o</td>
+        </tr>
+        <tr>
+          <td class="sn">Headline</td>
+          <td>Hoje &eacute; / Dia de / GC</td>
+        </tr>
+        <tr>
+          <td class="sn">Info</td>
+          <td>8 PM &middot; 8007 Sayings Dr &middot; Winter Garden</td>
+        </tr>
+        <tr>
+          <td class="sn">CTA</td>
+          <td>s&oacute; chegar (link sticker)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Imagens por Varia&ccedil;&atilde;o</h3>
+    <table class="copy-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Foto</th>
+          <th>Descri&ccedil;&atilde;o</th>
+          <th>Vibe</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="sn">01</td>
+          <td>gc-foto-01.jpg</td>
+          <td>Grupo de pessoas orando juntas, m&atilde;os nos ombros. Tons quentes, ilumina&ccedil;&atilde;o natural.</td>
+          <td>Ora&ccedil;&atilde;o, cuidado, intimidade</td>
+        </tr>
+        <tr>
+          <td class="sn">02</td>
+          <td>gc-foto-02.jpg</td>
+          <td>Jovens fazendo fist bump em c&iacute;rculo, diversidade, energia. Vista de cima.</td>
+          <td>Conex&atilde;o, juventude, unidade</td>
+        </tr>
+        <tr>
+          <td class="sn">03</td>
+          <td>gc-foto-03.jpg</td>
+          <td>Multid&atilde;o com m&atilde;os levantadas em adora&ccedil;&atilde;o. Fundo escuro, ilumina&ccedil;&atilde;o dram&aacute;tica.</td>
+          <td>Worship, celebra&ccedil;&atilde;o, presen&ccedil;a</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Caption Sugerida (para as 3)</h3>
+    <table class="copy-table">
+      <tbody>
+        <tr>
+          <td class="sn">Instagram</td>
+          <td>&ldquo;Hoje tem GC! Conex&atilde;o &amp; Comunh&atilde;o &agrave;s 8PM. &Eacute; s&oacute; chegar. Manda DM pra saber mais! 8007 Sayings Dr, Winter Garden&rdquo;</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Especifica&ccedil;&otilde;es</h3>
+    <table class="copy-table">
+      <tbody>
+        <tr>
+          <td class="sn">Data</td>
+          <td>Quarta-feira, 25 de fevereiro de 2026</td>
+        </tr>
+        <tr>
+          <td class="sn">Formato</td>
+          <td>1080 x 1920px (9:16) &mdash; Instagram Stories</td>
+        </tr>
+        <tr>
+          <td class="sn">Paleta</td>
+          <td>Dourado (#f5c842 / #d4a017) + Preto + Branco</td>
+        </tr>
+        <tr>
+          <td class="sn">Tipografia</td>
+          <td>Montserrat (texto) + Permanent Marker (GC / Conex&atilde;o)</td>
+        </tr>
+        <tr>
+          <td class="sn">Fotos</td>
+          <td>Unsplash (free, commercial use, no attribution required)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="credits">
+    Fotos: <a href="https://unsplash.com" target="_blank">Unsplash</a> &mdash; Free for commercial use
+  </div>
+
+</body>
+</html>
